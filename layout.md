@@ -10,7 +10,7 @@ Hierbei stehen das **Logo**, die **Markenfarbe**, das **Icon** und eine optional
 Das Logo wird innerhalb der Bearbeitungsmaske Ihrer Publikation im Bereich _Layout_ verwaltet.
 Ihr Logo kann ausschließlich im **SVG-Format** hochgeladen werden.
 
-![Logo](/images/upload-logo-light.png "dark:/images/upload-logo-dark.png")
+![Upload-Bereich für das Logo im SVG-Format innerhalb der Publikationseinstellungen](/images/upload-logo-light.png "dark:/images/upload-logo-dark.png")
 
 > [!INFO]
 > Ihr Logo wird nur bei der [Integration](./setup#integration) vom Typ „DNS" dargestellt – also wenn es sich um eine eigenständige Seite handelt. Binden Sie Ihr Rätsel über Iframe bzw. Script ein, wird das Logo nicht angezeigt.
@@ -57,13 +57,13 @@ Sie können jedoch auch **andere Farben und Styles** für Ihr Logo definieren.
 Neben Ihrem Logo haben Sie die Möglichkeit, einen **Farbwert** für ein Rätsel zu bestimmen,
 der sich in einzelnen Elementen der Spiele widerspiegelt.
 
-![Akzentfarbe](/images/main-color-light.png "dark:/images/main-color-dark.png")
+![Farbwähler für die Akzentfarbe, die in Spielelementen der Publikation verwendet wird](/images/main-color-light.png "dark:/images/main-color-dark.png")
 
 Einige Elemente, die mit Ihrer Akzentfarbe eingefärbt werden, enthalten Schrift.
 Das *oliwol Publisher Tool* **prüft** hierbei den **Kontrast** von weißer Schriftfarbe auf Ihrer Akzentfarbe.
 Ist dieser zu gering (gemäß [WCAG 2 Richtlinien](https://www.w3.org/TR/WCAG21/#dfn-contrast-ratio) für Barrierefreiheit), wird ein dunkler Farbwert für Text genutzt.
 
-![Kontrast](/images/contrast-color-light.png "dark:/images/contrast-color-dark.png")
+![Automatische Kontrastprüfung: Schriftfarbe wird angepasst, wenn der Kontrast zur Akzentfarbe zu gering ist](/images/contrast-color-light.png "dark:/images/contrast-color-dark.png")
 
 ---
 
@@ -74,7 +74,7 @@ Aus Ihrem Icon wird ein *Favicon* generiert sowie **verschiedene Auflösungen** 
 
 Da es sich bei den Publikationen um **PWAs** (Progressive Web Apps) handelt, können diese auf unterschiedlichen **Devices installiert** oder auf den **Homescreen** von Smartphones verlinkt werden. Zur Darstellung wird eine Auflösung Ihres Icons aus dem *Web App Manifest* genutzt.
 
-![Icon](/images/upload-icon-light.png "dark:/images/upload-icon-dark.png")
+![Verwendung des Icons in einer Publikation: als Favicon im Browser-Tab und als App-Icon auf dem Homescreen](/images/upload-icon-light.png "dark:/images/upload-icon-dark.png")
 
 ### Anforderungen
 

@@ -29,7 +29,7 @@ Für **externe Scripte** stehen folgende Einstellungsmöglichkeiten zur Verfügu
 - **Position:** Auswahl, ob das Script vor oder nach den Inline-Scripts geladen werden soll
 - **Attributes:** Möglichkeit, dem `<script>`-Tag weitere Attribute hinzuzufügen
 
-![Script Bibliothek](/images/script-library-light.png "dark:/images/script-library-dark.png")
+![Konfiguration eines externen Scripts mit Source, Lademethode, Position und Attributen](/images/script-library-light.png "dark:/images/script-library-dark.png")
 
 ### Integration am Beispiel von Google Analytics 4
 
@@ -40,7 +40,7 @@ Google Analytics bietet die Möglichkeit, das Tracking via **Google Tag Manager*
 Für den Google Tag Manager wird kein externes Script benötigt.
 Das im Google Tag Manager [hinterlegte Script](https://support.google.com/tagmanager/answer/9442095) kann direkt inline integriert werden.
 
-![Google Tag Manager](/images/script-inline-light.png "dark:/images/script-inline-dark.png")
+![Inline-Script mit dem Google Tag Manager Code-Snippet](/images/script-inline-light.png "dark:/images/script-inline-dark.png")
 
 Wichtig ist, dass das `dataLayer`-Objekt **vor** der Integration des Google Tag Managers definiert wird.
 Der Code kann direkt im selben oder einem eigenen Code-Block integriert werden.
@@ -49,7 +49,7 @@ Der Code kann direkt im selben oder einem eigenen Code-Block integriert werden.
 window.dataLayer = window.dataLayer || [];
 ```
 
-![Google Tag Manager](/images/script-inline-gtm-light.png "dark:/images/script-inline-gtm-dark.png")
+![Separater Inline-Script-Block für die dataLayer-Initialisierung vor dem Tag Manager](/images/script-inline-gtm-light.png "dark:/images/script-inline-gtm-dark.png")
 
 Damit ist die Integration abgeschlossen. Alle weiteren Einstellungen werden im *Google Tag Manager* durchgeführt.
 
@@ -91,7 +91,7 @@ Der *Data Layer* wird als Inline-Script integriert:
 window.adobeDataLayer = window.adobeDataLayer || [];
 ```
 
-![Adobe Analytics Data-Layer](/images/adobe-analytics-data-layer-light.png "dark:/images/adobe-analytics-data-layer-dark.png")
+![Inline-Script zur Initialisierung des Adobe Data Layers](/images/adobe-analytics-data-layer-light.png "dark:/images/adobe-analytics-data-layer-dark.png")
 
 > [!INFO]
 > Wenn Sie eine **Staging-Umgebung** für Ihre Publikation verwenden,
@@ -120,7 +120,7 @@ Erstellen Sie die Attribute `as="script"` und `crossorigin`.
 > Damit die Seitenaufrufe korrekt gezählt werden können,
 > müssen Sie als Position **Before inline script** auswählen.
 
-![IVW preload bundle.js](/images/ivw-tracking-light.png "dark:/images/ivw-tracking-dark.png")
+![Externes Script für die IVW bundle.js mit Preload-Methode](/images/ivw-tracking-light.png "dark:/images/ivw-tracking-dark.png")
 
 Die Methode `preload` generiert keinen `<script>`-Tag, sondern einen `<link>`-Tag:
 
@@ -130,11 +130,11 @@ Die Methode `preload` generiert keinen `<script>`-Tag, sondern einen `<link>`-Ta
 
 Im nächsten Schritt wird die `loader.js` ebenfalls mit der Methode `preload` und denselben Attributen implementiert.
 
-![IVW preload loader.js](/images/ivw-tracking-loader-preload-light.png "dark:/images/ivw-tracking-loader-preload-dark.png")
+![Externes Script für die IVW loader.js mit Preload-Methode](/images/ivw-tracking-loader-preload-light.png "dark:/images/ivw-tracking-loader-preload-dark.png")
 
 Zuletzt muss die `loader.js` **synchron** geladen werden.
 
-![IVW load loader.js](/images/ivw-tracking-loader-sync-light.png "dark:/images/ivw-tracking-loader-sync-dark.png")
+![Externes Script für die IVW loader.js mit synchroner Lademethode](/images/ivw-tracking-loader-sync-light.png "dark:/images/ivw-tracking-loader-sync-dark.png")
 
 Wenn Sie alle vorangegangenen Einstellungen korrekt implementiert haben, erzeugt dies folgende Ausgabe:
 
@@ -158,7 +158,7 @@ IOMm("configure", { st: "foo", dn: "data-acbd18db4c.example.com" }); // Configur
 IOMm("pageview", { cp: "bar", co: "baz" }); // Count pageview
 ```
 
-![IVW Trigger](/images/ivw-trigger-light.png "dark:/images/ivw-trigger-dark.png")
+![Inline-Script mit IVW-Konfiguration und Pageview-Event](/images/ivw-trigger-light.png "dark:/images/ivw-trigger-dark.png")
 
 > [!INFO]
 > In der Dokumentation werden nur Beispielwerte angegeben. Bitte stellen Sie sicher,
@@ -177,7 +177,7 @@ Die Variante ohne Preload und Bundle-Loader unterscheidet sich vor allem in der 
 Initial wird zunächst die `stub.js` **synchron** geladen.
 Hierbei ist zu beachten, dass das externe Script **vor dem Inline-Javascript positioniert** werden muss.
 
-![IVW Stub](/images/ivw-tracking-stub-light.png "dark:/images/ivw-tracking-stub-dark.png")
+![Externes Script für die IVW stub.js mit synchroner Lademethode, positioniert vor dem Inline-Script](/images/ivw-tracking-stub-light.png "dark:/images/ivw-tracking-stub-dark.png")
 
 Im Nachgang erfolgt die Konfiguration Ihrer Zählung und das Pageview-Event:
 
@@ -186,12 +186,12 @@ IOMm("configure", { st: "foo", dn: "data-acbd18db4c.example.com" }); // Configur
 IOMm("pageview", { cp: "bar", co: "baz" }); // Count pageview
 ```
 
-![IVW Trigger](/images/ivw-trigger-light.png "dark:/images/ivw-trigger-dark.png")
+![Inline-Script mit IVW-Konfiguration und Pageview-Zählung](/images/ivw-trigger-light.png "dark:/images/ivw-trigger-dark.png")
 
 Im letzten Schritt muss die `bundle.js` **asynchron** geladen werden.
 Hier ist zu beachten, dass das externe Script **nach dem Inline-Javascript positioniert** wird.
 
-![IVW Bundle](/images/ivw-tracking-bundle-light.png "dark:/images/ivw-tracking-bundle-dark.png")
+![Externes Script für die IVW bundle.js mit async-Lademethode, positioniert nach dem Inline-Script](/images/ivw-tracking-bundle-light.png "dark:/images/ivw-tracking-bundle-dark.png")
 
 Wenn Sie alle vorangegangenen Einstellungen korrekt implementiert haben, erzeugt dies folgende Ausgabe:
 
@@ -326,7 +326,7 @@ Hierfür nutzen Sie ein Inline-Script und integrieren den `EventListener`.
 *GA4* lauscht in der Standard-Konfiguration auf das `popstate`-Event –
 daher müssen virtuelle Seitenaufrufe **nicht manuell übergeben** werden.
 
-![Virtuelle Seitenaufrufe mit GA4](/images/virtual-pageviews-ga-light.png)
+![GA4-Einstellung für erweiterte Analysen: Option zum automatischen Tracking von Seitenänderungen im Browser-Verlauf](/images/virtual-pageviews-ga-light.png)
 
 Wenn Sie diese Option deaktivieren, können Seitenaufrufe wie folgt übergeben werden:
 

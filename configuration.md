@@ -43,7 +43,7 @@ Bei *Worteck* definiert das Feld *Errungenschaften* die **Ränge**, die Nutzer:i
 Der **Key** definiert den **Streak** — die Anzahl der hintereinander erratenen Wörter.
 Der **Wert** stellt den **Rang** dar, den ein(e) Nutzer:in damit erreicht hat.
 
-![Errungenschaften](/images/achievements-light.png "dark:/images/achievements-dark.png")
+![Konfiguration der Worteck-Errungenschaften: Streak-Werte und zugehörige Ränge als Key-Value-Paare](/images/achievements-light.png "dark:/images/achievements-dark.png")
 
 ### Meilensteine
 
@@ -53,7 +53,7 @@ Bei *Wortwabe* definieren die *Meilensteine* die **Schritte** auf dem Weg zur ma
 Mit jedem Schritt wird eine **Punkteanzahl** zugewiesen, wobei der **letzte Schritt** gleichzeitig die **maximal erreichbare Punkteanzahl** definiert.
 Starten Sie immer mit Schritt 1 und 0 Punkten.
 
-![Errungenschaften](/images/milestones-light.png "dark:/images/milestones-dark.png")
+![Konfiguration der Wortwabe-Meilensteine: Schritte mit zugehörigen Punktewerten](/images/milestones-light.png "dark:/images/milestones-dark.png")
 
 ### Punktesystem
 
@@ -120,7 +120,7 @@ Für *Worteck* können die **Farben** der Buchstaben-Zustände angepasst werden:
 Funktionen können mit **individuellen Zugangsregeln** versehen werden.
 So lässt sich pro Funktion steuern, ob sie **allen Nutzer:innen**, nur **authentifizierten Nutzer:innen** oder nur Nutzer:innen mit einem **bestimmten Status** zur Verfügung steht.
 
-![Zugangsbeschränkung](/images/feature-access-light.png "dark:/images/feature-access-dark.png")
+![Zugangsstufen pro Funktion: Alle, Angemeldet oder nach Zustand einschränkbar](/images/feature-access-light.png "dark:/images/feature-access-dark.png")
 
 Eine ausführliche Beschreibung des Paywall-Systems finden Sie unter [Paywall](./paywall).
 

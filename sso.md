@@ -4,7 +4,7 @@ Das *oliwol Publisher Tool* bietet Ihnen die Möglichkeit, **ohne weiteren Entwi
 Spieldaten und Statistiken Ihrer Nutzer:innen können so **persistent gespeichert** werden.
 Darüber hinaus ermöglicht die SSO-Anbindung, **erweiterte Spielfunktionen** oder Vorteile nur **für Abonnent:innen** freizugeben.
 
-![SSO_Schnittstelle](/images/sso-auth-method-light.png "dark:/images/sso-auth-method-dark.png")
+![Auswahl der Authentifizierungsmethode: Session, JWT oder Token](/images/sso-auth-method-light.png "dark:/images/sso-auth-method-dark.png")
 
 Die **Anbindung einer bestehenden SSO** (Single Sign-On) an Ihre Publikation beginnt mit der Einrichtung eines **Identity Providers** unter dem Menüpunkt *Schnittstellen* im Bereich *Authentifizierung*.
 
@@ -51,7 +51,7 @@ Dadurch können Sie eine konfigurierte SSO **mehrfach verwenden**.
 
 Innerhalb einer Publikation wählen Sie den gewünschten **Identity Provider** in der Bearbeitungsmaske in der rechten Spalte unter *Schnittstelle* aus.
 
-![Aktivierung](/images/sso-select-provider-light.png "dark:/images/sso-select-provider-dark.png")
+![Dropdown zur Auswahl eines konfigurierten Identity Providers für die Publikation](/images/sso-select-provider-light.png "dark:/images/sso-select-provider-dark.png")
 
 ---
 
@@ -65,7 +65,7 @@ Sobald Sie Ihre SSO anbinden, werden bei einer Authentifizierung die Daten **per
 Bei der **ersten Authentifizierung** wird im System **ein Datensatz pro Nutzer:in angelegt**.
 Unter dem Menüpunkt *Spieler:innen* finden Sie **alle Nutzer:innen**, die eine oder mehrere Publikationen verwenden.
 
-![SSO Übersicht](/images/sso-overview-light.png "dark:/images/sso-overview-dark.png")
+![Schnittstellen-Karte in der Publikationsübersicht mit Anzahl registrierter Spieler:innen: heute, diesen Monat und insgesamt](/images/sso-overview-light.png "dark:/images/sso-overview-dark.png")
 
 ### Payload
 
@@ -90,7 +90,7 @@ Die Spieldaten und Statistiken werden der **ID zugeordnet**. Die **User-ID** ist
 }
 ```
 
-![SSO Datenverarbeitung](/images/sso-data-light.png "dark:/images/sso-data-dark.png")
+![Konfiguration der Payload-Keys für User-ID, E-Mail und Zustand aus dem SSO-Response](/images/sso-data-light.png "dark:/images/sso-data-dark.png")
 
 Für den obigen Response können Sie die User-ID über den Key `user.id` extrahieren.
 
@@ -173,7 +173,7 @@ Dafür stehen drei Aktionen zur Verfügung:
 Beim Anlegen einer Aktion definieren Sie ein **Key-Value-Pair**, das im Payload des `postMessage`-Events erwartet wird.
 Enthält der Payload das definierte Key-Value-Pair, wird die jeweilige Aktion **ausgeführt**.
 
-![SSO iFrame-Aktion](/images/sso-iframe-action-light.png "dark:/images/sso-iframe-action-dark.png")
+![Konfiguration einer iframe-Aktion mit Key-Value-Pair, Nachricht und Anzeigedauer](/images/sso-iframe-action-light.png "dark:/images/sso-iframe-action-dark.png")
 
 Optional können Sie eine **Nachricht** hinterlegen, die nach Ausführung der Aktion angezeigt wird, sowie die **Dauer** (in Sekunden), wie lange die Nachricht sichtbar bleibt.
 

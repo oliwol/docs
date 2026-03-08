@@ -10,7 +10,7 @@ In der Bearbeitungsmaske einer Publikation verwalten Sie über den Tab _Inhalte_
 Über die Ansprache legen Sie fest, ob Ihre Nutzer:innen **geduzt** oder **gesiezt** werden.
 Diese Einstellung wirkt sich auf **alle systemgenerierten Texte** innerhalb Ihrer Publikation aus.
 
-![Ansprache](/images/speech-light.png "dark:/images/speech-dark.png")
+![Auswahl der Ansprache: Duzen oder Siezen für alle systemgenerierten Texte](/images/speech-light.png "dark:/images/speech-dark.png")
 
 ---
 
@@ -19,7 +19,7 @@ Diese Einstellung wirkt sich auf **alle systemgenerierten Texte** innerhalb Ihre
 Jede Publikation verfügt über eine Reihe von **Seiten**, die je nach Rätsel und angebundener [Authentifizierungs-Schnittstelle](./sso) variieren können.
 Je nach Seitentyp stehen unterschiedliche Einstellungen zur Verfügung.
 
-![Seite](/images/pages-light.png "dark:/images/pages-dark.png")
+![Bearbeitungsmaske einer Seite mit Menütitel, SEO-Einstellungen und Texteditor](/images/pages-light.png "dark:/images/pages-dark.png")
 
 ### Menütitel
 

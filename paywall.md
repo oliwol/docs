@@ -36,7 +36,7 @@ Es stehen zwei Varianten zur Verfügung: ein **interner Editor** und die **Piano
 Mit dem internen Editor gestalten Sie Ihre Paywall direkt im *oliwol Publisher Tool*.
 Folgende Felder stehen Ihnen zur Verfügung:
 
-![Paywall: interner Editor](/images/paywall-internal-editor-light.png "dark:/images/paywall-internal-editor-dark.png")
+![Interner Paywall-Editor mit Feldern für Überschrift, Text, CTA-Button und Icon](/images/paywall-internal-editor-light.png "dark:/images/paywall-internal-editor-dark.png")
 
 Unterhalb des Editors hinterlegen Sie die **Landingpage-URL**, auf die der CTA-Button verweist — z. B. ein Abo-Angebot oder eine Registrierungsseite.
 Zusätzlich definieren Sie einen **Weiterleitungs-Parameter**, über den Sie Nutzer:innen nach Abschluss **zurück zur Publikation** leiten können.
@@ -45,7 +45,7 @@ Zusätzlich definieren Sie einen **Weiterleitungs-Parameter**, über den Sie Nut
 https://abo.example.com/spiele?redirect=https://sudoku.example.com
 ```
 
-![Paywall Flow](/images/paywall-flow-light.png "dark:/images/paywall-flow-dark.png")
+![Ablauf der Paywall: Nutzer:in sieht CTA, wird zur Landingpage geleitet und anschließend zurück zur Publikation](/images/paywall-flow-light.png "dark:/images/paywall-flow-dark.png")
 
 ### Piano
 
@@ -83,7 +83,7 @@ Achten Sie darauf, dass die in Piano hinterlegten **URL-Muster mit den URLs Ihre
 
 Nachdem Sie Zustände und Paywalls eingerichtet haben, können Sie den **Zugriff auf Funktionen und Seiten** Ihrer Publikation steuern.
 
-![Zugangsbeschränkung](/images/feature-access-light.png "dark:/images/feature-access-dark.png")
+![Zugriffsteuerung: Funktionen und Seiten können nach Zugangsstufe eingeschränkt werden](/images/feature-access-light.png "dark:/images/feature-access-dark.png")
 
 ### Funktionen
 

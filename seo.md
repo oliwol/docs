@@ -14,7 +14,7 @@ SEO-Meta-Daten können für alle Inhaltsbereiche bearbeitet werden — sowohl f�
 
 Für jede Seite können Sie einen **SEO-Title hinterlegen**, der in den **Suchergebnissen angezeigt** wird.
 
-![SEO](/images/seo-light.png "dark:/images/seo-dark.png")
+![Eingabefelder für SEO-Title, Description und Robots-Einstellungen einer Seite](/images/seo-light.png "dark:/images/seo-dark.png")
 
 Um Ihren SEO-Title vorab passgerecht für Google zu formulieren,
 können Sie auf den **Snippet Generator** von [Sistrix](https://app.sistrix.com/de/serp-snippet-generator) zurückgreifen.
@@ -23,7 +23,7 @@ Sobald Sie Änderungen am SEO-Title vornehmen, wird dieser innerhalb Ihrer Publi
 Es kann jedoch einige **Zeit in Anspruch nehmen**, bis die Änderung auch in den **Suchergebnissen sichtbar** wird.
 Je nach Crawling-Frequenz des Suchmaschinen-Bots kann dies zwischen **wenigen Stunden und einigen Tagen** dauern.
 
-![SEO](/images/search-snippet-light.png "dark:/images/search-snippet-dark.png")
+![Vorschau eines Google-Suchergebnisses mit konfiguriertem SEO-Title und Description](/images/search-snippet-light.png "dark:/images/search-snippet-dark.png")
 
 ### Description
 

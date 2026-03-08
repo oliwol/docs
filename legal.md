@@ -7,12 +7,12 @@ Sowohl die Impressums- als auch die Datenschutz-Seite unterstützen zwei Variant
 
 ## Verlinkung auf eigene Website
 
-![Externer Link](/images/legal-external-link-light.png "dark:/images/legal-external-link-dark.png")
+![Option zur Konfiguration einer Seite als externen Link auf eine bestehende Website](/images/legal-external-link-light.png "dark:/images/legal-external-link-dark.png")
 
 Sie können die Seiten als **externen Link** konfigurieren. In diesem Fall verweist der Menüeintrag
 auf eine **externe URL** — beispielsweise auf die bestehende Impressums- oder Datenschutzseite Ihrer Website.
 
-![Verlinkung zu Impressum & Datenschutz](/images/legal-link-light.png "dark:/images/legal-link-dark.png")
+![Darstellung der Links zu Impressum und Datenschutz im Menü der Publikation](/images/legal-link-light.png "dark:/images/legal-link-dark.png")
 
 ---
 
@@ -22,4 +22,4 @@ Alternativ können Sie Ihr Impressum und Ihre Datenschutzrichtlinien direkt **al
 Hierfür steht ein **Rich-Text-Editor** zur Verfügung, mit dem Sie Ihren Text mit **Formatierungen**,
 **Überschriften**, **Listen**, **Links** und weiteren Elementen gestalten können.
 
-![Impressum](/images/legal-page-light.png "dark:/images/legal-page-dark.png")
+![Impressum-Seite in der Publikation mit Inhalten aus dem Rich-Text-Editor](/images/legal-page-light.png "dark:/images/legal-page-dark.png")

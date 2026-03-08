@@ -5,11 +5,11 @@ Eine Publikation unterstützt insgesamt **5 Werbeslots**, die mit Ihren **eigene
 > [!INFO]
 > Der Ad-Manager ist ab dem Paket **Publisher** verfügbar.
 
-![Werbung im First-Screen](/images/ads-top-light.png "dark:/images/ads-top-dark.png")
+![Positionen der Werbeslots im oberen Bereich: Header, linke und rechte Sidebar](/images/ads-top-light.png "dark:/images/ads-top-dark.png")
 
 Zusätzlich zum *Header*, der *Left Sidebar*, der *Right Sidebar* und dem *Footer* gibt es noch einen Container für das *Interstitial*.
 
-![Werbung im Footer und Interstitial](/images/ads-bottom-light.png "dark:/images/ads-bottom-dark.png")
+![Positionen der Werbeslots im unteren Bereich: Footer und Interstitial](/images/ads-bottom-light.png "dark:/images/ads-bottom-dark.png")
 
 Jeder Werbe-Container kann **individuell konfiguriert** werden in Bezug auf HTML, CSS, Custom-Javascript, Breakpoints und Nutzer:innen-Gruppen.
 
@@ -30,21 +30,21 @@ Sie können hierbei auf Script-Tags oder andere HTML-Elemente zurückgreifen.
 
 Handelt es sich bei dem Container um **reines Javascript**, müssen Sie dieses in einen **Script-Tag einbetten**.
 
-![Werbung HTML](/images/ads-html-light.png "dark:/images/ads-html-dark.png")
+![Eingabefeld für den HTML-Code eines Werbeslots](/images/ads-html-light.png "dark:/images/ads-html-dark.png")
 
 ### Styles
 
 Um Ihren **Container anzupassen**, haben Sie die Möglichkeit, **Custom CSS** zu hinterlegen.
 Hierfür vergeben Sie Ihrem **HTML-Element eine Klasse**, die Sie im Feld CSS stylen können.
 
-![Werbung CSS](/images/ads-css-light.png "dark:/images/ads-css-dark.png")
+![Eingabefeld für Custom CSS zur individuellen Gestaltung des Werbe-Containers](/images/ads-css-light.png "dark:/images/ads-css-dark.png")
 
 ### Custom Javascript
 
 Für **Custom Javascript** steht Ihnen ein weiteres Feld zur Verfügung.
 Sie können Ihr Javascript direkt einfügen **ohne** die Verwendung eines **Script-Tags**.
 
-![Werbung JavaScript](/images/ads-js-light.png "dark:/images/ads-js-dark.png")
+![Eingabefeld für Custom JavaScript](/images/ads-js-light.png "dark:/images/ads-js-dark.png")
 
 ---
 
@@ -55,14 +55,14 @@ Erst durch das **Laden und Rendern** von Inhalten über eine externe Quelle **de
 Um den Spielbereich zu schützen, können Sie bei den Positionen *Linke Seite* und *Rechte Seite* eine **maximale Breite** setzen.
 Inhalte, die breiter als der gesetzte Wert sind, dehnen den Container nicht aus.
 
-![Werbung Breite](/images/ads-width-light.png "dark:/images/ads-width-dark.png")
+![Einstellung der maximalen Breite für Sidebar-Werbeslots zum Schutz des Spielbereichs](/images/ads-width-light.png "dark:/images/ads-width-dark.png")
 
 Um **Layout-Shifts** für Nutzer:innen zu **verhindern** bzw. gering zu halten, können Sie bei den Positionen *Header* und *Footer* jeweils eine **Mindesthöhe** bestimmen.
 Die Container werden dadurch bereits **vor dem Laden** der Werbemittel **ausgedehnt**.
 Idealerweise kommt es dadurch zu keinem Layout-Shift, was sich positiv auf den [CLS-Wert](https://web.dev/articles/cls) auswirkt.
 Sollte Ihr Werbemittel höher als der definierte Wert sein, dehnt sich der Container dennoch aus, um das **Werbemittel vollständig darzustellen**.
 
-![Werbung Layout-Shifts verhindern](/images/ads-min-height-light.png "dark:/images/ads-min-height-dark.png")
+![Einstellung der Mindesthöhe für Header- und Footer-Slots zur Vermeidung von Layout-Shifts](/images/ads-min-height-light.png "dark:/images/ads-min-height-dark.png")
 
 ---
 
@@ -76,7 +76,7 @@ Für jeden Ad-Slot kann die Sichtbarkeit über Breakpoints konfiguriert werden. 
 - **Sichtbar ab Mindestbreite** — der Ad-Slot wird erst ab der gewählten Displaybreite angezeigt
 - **Sichtbar bis zur maximalen Breite** — der Ad-Slot wird nur bis zur gewählten Displaybreite angezeigt
 
-![Werbung Sichtbarkeit](/images/ads-viewability-light.png "dark:/images/ads-viewability-dark.png")
+![Breakpoint-Konfiguration zur Steuerung der Sichtbarkeit eines Werbeslots nach Bildschirmbreite](/images/ads-viewability-light.png "dark:/images/ads-viewability-dark.png")
 
 Die Breakpoints orientieren sich an gängigen Bildschirmgrößen: **640px**, **768px**, **1024px**, **1280px** und **1536px**.
 

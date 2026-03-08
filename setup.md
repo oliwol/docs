@@ -11,7 +11,7 @@ Wenn Sie eine eigene Domain nutzen möchten, sollten Sie über die technischen M
 
 Über das **Onboarding** auf dem Dashboard können Sie Ihre erste Publikation erstellen. 
 
-![Onboarding](/images/onboarding-light.png "dark:/images/onboarding-dark.png")
+![Onboarding-Assistent auf dem Dashboard zum Erstellen einer neuen Publikation](/images/onboarding-light.png "dark:/images/onboarding-dark.png")
 
 Vergeben Sie im Formular einen **Titel** für Ihre Publikation und **wählen Sie ein Rätsel** aus.
 
@@ -31,7 +31,7 @@ Im **Offline-Modus** lassen sich **alle Einstellungen anpassen** und eine **Neui
 
 Nachdem Sie die **Konfiguration überprüft** haben, können Sie mit der **Installation der Rätsel** beginnen.
 
-![Rätsel installieren](/images/canvas-install-puzzles-light.png "dark:/images/canvas-install-puzzles-dark.png")
+![Publikationsübersicht mit der Aktion zum Installieren der Rätsel](/images/canvas-install-puzzles-light.png "dark:/images/canvas-install-puzzles-dark.png")
 
 Die **Installation** kann einige Minuten in Anspruch nehmen. Sie werden benachrichtigt, sobald diese abgeschlossen ist.
 
@@ -51,7 +51,7 @@ Dieser Weg beinhaltet **5 Entwicklungsstufen**:
 - Nicht synchronisiert
 - Live
 
-![Bereitstellung](/images/deployment-dev-light.png "dark:/images/deployment-dev-dark.png")
+![Bereitstellungsübersicht mit den Entwicklungsstufen von Offline bis Live](/images/deployment-dev-light.png "dark:/images/deployment-dev-dark.png")
 
 Für die Stufen _Entwicklung_, _Test_ und _Live_ sind jeweils **Bereitstellungen notwendig**. Jede Entwicklungsstufe hat **Auswirkungen** auf Ihre Publikation.
 Um Ihre Publikation für eine Stufe bereitzustellen, müssen gewisse **Voraussetzungen erfüllt** werden.
@@ -120,7 +120,7 @@ Ihre Publikation ist **online** und somit für jede Person **frei zugänglich**.
 Sie haben jederzeit die Möglichkeit, eine **Bereitstellung rückgängig** zu machen.
 Um eine Publikation offline zu nehmen, müssen Sie, wie bei einer [Bereitstellung](#bereitstellung), jede Umgebung **nacheinander zurücksetzen**.
 
-![Rollback](/images/rollback-light.png "dark:/images/rollback-dark.png")
+![Rollback-Dialog zum schrittweisen Zurücksetzen einer Publikation](/images/rollback-light.png "dark:/images/rollback-dark.png")
 
 Sie können eine produktive Umgebung nicht direkt in den Offline-Modus versetzen.
 Ein Rollback ist dann sinnvoll, wenn Sie Ihre Publikation generell **deaktivieren** möchten oder Sie die **Spiel-Konfiguration anpassen** wollen.
@@ -212,7 +212,7 @@ Die Cloud-Domain ist **sofort einsatzbereit** — eine DNS-Konfiguration ist nic
 
 Für den **produktiven Einsatz** können Sie eine eigene Domain hinterlegen. Navigieren Sie hierfür zur **Domain-Verwaltung** Ihrer Publikation und legen Sie eine neue Domain an.
 
-![Domains](/images/domain-list-light.png "dark:/images/domain-list-dark.png")
+![Domain-Verwaltung mit Cloud-Domain und eigener Domain inkl. Verifizierungsstatus](/images/domain-list-light.png "dark:/images/domain-list-dark.png")
 
 Nach dem Anlegen einer eigenen Domain zeigt Ihnen das System die **erforderlichen DNS-Records** an, die Sie bei Ihrem DNS-Provider einrichten müssen. Je nach Konfiguration können dies Records vom Typ **A**, **AAAA**, **CNAME** oder **TXT** sein.
 

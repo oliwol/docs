@@ -23,11 +23,11 @@ Für externe Scripts gibt es diverse Einstellungsmöglichkeiten:
 
 Damit Nutzer:innen jederzeit und von jeder Seite aus die Datenschutzeinstellungen einsehen, aufrufen und ändern können, gibt es die Möglichkeit, über einen `<script>`-Tag die Methode **zum Öffnen eines CMP-Layers** zu hinterlegen.
 
-![CMP Javascript Trigger](/images/cmp-trigger-js-light.png "dark:/images/cmp-trigger-js-dark.png")
+![Eingabefeld für den JavaScript-Aufruf zum Öffnen des CMP-Layers](/images/cmp-trigger-js-light.png "dark:/images/cmp-trigger-js-dark.png")
 
 Sobald dieses Feld ausgefüllt wird, erscheint im Menü das Symbol für die Datenschutzeinstellungen.
 
-![CMP Trigger im Frontend](/images/cmp-trigger-light.png "dark:/images/cmp-trigger-dark.png")
+![Datenschutz-Symbol im Menü der Publikation, über das der CMP-Layer geöffnet wird](/images/cmp-trigger-light.png "dark:/images/cmp-trigger-dark.png")
 
 ### Integration am Beispiel von *Sourcepoint*
 
@@ -58,11 +58,11 @@ window._sp_ = {
 Diesen Code-Block können Sie in Ihrer Publikation als **internes Script** einbinden.
 Idealerweise trennen Sie den Stub-Code von der Konfiguration auf zwei interne Script-Blöcke – dadurch bleibt Ihr Code übersichtlich und Sie können Ihre Konfiguration leichter anpassen.
 
-![Sourcepoint als Inline-Script](/images/cmp-js-sourcepoint-light.png "dark:/images/cmp-js-sourcepoint-dark.png")
+![Inline-Scripts für Sourcepoint: Stub-Code und Konfiguration als separate Code-Blöcke](/images/cmp-js-sourcepoint-light.png "dark:/images/cmp-js-sourcepoint-dark.png")
 
 Die letzte Komponente – die *Messaging-Bibliothek* – wird als asynchrones **externes Script** eingebunden und nach den *Inline-Scripts* positioniert.
 
-![Sourcepoint Library](/images/cmp-sourcepoint-library-light.png "dark:/images/cmp-sourcepoint-library-dark.png")
+![Externes Script für die Sourcepoint Messaging-Bibliothek mit async-Lademethode](/images/cmp-sourcepoint-library-light.png "dark:/images/cmp-sourcepoint-library-dark.png")
 
 Damit sind alle drei initialen Komponenten für Sourcepoint implementiert.
 Sofern Sie alles bereits im Portal von Sourcepoint konfiguriert haben, sollte beim Erstaufruf Ihrer Publikation der CMP-Layer erscheinen.
