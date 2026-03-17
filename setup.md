@@ -178,14 +178,14 @@ const puzzle = (node) => {
     iframe.style.marginRight = 'auto';
     iframe.onload = () => {
         window.addEventListener('message', function(e) {
-            if (!e.origin.match('sudoku.example.com')) {
+            if (e.origin !== 'https://sudoku.example.com') {
                 return;
             }
 
             const message = e.data;
 
-            if (message.height) {
-                iframe.height = message.height + 'px';
+            if (typeof message.height === 'number') {
+                iframe.style.height = message.height + 'px';
             }
         }, false)
     };
