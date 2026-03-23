@@ -14,24 +14,60 @@ Die **Anbindung einer bestehenden SSO** (Single Sign-On) an Ihre Publikation beg
 
 Sie können zwischen **drei Authentifizierungsmethoden** wählen: *Session*, *JWT* und *Token*.
 Die Methoden *Session* und *Token* erwarten einen `2XX`-Statuscode für eine erfolgreiche Authentifizierung.
-*JWT* validiert mithilfe des **Public Keys** den im Cookie hinterlegten **Token**.
+*JWT* validiert mithilfe eines **Secrets** (HS256) oder **Public Keys** (RS256) den im Cookie hinterlegten **Token**.
+
+### Welche Methode passt zu Ihrem Setup?
+
+| Methode | Geeignet für | Voraussetzungen |
+|---------|-------------|-----------------|
+| **Session** | Systeme mit bestehender cookie-basierter Session-Verwaltung (z. B. PHP-Sessions, Django, Rails) | Endpoint, der bei gültiger Session einen `2XX`-Status zurückliefert |
+| **JWT** | Systeme, die selbst signierte Tokens ausstellen (z. B. Auth0, Keycloak, eigene JWT-Implementierung) | Cookie mit JWT-Token, Secret (HS256) oder Public Key (RS256) zur Validierung |
+| **Token** | APIs, die eine Token-basierte Authentifizierung erwarten (z. B. OAuth 2.0 Bearer Tokens) | Cookie mit Token, API-Endpoint zur Validierung |
 
 ### Session
 
 Eine **Authentifizierung über eine Session** benötigt die Angabe einer **URL**, die via **XMLHttpRequest** (GET) angefragt wird.
 Sobald die Anfrage einen **2XX-Statuscode zurückliefert**, findet eine Authentifizierung statt.
 
+Der Browser sendet dabei automatisch vorhandene **Cookies** (z. B. das Session-Cookie) mit.
+Der Server kann anhand des Cookies die Session validieren und Nutzer:innen identifizieren.
+
+> **Hinweis zu Cross-Origin-Anfragen:** Da die SSO-URL und die Publikation auf unterschiedlichen Domains liegen, müssen Sie sicherstellen, dass Ihr Server die erforderlichen **CORS-Header** zurückliefert:
+>
+> - `Access-Control-Allow-Origin` muss die **exakte Origin** der Publikation enthalten (kein Wildcard `*`)
+> - `Access-Control-Allow-Credentials: true` muss gesetzt sein
+>
+> Ohne diese Header kann der Browser keine Cookies an die SSO-URL senden und die Authentifizierung schlägt fehl.
+
+#### Fehlerverhalten
+
+Liefert die Anfrage keinen **`2XX`-Statuscode** (z. B. `401` oder `403`), werden Nutzer:innen als **nicht authentifiziert** behandelt. Ein Netzwerkfehler oder Timeout führt ebenfalls dazu, dass keine Authentifizierung stattfindet.
+
 ### JWT
 
 Bei Verwendung der [JWT](https://jwt.io)-Methode hinterlegen Sie den **Namen des Cookies**, das den **Token** enthält.
 Das Cookie darf **kein `httpOnly`-Flag** enthalten, da die Anwendung den Wert sonst nicht auslesen kann.
-Zusätzlich muss der **Public Key** hinterlegt werden, um den Token zu **validieren**.
+Zusätzlich wählen Sie den **Signaturalgorithmus** und hinterlegen den zugehörigen **Schlüssel**, um den Token zu **validieren**.
+
+Die Validierung prüft die **Signatur** des Tokens sowie die **Gültigkeit** (`exp`-Claim). Ein abgelaufener oder ungültig signierter Token führt dazu, dass keine Authentifizierung stattfindet.
+
+#### Signaturalgorithmus
+
+Sie können zwischen zwei Algorithmen wählen:
+
+| Algorithmus | Typ | Schlüssel | Anwendungsfall |
+|-------------|-----|-----------|----------------|
+| **HS256** | Symmetrisch (HMAC-SHA256) | **Shared Secret** — derselbe Wert zum Signieren und Validieren |
+| **RS256** | Asymmetrisch (RSA-SHA256) | **Public Key** — nur der öffentliche Schlüssel wird hinterlegt |
+
+Bei **HS256** behandeln Sie das Secret als **streng vertraulich**.
+Bei **RS256** hinterlegen Sie den **Public Key** im PEM-Format (`-----BEGIN PUBLIC KEY-----`).
 
 ### Token
 
 Bei der **Token-Variante** geben Sie sowohl eine **URL** als auch den **Namen des Cookies** an, das den Token enthält.
 Ein **XMLHttpRequest** (GET) stellt zusammen mit dem **Autorisierungs-Token** eine Anfrage an die hinterlegte URL.
-Wird diese mit einem **2XX-Statuscode** beantwortet, findet eine Authentifizierung statt.
+Wird diese mit einem **`2XX-Statuscode** beantwortet, findet eine Authentifizierung statt.
 
 Optional können Sie ein **Authentifizierungsschema** angeben, z. B. `Bearer`.
 In diesem Fall wird der Token als `Authorization: Bearer <token>` im Header übermittelt.
@@ -40,6 +76,9 @@ In diesem Fall wird der Token als `Authorization: Bearer <token>` im Header übe
 // GET <url>
 Authorization: Bearer <token>
 ```
+
+> [!INFO]
+> Da der `Authorization`-Header gesetzt wird, handelt es sich um einen **Preflight-pflichtigen Request**. Der Server muss zusätzlich zu den unter *Session* genannten CORS-Headern auch `Access-Control-Allow-Headers: Authorization` unterstützen und korrekt auf `OPTIONS`-Preflight-Anfragen antworten.
 
 ---
 
