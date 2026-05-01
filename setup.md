@@ -20,7 +20,7 @@ Sobald Sie eine Publikation anlegen, wird automatisch eine **Cloud-Domain** eing
 Für den produktiven Einsatz können Sie zusätzlich eine [eigene Domain](#eigene-domain) hinterlegen.
 
 Zu Beginn befindet sich Ihre Publikation im **Offline-Modus**.
-Über ein Deployment können Sie in die Entwicklungsumgebung wechseln.
+Über ein Deployment können Sie in die Testumgebung wechseln.
 Hierfür ist es erforderlich, dass Sie die **Installation der Rätsel abgeschlossen** haben.
 
 ### Rätsel installieren
@@ -35,7 +35,7 @@ Nachdem Sie die **Konfiguration überprüft** haben, können Sie mit der **Insta
 
 Die **Installation** kann einige Minuten in Anspruch nehmen. Sie werden benachrichtigt, sobald diese abgeschlossen ist.
 
-Nach erfolgreicher Installation können Sie erstmals Ihre Publikation in der [Entwicklungsumgebung](#entwicklung) bereitstellen.
+Nach erfolgreicher Installation können Sie erstmals Ihre Publikation in der [Testumgebung](#test) bereitstellen.
 Wenn sowohl die Installation als auch die Bereitstellung abgeschlossen sind, können Sie Ihre Publikation unter der eingerichteten **Cloud-Domain aufrufen**.
 
 ---
@@ -43,17 +43,15 @@ Wenn sowohl die Installation als auch die Bereitstellung abgeschlossen sind, kö
 ## Bereitstellung
 
 Die Bereitstellung begleitet Sie auf dem Weg vom **Offline-Modus** bis hin zum **produktiven Einsatz** Ihrer Publikation.
-Dieser Weg beinhaltet **5 Entwicklungsstufen**:
+Dieser Weg beinhaltet **drei Stufen**:
 
 - Offline
-- Entwicklung
 - Test
-- Nicht synchronisiert
 - Live
 
-![Bereitstellungsübersicht mit den Entwicklungsstufen von Offline bis Live](/images/deployment-dev-light.png "dark:/images/deployment-dev-dark.png")
+![Bereitstellungsübersicht mit den Stufen von Offline über Test bis Live](/images/deployment-light.png "dark:/images/deployment-dark.png")
 
-Für die Stufen _Entwicklung_, _Test_ und _Live_ sind jeweils **Bereitstellungen notwendig**. Jede Entwicklungsstufe hat **Auswirkungen** auf Ihre Publikation.
+Für die Stufen _Test_ und _Live_ sind jeweils **Bereitstellungen notwendig**. Jede Stufe hat **Auswirkungen** auf Ihre Publikation.
 Um Ihre Publikation für eine Stufe bereitzustellen, müssen gewisse **Voraussetzungen erfüllt** werden.
 
 Bevor Sie die Bereitstellung starten, werden Ihnen die **Voraussetzungen** und **ob Sie diese erfüllen** angezeigt.
@@ -64,32 +62,23 @@ Daneben sehen Sie die Auswirkungen, die die jeweilige Bereitstellung mit sich br
 Eine neu erstellte Publikation befindet sich **zu Beginn** im Offline-Modus.
 Die Publikation ist **nicht aufrufbar**. Die Testdomain liefert einen **403 Status-Code** zurück.
 
-### Entwicklung
+**Voraussetzungen für ein Rollback nach Offline:**
 
-Sobald sich die Publikation in der Entwicklung befindet, können Sie diese unter der Testdomain aufrufen.
-Die Testumgebung ist für Suchmaschinen nicht sichtbar (`noindex, nofollow`).
-
-**Voraussetzungen für eine Bereitstellung:**
-
-- Rätsel sind installiert
-- Es findet keine Bereitstellung statt
-- Ihre Publikation ist offline
-
-Im Entwicklungs-Modus sind **keine Caches und kein Service-Worker** aktiv.
-Innerhalb der Konsole der Browser-DevTools werden Debug-Meldungen ausgegeben, darunter auch die aktuellen **Daten Ihrer Publikation**.
-Dieser Modus eignet sich vor allem für den **Aufbau einer Publikation** (Layout, Inhalte, Anbindung der SSO und Paywall, etc.).
+- Es findet kein Build statt
 
 ### Test
 
-Der Testmodus **simuliert die produktive Umgebung**.
-Sobald Sie Änderungen an Ihrer Publikation vornehmen, können Sie diese auf der Testdomain **unter Produktivbedingungen überprüfen**.
-Im Testmodus ist der **Service-Worker aktiv**, wodurch sämtliche Assets und Rätsel im Browser abgespeichert werden.
+Sobald sich die Publikation in der Testumgebung befindet, können Sie diese unter der Testdomain aufrufen.
+Die Testumgebung ist für Suchmaschinen nicht sichtbar (`noindex, nofollow`) und auf **maximal 30 Requests pro Minute** begrenzt.
 
 **Voraussetzungen für eine Bereitstellung:**
 
+- Domain für Test verbunden
 - Rätsel sind installiert
-- Es findet keine Bereitstellung statt
-- Ihre Publikation befindet sich im [Entwicklungs-Modus](#entwicklung)
+- Es findet kein Build statt
+
+Im Testmodus ist die **Offline-Verfügbarkeit aktiv** und das System ist **auf schnellen Seitenaufbau optimiert**.
+Zusätzlich werden in der Konsole der Browser-DevTools **Debug-Ausgaben** ausgegeben, darunter auch die aktuellen **Daten Ihrer Publikation** — hilfreich für den **Aufbau und Test einer Publikation** (Layout, Inhalte, Anbindung der SSO und Paywall).
 
 Publikationen können **jederzeit aktualisiert** werden. Nachdem Sie Änderungen vorgenommen und gespeichert haben, wird eine **neue Version erstellt**, die innerhalb weniger Minuten auf Ihrer Testdomain **automatisch publiziert** wird. Sie werden informiert, sobald die neue Version publiziert ist.
 
@@ -104,25 +93,28 @@ Um beide Umgebungen zu synchronisieren und Ihre Änderungen produktiv zu stellen
 ### Live
 
 Ihre Publikation ist **online** und somit für jede Person **frei zugänglich**.
+Im Livemodus sind die **Offline-Verfügbarkeit** und die **Optimierung für schnellen Seitenaufbau** aktiv. Debug-Ausgaben sind deaktiviert.
 
 **Voraussetzungen für eine Bereitstellung:**
 
-- [Eigene Domain](#eigene-domain) mit erfolgreich verifizierter DNS-Konfiguration
+- [Eigene Domain](#eigene-domain) für Live-Betrieb verbunden
 - Rätsel sind installiert
-- Es findet keine Bereitstellung statt
-- Ihre Publikation befindet sich im [Testmodus](#test) bzw. ist nicht synchronisiert
+- Es findet kein Build statt
+- Ihr Paket erlaubt den Live-Betrieb
 - Sie haben mindestens 1 freies Kontingent an Publikationen
+- Ein aktives Abonnement für die Publikation ist vorhanden
 
 ---
 
 ## Rollback
 
 Sie haben jederzeit die Möglichkeit, eine **Bereitstellung rückgängig** zu machen.
-Um eine Publikation offline zu nehmen, müssen Sie, wie bei einer [Bereitstellung](#bereitstellung), jede Umgebung **nacheinander zurücksetzen**.
+Um eine Publikation offline zu nehmen, müssen Sie, wie bei einer [Bereitstellung](#bereitstellung), jede Umgebung **nacheinander zurücksetzen** — von _Live_ zurück nach _Test_, dann von _Test_ nach _Offline_.
 
 ![Rollback-Dialog zum schrittweisen Zurücksetzen einer Publikation](/images/rollback-light.png "dark:/images/rollback-dark.png")
 
 Sie können eine produktive Umgebung nicht direkt in den Offline-Modus versetzen.
+Beim Rollback von _Live_ nach _Test_ ist die **Live-Domain nicht mehr erreichbar**, die Publikation läuft jedoch weiter unter der Test-Domain.
 Ein Rollback ist dann sinnvoll, wenn Sie Ihre Publikation generell **deaktivieren** möchten oder Sie die **Spiel-Konfiguration anpassen** wollen.
 
 ---
