@@ -82,16 +82,32 @@ Die Breakpoints orientieren sich an gängigen Bildschirmgrößen: **640px**, **7
 
 ---
 
-## Nutzer:innen-Gruppen
+## Zielgruppe
 
-Bei Anbindung einer [SSO](./sso) können Ad-Slots nach dem **Status der Authentifizierung** ausgesteuert werden.
-Folgende Optionen stehen zur Verfügung:
+Bei Anbindung einer [SSO](./sso) können Sie pro Ad-Slot festlegen, **welcher Personengruppe** er angezeigt wird.
+Die Steuerung erfolgt über zwei Felder:
 
-- **Alle** — der Ad-Slot wird für alle Nutzer:innen angezeigt
-- **Gäste** — der Ad-Slot wird ausschließlich für nicht eingeloggte Nutzer:innen angezeigt
-- **Authentifiziert** — der Ad-Slot wird nur für eingeloggte Nutzer:innen angezeigt
+- **Modus** — bestimmt, ob die gewählte Gruppe die Anzeige sehen soll (`Sichtbar für`) oder nicht (`Nicht sichtbar für`).
+- **Zielgruppe** — die Personengruppe, auf die der Modus angewendet wird.
 
-Dadurch können Sie beispielsweise **eingeloggten Nutzer:innen** eine **werbefreie Plattform** anbieten.
+Folgende Standard-Gruppen stehen immer zur Verfügung:
+
+- **Alle** — alle Besucher:innen Ihrer Publikation
+- **Angemeldet** — alle eingeloggten Nutzer:innen
+
+Zusätzlich können Sie **eigene Zustände** verwenden, die Sie unter [Authentifizierung → Zustände](./sso#zustand) angelegt haben — z. B. `Abonnent:in`, `Trial` oder `Spiele-Abo`. Über diese Zustände lassen sich Anzeigen feingranular auf bestimmte Nutzer:innen-Segmente ausspielen.
+
+### Beispiele
+
+| Modus | Zielgruppe | Effekt |
+|---|---|---|
+| Sichtbar für | Alle | Anzeige wird allen Besucher:innen angezeigt |
+| Sichtbar für | Angemeldet | Anzeige wird nur eingeloggten Nutzer:innen angezeigt |
+| Nicht sichtbar für | Angemeldet | Anzeige wird ausschließlich nicht eingeloggten Besucher:innen angezeigt |
+| Sichtbar für | Abonnent:in | Anzeige wird nur Personen mit dem Zustand `Abonnent:in` angezeigt |
+| Nicht sichtbar für | Abonnent:in | Anzeige wird allen außer Abonnent:innen angezeigt — z. B. um Abos zu bewerben |
+
+Dadurch können Sie beispielsweise **Abonnent:innen** eine **werbefreie Plattform** anbieten, oder gezielt **Trial-Nutzer:innen** mit Aufruf-zum-Upgrade-Anzeigen ansprechen.
 
 > [!INFO]
-> Die Nutzer:innen-Gruppen sind nur sichtbar, wenn eine [SSO](./sso) angebunden ist.
+> Die Sichtbarkeits-Konfiguration ist nur verfügbar, wenn eine [SSO](./sso) angebunden ist. Eigene Zustände müssen vorher unter [Authentifizierung → Zustände](./sso#zustand) angelegt sein, bevor sie hier auswählbar werden.
