@@ -223,17 +223,32 @@ window.dispatchEvent(new CustomEvent(EventAction, {
 
 `EventValue` ist ein Objekt, das wiederum Objekte, Strings oder Integer-Werte enthalten kann.
 
-Nachfolgend finden Sie pro Publikation eine Liste der enthaltenen `Custom Events`,
-deren Interaktion und einen beispielhaften `EventValue`.
+Die Events teilen sich in zwei Kategorien auf:
 
-### Worteck
+- **Allgemeine Events** — werden in jeder Publikation gefeuert, unabhängig vom Rätseltyp.
+- **Rätselspezifische Events** — gelten nur für das jeweilige Spiel.
+
+### Allgemeine Events
+
+Diese Events sind in allen Publikationen verfügbar:
 
 | EventAction | Interaktion | EventValue |
 |---|---|---|
-| `PageView` | Beim Navigieren durch die Publikation bzw. Aufruf einer neuen Seite (virtuelle Page-Impression). | <pre lang="json">{&#10;  "from": "String",&#10;  "to": "String"&#10;}</pre> liefern die URL-Pfade zur Impression. |
+| `PageView` | Beim Navigieren durch die Publikation bzw. Aufruf einer neuen Seite (virtuelle Page-Impression). | <pre lang="json">{&#10;  "from": "Object",&#10;  "to": "Object"&#10;}</pre> Details siehe [Virtuelle Seitenaufrufe](#virtuelle-seitenaufrufe). |
 | `Auth` | Sobald ein(e) Nutzer:in sich über die SSO erfolgreich authentifiziert. | – |
-| `ShareResult` | Spiel-Ergebnis wird in sozialen Medien geteilt. | <pre lang="json">{&#10;  "game_nr": "Integer",&#10;  "game_success_row": "Integer"&#10;}</pre> |
+| `ShareResult` | Spiel-Ergebnis wird über die Teilen-Funktion (z. B. WebShare-API) geteilt. | Rätselspezifischer Payload — siehe jeweilige Tabelle. |
 | `CopyResult` | Spiel-Ergebnis wird in die Zwischenablage kopiert. | – |
+| `ClickOtherGame` | Klick auf eine verlinkte andere Publikation (z. B. im Footer). | <pre lang="json">{&#10;  "game": "String"&#10;}</pre> Name der Publikation. |
+| `SwitchSetup` | Eine Einstellung (z. B. Dark Mode) wurde umgeschaltet. | <pre lang="json">{&#10;  "setup": "String",&#10;  "value": "Boolean"&#10;}</pre> `setup` z. B. `dark_mode`. |
+| `UseHeaderIcon` | Ein Icon im Header (Hilfe, Statistiken, Login) wurde angeklickt. | <pre lang="json">{&#10;  "icon": "String"&#10;}</pre> z. B. `help`, `stats`, `auth`. |
+| `UseOffCanvasMenuItem` | Ein Eintrag im Off-Canvas-Menü wurde ausgewählt. | <pre lang="json">{&#10;  "item": "String"&#10;}</pre> Titel des Eintrags. |
+
+### Worteck
+
+Zusätzlich zu den [Allgemeinen Events](#allgemeine-events):
+
+| EventAction | Interaktion | EventValue |
+|---|---|---|
 | `GameStarted` | Wird einmalig ausgelöst, wenn ein(e) Nutzer:in zum ersten Mal mit dem Rätsel interagiert. Bei einem Neustart oder der Wiederaufnahme eines bereits begonnenen Spiels wird das Event nicht erneut gefeuert. | <pre lang="json">{&#10;  "game_nr": "Integer"&#10;}</pre> |
 | `GameSucceeded` | Ein Wort wurde erfolgreich erraten. | <pre lang="json">{&#10;  "game_nr": "Integer",&#10;  "game_success_row": "Integer"&#10;}</pre> |
 | `GameFinished` | Ein Spiel wurde beendet, unabhängig davon ob das Wort erraten wurde oder nicht. | <pre lang="json">{&#10;  "game_nr": "Integer",&#10;  "game_success_row": "Integer"&#10;}</pre> |
@@ -241,42 +256,44 @@ deren Interaktion und einen beispielhaften `EventValue`.
 | `RowCompleted` | Eine Reihe wurde vervollständigt (Wort ist valide und existiert). | <pre lang="json">{&#10;  "game_nr": "Integer",&#10;  "game_current_row": "Integer"&#10;}</pre> |
 | `NewGame` | Nach Beendigung eines Spiels wird ein neues gestartet (nur wenn mehr als ein Wort pro Tag möglich ist). | <pre lang="json">{&#10;  "game_nr": "Integer",&#10;  "remaining_games": "Integer"&#10;}</pre> |
 | `AllGamesCompleted` | Ein(e) Nutzer:in hat alle zur Verfügung gestellten Worte zu einem Datum beendet. | <pre lang="json">{&#10;  "date": "String"&#10;}</pre> Format `YYYY-MM-DD`. |
+| `ShareResult` | Payload für das [Allgemeine Event](#allgemeine-events). | <pre lang="json">{&#10;  "game_nr": "Integer",&#10;  "game_success_row": "Integer"&#10;}</pre> |
 
 ### Sudoku
 
+Zusätzlich zu den [Allgemeinen Events](#allgemeine-events):
+
 | EventAction | Interaktion | EventValue |
 |---|---|---|
-| `PageView` | Beim Navigieren durch die Publikation bzw. Aufruf einer neuen Seite (virtuelle Page-Impression). | <pre lang="json">{&#10;  "from": "String",&#10;  "to": "String"&#10;}</pre> |
-| `Auth` | Sobald ein(e) Nutzer:in sich über die SSO erfolgreich authentifiziert. | – |
 | `GameStarted` | Wird einmalig ausgelöst, wenn ein(e) Nutzer:in zum ersten Mal mit dem Rätsel interagiert. Bei einem Neustart oder der Wiederaufnahme eines bereits begonnenen Spiels wird das Event nicht erneut gefeuert. | <pre lang="json">{&#10;  "game_nr": "Integer"&#10;}</pre> |
 | `GameFinished` | Ein Sudoku wurde erfolgreich beendet. | <pre lang="json">{&#10;  "game_nr": "Integer",&#10;  "timer": "Integer"&#10;}</pre> `timer` in Sekunden. |
 | `GameFailed` | Alle Zahlen wurden ausgefüllt, aber es sind noch Fehler enthalten. | <pre lang="json">{&#10;  "game_nr": "Integer",&#10;  "timer": "Integer"&#10;}</pre> `timer` in Sekunden. |
 | `RestartGame` | Ein Sudoku wurde zurückgesetzt und erneut begonnen. | <pre lang="json">{&#10;  "game_nr": "Integer",&#10;  "timer": "Integer"&#10;}</pre> `timer` = Zeitpunkt der Zurücksetzung in Sekunden. |
 | `PrintGame` | Ein Sudoku wurde gedruckt. | <pre lang="json">{&#10;  "game_nr": "Integer"&#10;}</pre> |
-| `ShareResult` | Spiel-Ergebnis wird in sozialen Medien geteilt. | <pre lang="json">{&#10;  "game_nr": "Integer",&#10;  "timer": "Integer"&#10;}</pre> |
-| `CopyResult` | Spiel-Ergebnis wird in die Zwischenablage kopiert. | – |
+| `ShareResult` | Payload für das [Allgemeine Event](#allgemeine-events). | <pre lang="json">{&#10;  "game_nr": "Integer",&#10;  "timer": "Integer"&#10;}</pre> |
 
 ### Wortwabe
 
+Zusätzlich zu den [Allgemeinen Events](#allgemeine-events):
+
 | EventAction | Interaktion | EventValue |
 |---|---|---|
-| `PageView` | Beim Navigieren durch die Publikation bzw. Aufruf einer neuen Seite (virtuelle Page-Impression). | <pre lang="json">{&#10;  "from": "String",&#10;  "to": "String"&#10;}</pre> |
-| `Auth` | Sobald ein(e) Nutzer:in sich über die SSO erfolgreich authentifiziert. | – |
 | `GameStarted` | Wird einmalig ausgelöst, wenn ein(e) Nutzer:in zum ersten Mal mit dem Rätsel interagiert. Bei einem Neustart oder der Wiederaufnahme eines bereits begonnenen Spiels wird das Event nicht erneut gefeuert. | <pre lang="json">{&#10;  "game_nr": "Integer"&#10;}</pre> |
 | `GameFinished` | Ein Spiel wurde erfolgreich beendet. | <pre lang="json">{&#10;  "game_nr": "Integer",&#10;  "count_words": "Integer",&#10;  "deviation": "Integer",&#10;  "count_isograms": "Integer"&#10;}</pre> |
 | `WordFound` | Ein Wort wurde entdeckt. | <pre lang="json">{&#10;  "game_nr": "Integer",&#10;  "word": "String",&#10;  "is_isogram": "Boolean"&#10;}</pre> `word` in Großbuchstaben. |
 | `ShuffleLetters` | Die Buchstaben werden manuell gemischt. | <pre lang="json">{&#10;  "game_nr": "Integer"&#10;}</pre> |
 | `ExpandWordList` | Die Liste der gefundenen Wörter wurde aufgeklappt. | <pre lang="json">{&#10;  "game_nr": "Integer"&#10;}</pre> |
-| `ShareResult` | Spiel-Ergebnis wird in sozialen Medien geteilt. | <pre lang="json">{&#10;  "game_nr": "Integer",&#10;  "count_words": "Integer",&#10;  "top_score": "Boolean",&#10;  "count_isograms": "Integer"&#10;}</pre> |
-| `CopyResult` | Spiel-Ergebnis wird in die Zwischenablage kopiert. | – |
+| `ShareResult` | Payload für das [Allgemeine Event](#allgemeine-events). | <pre lang="json">{&#10;  "game_nr": "Integer",&#10;  "count_words": "Integer",&#10;  "top_score": "Boolean",&#10;  "count_isograms": "Integer"&#10;}</pre> |
 
 ### Kreuzworträtsel
 
+Zusätzlich zu den [Allgemeinen Events](#allgemeine-events):
+
 | EventAction | Interaktion | EventValue |
 |---|---|---|
-| `PageView` | Beim Navigieren durch die Publikation bzw. Aufruf einer neuen Seite (virtuelle Page-Impression). | <pre lang="json">{&#10;  "from": "String",&#10;  "to": "String"&#10;}</pre> |
-| `Auth` | Sobald ein(e) Nutzer:in sich über die SSO erfolgreich authentifiziert. | – |
 | `GameStarted` | Wird einmalig ausgelöst, wenn ein(e) Nutzer:in zum ersten Mal mit dem Rätsel interagiert. Bei einem Neustart oder der Wiederaufnahme eines bereits begonnenen Spiels wird das Event nicht erneut gefeuert. | <pre lang="json">{&#10;  "game_nr": "Integer"&#10;}</pre> |
+| `GameFinished` | Das Kreuzworträtsel wurde erfolgreich beendet. | <pre lang="json">{&#10;  "game_nr": "Integer",&#10;  "timer": "Integer"&#10;}</pre> `timer` in Sekunden. |
+| `RestartGame` | Das Kreuzworträtsel wurde zurückgesetzt und erneut begonnen. | <pre lang="json">{&#10;  "game_nr": "Integer",&#10;  "timer": "Integer"&#10;}</pre> `timer` = Zeitpunkt der Zurücksetzung in Sekunden. |
+| `ShareResult` | Payload für das [Allgemeine Event](#allgemeine-events). | <pre lang="json">{&#10;  "game_nr": "Integer",&#10;  "errors": "Integer",&#10;  "seconds": "Integer"&#10;}</pre> |
 
 ---
 
