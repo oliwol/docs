@@ -239,7 +239,7 @@ Diese Events sind in allen Publikationen verfügbar:
 | `ShareResult` | Spiel-Ergebnis wird über die Teilen-Funktion (z. B. WebShare-API) geteilt. | Rätselspezifischer Payload — siehe jeweilige Tabelle. |
 | `CopyResult` | Spiel-Ergebnis wird in die Zwischenablage kopiert. | – |
 | `ClickOtherGame` | Klick auf eine verlinkte andere Publikation (z. B. im Footer). | <pre lang="json">{&#10;  "game": "String"&#10;}</pre> Name der Publikation. |
-| `SwitchSetup` | Eine Einstellung (z. B. Dark Mode) wurde umgeschaltet. | <pre lang="json">{&#10;  "setup": "String",&#10;  "value": "Boolean"&#10;}</pre> `setup` z. B. `dark_mode`. |
+| `SwitchSetup` | Eine Einstellung (z. B. Dark Mode) wurde umgeschaltet. | <pre lang="json">{&#10;  "setup": "String",&#10;  "value": "Boolean &#124; String"&#10;}</pre> `setup` z. B. `dark_mode` oder `wordlist_sort`. `value` ist ein `Boolean` bei An/Aus-Einstellungen, sonst ein `String` bei mehrwertigen Einstellungen (z. B. Sortier-Modus `newest` / `alpha` / `points`). |
 | `UseHeaderIcon` | Ein Icon im Header (Hilfe, Statistiken, Login) wurde angeklickt. | <pre lang="json">{&#10;  "icon": "String"&#10;}</pre> z. B. `help`, `stats`, `auth`. |
 | `UseOffCanvasMenuItem` | Ein Eintrag im Off-Canvas-Menü wurde ausgewählt. | <pre lang="json">{&#10;  "item": "String"&#10;}</pre> Titel des Eintrags. |
 
