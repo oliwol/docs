@@ -111,3 +111,35 @@ Dadurch können Sie beispielsweise **Abonnent:innen** eine **werbefreie Plattfor
 
 > [!INFO]
 > Die Sichtbarkeits-Konfiguration ist nur verfügbar, wenn eine [SSO](./sso) angebunden ist. Eigene Zustände müssen vorher unter [Authentifizierung → Zustände](./sso#zustand) angelegt sein, bevor sie hier auswählbar werden.
+
+---
+
+## ads.txt
+
+Mit **ads.txt** (IAB *Authorized Digital Sellers*) machen Sie transparent, welche Anbieter berechtigt sind, Ihr Werbeinventar zu verkaufen. Der Standard schützt vor **Domain-Spoofing** und **Anzeigenbetrug**: Einkäufer:innen können anhand der Datei prüfen, ob ein:e Verkäufer:in tatsächlich autorisiert ist. Viele Ad-Exchanges und SSPs setzen eine gepflegte ads.txt voraus, um Ihr Inventar überhaupt zu bepreisen.
+
+Hinterlegen Sie den Inhalt im Werbe-Bereich Ihrer Publikation im Feld **ads.txt**. Die Datei wird anschließend unter dem Pfad **`/ads.txt`** jeder [Domain](./setup#eigene-domain) Ihrer Publikation ausgeliefert — also z. B. `https://ihre-domain.de/ads.txt`.
+
+### Format
+
+Pro **Zeile** ein Eintrag mit folgenden, durch Komma getrennten Feldern:
+
+- **Domain** des Werbesystems — z. B. `google.com`
+- **Publisher-ID** — Ihre Konto-Kennung bei diesem System
+- **Beziehung** — `DIRECT` für einen direkten Vertrag oder `RESELLER` für Weiterverkauf
+- **Zertifizierungs-ID** *(optional)* — die TAG-ID des Werbesystems
+
+Zeilen, die mit `#` beginnen, sind **Kommentare** und werden ignoriert.
+
+```text
+# Direkte Vermarktung
+google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
+
+# Weiterverkauf über einen Partner
+ad-exchange.example, 12345, RESELLER
+```
+
+Die vollständige Spezifikation finden Sie unter [iabtechlab.com/ads-txt](https://iabtechlab.com/ads-txt/).
+
+> [!INFO]
+> Wie alle Änderungen an Ihrer Publikation wird die ads.txt zunächst auf der [Testumgebung](./setup#bereitstellung) publiziert und erst mit der nächsten [Synchronisation](./setup#nicht-synchronisiert) live gestellt.
