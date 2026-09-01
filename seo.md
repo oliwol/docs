@@ -46,7 +46,7 @@ Die Robots-Einstellungen sind für alle Seiten bereits vorkonfiguriert und könn
 
 ### indexifembedded
 
-Wenn Sie Ihre Publikation über [Iframe oder Script](./setup#iframe--script) in eine bestehende Seite einbinden, stehen dieselben Inhalte an zwei Adressen: unter der Domain Ihrer Publikation und innerhalb Ihrer Seite. Suchmaschinen nehmen dann beide auf, und die Adresse der Publikation erscheint ohne Ihr Seitengerüst in den Suchergebnissen.
+Wenn Sie Ihre Publikation über [Iframe oder Script](./setup#iframe-script) in eine bestehende Seite einbinden, stehen dieselben Inhalte an zwei Adressen: unter der Domain Ihrer Publikation und innerhalb Ihrer Seite. Suchmaschinen nehmen dann beide auf, und die Adresse der Publikation erscheint ohne Ihr Seitengerüst in den Suchergebnissen.
 
 Für diesen Fall gibt es den Schalter **Publikation wird eingebettet betrieben** im Reiter **Allgemein** unter **Suchmaschinen**.
 
