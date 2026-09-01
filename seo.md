@@ -60,5 +60,5 @@ Seiten, die Sie über die [Robots-Einstellungen](#robots) ohnehin vom Index ausg
 > [!INFO]
 > Die Umstellung wird mit dem nächsten [Buildout](./setup#bereitstellung) wirksam. Bis die Änderung in den Suchergebnissen ankommt, vergeht zusätzlich die Zeit bis zum nächsten Besuch des Suchmaschinen-Bots. Je nach Crawling-Frequenz sind das wenige Stunden bis einige Tage.
 
-> [!WARN]
+> [!WARNING]
 > `indexifembedded` wird nicht von allen Suchmaschinen unterstützt. Wo die Angabe unbekannt ist, zählt allein das `noindex`: Der Inhalt wird dort weder unter der Adresse Ihrer Publikation noch über Ihre einbettende Seite aufgenommen.
