@@ -152,6 +152,12 @@ Die **Höhe** wird über ein `postMessage`-Event gesteuert und passt sich an den
 > [!INFO]
 > Bei der Integration über Iframe oder Script wird **kein Logo** innerhalb der Publikation ausgespielt.
 
+> [!WARNING]
+> Einbetten lässt sich Ihre Publikation auf der Domain, unter der sie läuft, sowie auf deren Hauptdomain samt `www`-Variante. Läuft Ihr Rätsel etwa unter `raetsel.beispiel.de`, binden Sie es auf `beispiel.de` und `www.beispiel.de` ein. Auf einer anderen Domain bleibt der Bereich leer, in dem das Rätsel erscheinen soll, ohne dass eine Meldung erscheint.
+
+> [!INFO]
+> Die [Cloud-Domain](#cloud-domain) lässt sich von jeder Seite aus einbetten. So können Sie die Integration ausprobieren, bevor Ihre eigene Domain verbunden ist.
+
 > [!INFO]
 > Damit Ihre Publikation nicht zusätzlich unter ihrer eigenen Adresse in den Suchergebnissen erscheint, aktivieren Sie den Schalter [indexifembedded](./seo#indexifembedded).
 
