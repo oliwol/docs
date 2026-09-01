@@ -146,8 +146,8 @@ Den **Embed-Code** finden Sie in der Publikationsübersicht über das **Kontextm
 
 Von dort können Sie den Integrations-Code in die Zwischenablage kopieren und auf Ihrer Seite an die **gewünschte Stelle einfügen**.
 
-Einbetten lässt sich Ihre Publikation auf der Domain, unter der sie läuft, sowie auf deren **Hauptdomain** samt `www`-Variante.
-Läuft Ihr Rätsel etwa unter `raetsel.beispiel.de`, funktioniert die Einbettung auch auf `beispiel.de` und `www.beispiel.de`.
+Einbetten lässt sich Ihre Publikation auf Ihrer **Hauptdomain** und auf jeder Adresse darunter.
+Läuft Ihr Rätsel etwa unter `raetsel.beispiel.de`, funktioniert die Einbettung ebenso auf `beispiel.de`, auf `www.beispiel.de` und auf einer Testumgebung wie `uat.beispiel.de`.
 Dazu liefert Ihre Publikation den Header `Content-Security-Policy: frame-ancestors` mit den erlaubten Domains aus.
 Die [Cloud-Domain](#cloud-domain) lässt sich dagegen von **jeder Seite** aus einbetten, sodass sich die Integration schon vor dem Verbinden Ihrer eigenen Domain ausprobieren lässt.
 
