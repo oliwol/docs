@@ -43,3 +43,22 @@ Die Robots-Einstellungen sind für alle Seiten bereits vorkonfiguriert und könn
 
 > [!INFO]
 > Auf allen [Umgebungen](./) außer der **Live-Umgebung** wird per `X-Robots-Tag`-Header jede Seite automatisch auf `noindex, nofollow` gesetzt. So wird verhindert, dass Testumgebungen in den Suchergebnissen erscheinen.
+
+### indexifembedded
+
+Wenn Sie Ihre Publikation über [Iframe oder Script](./setup#iframe--script) in eine bestehende Seite einbinden, stehen dieselben Inhalte an zwei Adressen: unter der Domain Ihrer Publikation und innerhalb Ihrer Seite. Suchmaschinen nehmen dann beide auf, und die Adresse der Publikation erscheint ohne Ihr Seitengerüst in den Suchergebnissen.
+
+Für diesen Fall gibt es den Schalter **Publikation wird eingebettet betrieben** im Reiter **Allgemein** unter **Suchmaschinen**.
+
+Ist er aktiv, gibt jede Seite Ihrer Publikation `noindex, indexifembedded` aus. Das bedeutet:
+
+- Die **Adresse Ihrer Publikation** wird **nicht mehr** in die Suchergebnisse aufgenommen.
+- Die **Inhalte bleiben auffindbar**, und zwar über die Seite, in die Sie sie eingebunden haben.
+
+Seiten, die Sie über die [Robots-Einstellungen](#robots) ohnehin vom Index ausgenommen haben, bleiben vollständig ausgeschlossen.
+
+> [!INFO]
+> Die Umstellung wird mit dem nächsten [Buildout](./setup#bereitstellung) wirksam. Bis die Änderung in den Suchergebnissen ankommt, vergeht zusätzlich die Zeit bis zum nächsten Besuch des Suchmaschinen-Bots. Je nach Crawling-Frequenz sind das wenige Stunden bis einige Tage.
+
+> [!WARN]
+> `indexifembedded` wird nicht von allen Suchmaschinen unterstützt. Wo die Angabe unbekannt ist, zählt allein das `noindex`: Der Inhalt wird dort weder unter der Adresse Ihrer Publikation noch über Ihre einbettende Seite aufgenommen.

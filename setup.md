@@ -152,6 +152,9 @@ Die **Höhe** wird über ein `postMessage`-Event gesteuert und passt sich an den
 > [!INFO]
 > Bei der Integration über Iframe oder Script wird **kein Logo** innerhalb der Publikation ausgespielt.
 
+> [!INFO]
+> Damit Ihre Publikation nicht zusätzlich unter ihrer eigenen Adresse in den Suchergebnissen erscheint, aktivieren Sie den Schalter [indexifembedded](./seo#indexifembedded).
+
 Die **Integration via Script** funktioniert auf dieselbe Art. Auch hierbei können **Breite und CSS angepasst** werden.
 Die Script-Variante ist speziell bei der **Nutzung von Javascript-Frameworks**, wie React oder Vue, eine empfohlene Alternative.
 
