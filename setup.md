@@ -148,7 +148,8 @@ Von dort können Sie den Integrations-Code in die Zwischenablage kopieren und au
 
 Einbetten lässt sich Ihre Publikation auf der Domain, unter der sie läuft, sowie auf deren **Hauptdomain** samt `www`-Variante.
 Läuft Ihr Rätsel etwa unter `raetsel.beispiel.de`, funktioniert die Einbettung auch auf `beispiel.de` und `www.beispiel.de`.
-Auf einer anderen Domain bleibt der Bereich leer, in dem das Rätsel erscheinen soll, ohne dass eine Meldung erscheint.
+Dazu liefert Ihre Publikation den Header `Content-Security-Policy: frame-ancestors` mit den erlaubten Domains aus.
+Bettet eine Seite außerhalb dieser Liste die Publikation ein, verweigert der Browser die Darstellung: Der Rahmen bleibt leer, und der blockierte Aufruf erscheint ausschließlich in der Browser-Konsole.
 Die [Cloud-Domain](#cloud-domain) lässt sich dagegen von **jeder Seite** aus einbetten, sodass sich die Integration schon vor dem Verbinden Ihrer eigenen Domain ausprobieren lässt.
 
 Sie können die **Breite** und den **CSS-Code** des Iframes auf Ihre Bedürfnisse **anpassen**.
