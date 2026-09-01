@@ -151,14 +151,14 @@ Läuft Ihr Rätsel etwa unter `raetsel.beispiel.de`, funktioniert die Einbettung
 Dazu liefert Ihre Publikation den Header `Content-Security-Policy: frame-ancestors` mit den erlaubten Domains aus.
 Die [Cloud-Domain](#cloud-domain) lässt sich dagegen von **jeder Seite** aus einbetten, sodass sich die Integration schon vor dem Verbinden Ihrer eigenen Domain ausprobieren lässt.
 
+> [!INFO]
+> Damit Ihre Publikation nicht zusätzlich unter ihrer eigenen Adresse in den Suchergebnissen erscheint, aktivieren Sie den Schalter [indexifembedded](./seo#indexifembedded).
+
 Sie können die **Breite** und den **CSS-Code** des Iframes auf Ihre Bedürfnisse **anpassen**.
 Die **Höhe** wird über ein `postMessage`-Event gesteuert und passt sich an den Inhalt Ihrer Publikation an.
 
 > [!INFO]
 > Bei der Integration über Iframe oder Script wird **kein Logo** innerhalb der Publikation ausgespielt.
-
-> [!INFO]
-> Damit Ihre Publikation nicht zusätzlich unter ihrer eigenen Adresse in den Suchergebnissen erscheint, aktivieren Sie den Schalter [indexifembedded](./seo#indexifembedded).
 
 Die **Integration via Script** funktioniert auf dieselbe Art. Auch hierbei können **Breite und CSS angepasst** werden.
 Die Script-Variante ist speziell bei der **Nutzung von Javascript-Frameworks**, wie React oder Vue, eine empfohlene Alternative.
