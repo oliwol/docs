@@ -152,7 +152,7 @@ Dazu liefert Ihre Publikation den Header `Content-Security-Policy: frame-ancesto
 Die [Cloud-Domain](#cloud-domain) lässt sich dagegen von **jeder Seite** aus einbetten, sodass sich die Integration schon vor dem Verbinden Ihrer eigenen Domain ausprobieren lässt.
 
 > [!INFO]
-> Damit Ihre Publikation nicht zusätzlich unter ihrer eigenen Adresse in den Suchergebnissen erscheint, aktivieren Sie den Schalter [indexifembedded](./seo#indexifembedded).
+> Damit Ihre Publikation nicht zusätzlich unter ihrer eigenen Adresse in den Suchergebnissen erscheint, aktivieren Sie im selben Dialog den Schalter [indexifembedded](./seo#indexifembedded).
 
 Sie können die **Breite** und den **CSS-Code** des Iframes auf Ihre Bedürfnisse **anpassen**.
 Die **Höhe** wird über ein `postMessage`-Event gesteuert und passt sich an den Inhalt Ihrer Publikation an.
