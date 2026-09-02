@@ -143,6 +143,7 @@ Zusätzlich können alle [Werbeplätze](./marketing) um das Spiel herum bestück
 
 Wenn Sie Ihre Publikation in eine bereits **bestehende Seite einbinden** möchten, können Sie dies via Iframe oder Script tun.
 Den **Embed-Code** finden Sie in der Publikationsübersicht über das **Kontextmenü** (drei Punkte oben rechts) Ihrer Publikation.
+Der Dialog hält für beide Varianten einen eigenen Bereich bereit, der sich aufklappen lässt.
 
 Von dort können Sie den Integrations-Code in die Zwischenablage kopieren und auf Ihrer Seite an die **gewünschte Stelle einfügen**.
 
