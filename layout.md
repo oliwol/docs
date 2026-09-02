@@ -145,4 +145,4 @@ Damit hat die Domain das letzte Wort und kann einzelne Regeln überschreiben, oh
 Auch je Domain stehen **8 KB** zur Verfügung.
 
 > [!INFO]
-> Änderungen am Erscheinungsbild werden gesammelt und mit dem nächsten [Buildout](./setup#bereitstellung) auf die Domain übertragen. Auf einer Live-Domain werden sie mit der nächsten [Synchronisation](./setup#nicht-synchronisiert) sichtbar.
+> Änderungen am Erscheinungsbild werden gesammelt und mit der nächsten [Bereitstellung](./setup#bereitstellung) auf die Domain übertragen. Auf einer Live-Domain werden sie mit der nächsten [Synchronisation](./setup#nicht-synchronisiert) sichtbar.
