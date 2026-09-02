@@ -88,3 +88,61 @@ Da es sich bei den Publikationen um **PWAs** (Progressive Web Apps) handelt, kö
 ## Custom Font
 
 Sie können eine **eigene Schriftart** im Format **WOFF2** für Ihre Publikation hochladen. Die Schriftart wird als primäre Schrift in Ihrem Rätsel verwendet.
+
+---
+
+## Individuelles CSS
+
+Über eigene CSS-Regeln passen Sie das Erscheinungsbild Ihrer Publikation über Logo, Icon, Schrift und Akzentfarbe hinaus an.
+Den Editor finden Sie in der Bearbeitungsmaske Ihrer Publikation im Bereich _Individuelles CSS_.
+
+Die Regeln werden **nach dem Stylesheet** Ihrer Publikation geladen und überschreiben es. Zur Verfügung stehen **8 KB** je Publikation.
+
+Individuelles CSS steht in **jedem Paket** zur Verfügung.
+
+---
+
+## Erscheinungsbild je Domain
+
+Läuft eine Publikation unter **mehreren Domains**, kann jede Domain ein **eigenes Erscheinungsbild** tragen: Logo, Icon, Schrift, Akzentfarbe und individuelles CSS.
+Damit erscheint dasselbe Rätsel unter zwei Marken jeweils im passenden Auftritt.
+
+Das Erscheinungsbild einer Domain wird in der [Domain-Verwaltung](./setup#eigene-domain) Ihrer Publikation verwaltet. Öffnen Sie dort eine Domain, finden Sie den Bereich _Erscheinungsbild_.
+
+> [!INFO]
+> Das Erscheinungsbild je Domain gehört zum Modul **Branded Domains**. Ohne dieses Modul erscheinen alle Domains einer Publikation gleich.
+
+### Standard-Domain
+
+Eine Ihrer Domains ist die **Standard-Domain**. Sie zeigt immer das Layout Ihrer Publikation und hat daher keine eigenen Felder für das Erscheinungsbild.
+Was auf der Standard-Domain zu sehen ist, bestimmen Sie in der Bearbeitungsmaske Ihrer Publikation.
+
+Alle weiteren Domains richten sich nach der Standard-Domain, solange sie nichts Eigenes hinterlegt haben.
+
+### Vererbung
+
+Über den Schalter **Einstellungen der Standard-Domain nutzen** entscheiden Sie, ob eine Domain ein eigenes Erscheinungsbild führt:
+
+- **Schalter aktiv:** Die Domain erscheint wie die Standard-Domain.
+- **Schalter aus:** Es gelten die Werte, die Sie für diese Domain hinterlegen.
+
+Die Vererbung greift **feldweise**. Ein leeres Feld ist keine Entscheidung gegen einen Wert, sondern übernimmt weiterhin den Wert der Standard-Domain.
+Hinterlegen Sie also nur eine abweichende Akzentfarbe, bleiben Logo, Icon und Schrift die Ihrer Publikation.
+
+| Feld auf der Domain | Ergebnis |
+| --- | --- |
+| Gefüllt | Der Wert der Domain gilt |
+| Leer | Der Wert der Standard-Domain gilt |
+
+Schalten Sie die Vererbung wieder ein, bleiben die hinterlegten Werte gespeichert und gelten erneut, sobald Sie den Schalter ausschalten.
+
+### CSS je Domain
+
+Beim CSS gilt die feldweise Vererbung nicht, denn hier **ergänzen** sich beide Ebenen:
+Zuerst wird das individuelle CSS Ihrer **Publikation** geladen, danach das der **Domain**.
+Damit hat die Domain das letzte Wort und kann einzelne Regeln überschreiben, ohne das gesamte Stylesheet zu wiederholen.
+
+Auch je Domain stehen **8 KB** zur Verfügung.
+
+> [!INFO]
+> Änderungen am Erscheinungsbild werden gesammelt und mit dem nächsten [Buildout](./setup#bereitstellung) auf die Domain übertragen. Auf einer Live-Domain werden sie mit der nächsten [Synchronisation](./setup#nicht-synchronisiert) sichtbar.

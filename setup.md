@@ -250,3 +250,8 @@ Eigene Domains durchlaufen nach dem Anlegen einen **Verifizierungsprozess**:
 #### SSL-Zertifikat
 
 Für jede Domain wird automatisch ein **SSL-Zertifikat** bereitgestellt. Ein manueller Schritt ist hierfür nicht erforderlich.
+
+#### Erscheinungsbild
+
+Jede Domain neben der Standard-Domain kann ein **eigenes Erscheinungsbild** tragen: Logo, Icon, Schrift, Akzentfarbe und individuelles CSS.
+Wie die Werte zwischen Publikation und Domain zusammenspielen, lesen Sie im Abschnitt [Erscheinungsbild je Domain](./layout#erscheinungsbild-je-domain).
