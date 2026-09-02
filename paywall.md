@@ -85,14 +85,21 @@ Sie erhalten stattdessen ein **Browser-Event** und bestimmen selbst, wie und an 
 Ruft ein(e) Nutzer:in einen Inhalt hinter der Paywall auf, geschieht Folgendes:
 
 1. Der eigentliche Inhalt wird verschleiert und bleibt unlesbar.
-2. Das Event [`PaywallTriggered`](./tracking#allgemeine-events) wird ausgelöst.
+2. Das Event [`PaywallTriggered`](./tracking#paywall-kontakte) wird ausgelöst.
 
 ```javascript
 window.addEventListener('PaywallTriggered', (event) => {
-    // event.detail.state nennt den Zustand, der die Paywall ausgelöst hat.
-    // event.detail.type ist bei dieser Variante 'custom'.
+    const paywall = event.detail;
+
+    // paywall.state nennt den Zustand, der die Paywall ausgelöst hat.
+    // paywall.trigger nennt die Art des Auslösers, etwa 'page' oder 'feature'.
+    // paywall.type ist bei dieser Variante 'custom'.
 });
 ```
+
+Der Payload beschreibt die Situation, die zur Paywall geführt hat: die betroffene Seite, die benutzte Funktion oder den Tag eines archivierten Rätsels.
+Eine vollständige Übersicht der Properties steht unter [Paywall-Kontakte](./tracking#paywall-kontakte).
+Ist die Publikation eingebettet, erreicht Sie derselbe Payload zusätzlich per `postMessage`.
 
 Inhalte hinterlegen Sie für diese Variante nicht, es genügt ein **Name** zur Unterscheidung.
 Ein **Icon** lässt sich weiterhin hinterlegen, denn es kennzeichnet die betroffenen Seiten in der Navigation.

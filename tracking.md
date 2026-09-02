@@ -236,7 +236,7 @@ Diese Events sind in allen Publikationen verfügbar:
 |---|---|---|
 | `PageView` | Beim Navigieren durch die Publikation bzw. Aufruf einer neuen Seite (virtuelle Page-Impression). | <pre lang="json">{&#10;  "from": "Object",&#10;  "to": "Object"&#10;}</pre> Details siehe [Virtuelle Seitenaufrufe](#virtuelle-seitenaufrufe). |
 | `Auth` | Sobald ein(e) Nutzer:in sich über die SSO erfolgreich authentifiziert. | – |
-| `PaywallTriggered` | Ein Inhalt hinter der Paywall wurde aufgerufen. Das Event wird bei allen [Paywall-Varianten](./paywall#paywall-erstellen) gesendet, auch wenn die Publikation die Paywall selbst anzeigt. | <pre lang="json">{&#10;  "state": "String",&#10;  "type": "String"&#10;}</pre> `state` ist der Zustand, der die Paywall ausgelöst hat. `type` ist die Variante der Paywall: `internal`, `piano` oder `custom`. |
+| `PaywallTriggered` | Ein Inhalt hinter der Paywall wurde aufgerufen. Das Event wird bei allen [Paywall-Varianten](./paywall#paywall-erstellen) gesendet, auch wenn die Publikation die Paywall selbst anzeigt. | <pre lang="json">{&#10;  "state": "String",&#10;  "trigger": "String",&#10;  "path": "String",&#10;  ...&#10;}</pre> Details siehe [Paywall-Kontakte](#paywall-kontakte). |
 | `ShareResult` | Spiel-Ergebnis wird über die Teilen-Funktion (z. B. WebShare-API) geteilt. | Rätselspezifischer Payload — siehe jeweilige Tabelle. |
 | `CopyResult` | Spiel-Ergebnis wird in die Zwischenablage kopiert. | – |
 | `ClickOtherGame` | Klick auf eine verlinkte andere Publikation (z. B. im Footer). | <pre lang="json">{&#10;  "game": "String"&#10;}</pre> Name der Publikation. |
@@ -385,3 +385,72 @@ window.addEventListener("PageView", (e) => {
     }
 });
 ```
+
+---
+
+## Paywall-Kontakte
+
+Erreicht ein(e) Nutzer:in einen Inhalt hinter der Paywall, wird das Custom-Event `PaywallTriggered` gesendet.
+Das geschieht bei allen [Paywall-Varianten](./paywall#paywall-erstellen), also auch dann, wenn die Publikation die Paywall selbst anzeigt.
+Bei der Variante **Individuell** ist es zugleich das Signal, das eigene Angebot einzublenden.
+
+Der Payload beschreibt die Situation, die zur Paywall geführt hat:
+
+| Property | Immer enthalten | Bedeutung |
+|---|---|---|
+| `state` | ja | Der Zustand, der die Paywall ausgelöst hat. |
+| `trigger` | ja | Die Art des Auslösers: `page`, `content`, `navigation`, `feature` oder `archive`. |
+| `path` | ja | Der Pfad, den der oder die Nutzer:in angesteuert hat. |
+| `type` | – | Die Variante der Paywall: `internal`, `piano` oder `custom`. |
+| `paywall` | – | Die Kennung der konfigurierten Paywall. |
+| `page` | – | Der interne Name der betroffenen Seite. |
+| `title` | – | Der Titel der betroffenen Seite. |
+| `feature` | – | Der Schlüssel einer Funktion hinter der Paywall, etwa `dark_mode`. |
+| `date` | – | Der Tag eines archivierten Rätsels im Format `JJJJ-MM-TT`. |
+
+Die Auslöserarten im Einzelnen:
+
+| `trigger` | Situation |
+|---|---|
+| `page` | Eine geschützte Seite wurde aufgerufen. |
+| `content` | Ein geschützter Abschnitt innerhalb einer Seite wurde erreicht. |
+| `navigation` | Ein geschützter Eintrag in der Navigation wurde angeklickt. |
+| `feature` | Eine geschützte Funktion wurde benutzt. |
+| `archive` | Ein archiviertes Rätsel oder eine größere Archivtiefe wurde angesteuert. |
+
+> [!INFO]
+> Properties, die auf die jeweilige Situation nicht zutreffen, fehlen im Payload.
+> Prüfen Sie daher auf das Vorhandensein einer Property, nicht auf einen leeren Wert.
+
+```javascript
+window.addEventListener("PaywallTriggered", (event) => {
+    const paywall = event.detail;
+
+    if (paywall.trigger === "feature") {
+        // Ein Angebot, das die Funktion hinter der Paywall benennt.
+        console.log(paywall.feature);
+    }
+});
+```
+
+Der Payload enthält keine Angaben zur Person: weder eine Kennung noch den Anmeldestatus oder die Mitgliedschaft.
+
+### Paywall-Kontakte in einer Einbettung
+
+Ist die Publikation [per iFrame oder Script eingebunden](./setup#iframe-script), wird derselbe Payload zusätzlich per `postMessage` an die einbettende Seite gesendet.
+Die Nachricht trägt dort die Property `event` mit dem Wert `PaywallTriggered`:
+
+```javascript
+window.addEventListener("message", (event) => {
+    if (event.origin !== "https://ihre-publikation.de") {
+        return;
+    }
+
+    if (event.data?.event === "PaywallTriggered") {
+        // Das eigene Angebot auf der einbettenden Seite anzeigen.
+    }
+});
+```
+
+> [!WARNING]
+> Prüfen Sie immer die Herkunft der Nachricht über `event.origin`, bevor Sie darauf reagieren.
