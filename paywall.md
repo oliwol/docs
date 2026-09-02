@@ -29,7 +29,7 @@ Wird **keine Paywall** zugeordnet, wird stattdessen die in der [Schnittstelle](.
 ## Paywall erstellen
 
 Unter *Authentifizierung* → *Paywalls* erstellen Sie Ihre Paywall-Inhalte.
-Es stehen zwei Varianten zur Verfügung: ein **interner Editor** und die **Piano-Integration**.
+Es stehen drei Varianten zur Verfügung: ein **interner Editor**, die **Piano-Integration** und eine **individuelle Lösung**, bei der die Publikation die Anzeige vollständig Ihnen überlässt.
 
 ### Interner Editor
 
@@ -76,6 +76,30 @@ Achten Sie darauf, dass die in Piano hinterlegten **URL-Muster mit den URLs Ihre
 
 > [!INFO]
 > Detaillierte Informationen zur Konfiguration finden Sie in der [Piano-Dokumentation](https://docs.piano.io).
+
+### Individuell
+
+Bei dieser Variante zeigt die Publikation **keine Paywall** an.
+Sie erhalten stattdessen ein **Browser-Event** und bestimmen selbst, wie und an welcher Stelle Ihr Angebot erscheint.
+
+Ruft ein(e) Nutzer:in einen Inhalt hinter der Paywall auf, geschieht Folgendes:
+
+1. Der eigentliche Inhalt wird verschleiert und bleibt unlesbar.
+2. Das Event [`PaywallTriggered`](./tracking#allgemeine-events) wird ausgelöst.
+
+```javascript
+window.addEventListener('PaywallTriggered', (event) => {
+    // event.detail.state nennt den Zustand, der die Paywall ausgelöst hat.
+    // event.detail.type ist bei dieser Variante 'custom'.
+});
+```
+
+Inhalte hinterlegen Sie für diese Variante nicht, es genügt ein **Name** zur Unterscheidung.
+Da auch kein Icon hinterlegt wird, kennzeichnet in der Navigation das **Schlosssymbol** die betroffenen Seiten.
+
+> [!INFO]
+> `PaywallTriggered` wird bei allen drei Varianten ausgelöst und eignet sich damit auch zum Zählen von Paywall-Kontakten.
+> Die Variante steht im Payload unter `type`, sodass sich eine eigene Anzeige auf `custom` beschränken lässt.
 
 ---
 

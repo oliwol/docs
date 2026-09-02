@@ -236,6 +236,7 @@ Diese Events sind in allen Publikationen verfügbar:
 |---|---|---|
 | `PageView` | Beim Navigieren durch die Publikation bzw. Aufruf einer neuen Seite (virtuelle Page-Impression). | <pre lang="json">{&#10;  "from": "Object",&#10;  "to": "Object"&#10;}</pre> Details siehe [Virtuelle Seitenaufrufe](#virtuelle-seitenaufrufe). |
 | `Auth` | Sobald ein(e) Nutzer:in sich über die SSO erfolgreich authentifiziert. | – |
+| `PaywallTriggered` | Ein Inhalt hinter der Paywall wurde aufgerufen. Das Event wird bei allen [Paywall-Varianten](./paywall#paywall-erstellen) gesendet, auch wenn die Publikation die Paywall selbst anzeigt. | <pre lang="json">{&#10;  "state": "String",&#10;  "type": "String"&#10;}</pre> `state` ist der Zustand, der die Paywall ausgelöst hat. `type` ist die Variante der Paywall: `internal`, `piano` oder `custom`. |
 | `ShareResult` | Spiel-Ergebnis wird über die Teilen-Funktion (z. B. WebShare-API) geteilt. | Rätselspezifischer Payload — siehe jeweilige Tabelle. |
 | `CopyResult` | Spiel-Ergebnis wird in die Zwischenablage kopiert. | – |
 | `ClickOtherGame` | Klick auf eine verlinkte andere Publikation (z. B. im Footer). | <pre lang="json">{&#10;  "game": "String"&#10;}</pre> Name der Publikation. |
