@@ -143,6 +143,7 @@ Zusätzlich können alle [Werbeplätze](./marketing) um das Spiel herum bestück
 
 Wenn Sie Ihre Publikation in eine bereits **bestehende Seite einbinden** möchten, können Sie dies via Iframe oder Script tun.
 Den **Embed-Code** finden Sie in der Publikationsübersicht über das **Kontextmenü** (drei Punkte oben rechts) Ihrer Publikation.
+Der Dialog hält für beide Varianten einen eigenen Bereich bereit, der sich aufklappen lässt.
 
 Von dort können Sie den Integrations-Code in die Zwischenablage kopieren und auf Ihrer Seite an die **gewünschte Stelle einfügen**.
 
@@ -152,7 +153,7 @@ Dazu liefert Ihre Publikation den Header `Content-Security-Policy: frame-ancesto
 Die [Cloud-Domain](#cloud-domain) lässt sich dagegen von **jeder Seite** aus einbetten, sodass sich die Integration schon vor dem Verbinden Ihrer eigenen Domain ausprobieren lässt.
 
 > [!INFO]
-> Damit Ihre Publikation nicht zusätzlich unter ihrer eigenen Adresse in den Suchergebnissen erscheint, aktivieren Sie den Schalter [indexifembedded](./seo#indexifembedded).
+> Damit Ihre Publikation nicht zusätzlich unter ihrer eigenen Adresse in den Suchergebnissen erscheint, aktivieren Sie im selben Dialog den Schalter [indexifembedded](./seo#indexifembedded).
 
 Sie können die **Breite** und den **CSS-Code** des Iframes auf Ihre Bedürfnisse **anpassen**.
 Die **Höhe** wird über ein `postMessage`-Event gesteuert und passt sich an den Inhalt Ihrer Publikation an.
