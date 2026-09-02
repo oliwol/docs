@@ -95,7 +95,8 @@ window.addEventListener('PaywallTriggered', (event) => {
 ```
 
 Inhalte hinterlegen Sie für diese Variante nicht, es genügt ein **Name** zur Unterscheidung.
-Da auch kein Icon hinterlegt wird, kennzeichnet in der Navigation das **Schlosssymbol** die betroffenen Seiten.
+Ein **Icon** lässt sich weiterhin hinterlegen, denn es kennzeichnet die betroffenen Seiten in der Navigation.
+Ohne Icon steht dort das **Schlosssymbol**.
 
 > [!INFO]
 > `PaywallTriggered` wird bei allen drei Varianten ausgelöst und eignet sich damit auch zum Zählen von Paywall-Kontakten.
