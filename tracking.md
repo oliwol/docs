@@ -390,7 +390,7 @@ window.addEventListener("PageView", (e) => {
 
 ## Paywall-Kontakte
 
-Erreicht ein(e) Nutzer:in einen Inhalt hinter der Paywall, wird das Custom-Event `PaywallTriggered` gesendet.
+Erreichen Nutzende einen Inhalt hinter der Paywall, wird das Custom-Event `PaywallTriggered` gesendet.
 Das geschieht bei allen [Paywall-Varianten](./paywall#paywall-erstellen), also auch dann, wenn die Publikation die Paywall selbst anzeigt.
 Bei der Variante **Individuell** ist es zugleich das Signal, das eigene Angebot einzublenden.
 
@@ -400,7 +400,7 @@ Der Payload beschreibt die Situation, die zur Paywall geführt hat:
 |---|---|---|
 | `state` | ja | Der Zustand, der die Paywall ausgelöst hat. |
 | `trigger` | ja | Die Art des Auslösers: `page`, `content`, `navigation`, `feature` oder `archive`. |
-| `path` | ja | Der Pfad, den der oder die Nutzer:in angesteuert hat. |
+| `path` | ja | Der Pfad, den Nutzende angesteuert haben. |
 | `type` | – | Die Variante der Paywall: `internal`, `piano` oder `custom`. |
 | `paywall` | – | Die Kennung der konfigurierten Paywall. |
 | `page` | – | Der interne Name der betroffenen Seite. |
@@ -434,23 +434,3 @@ window.addEventListener("PaywallTriggered", (event) => {
 ```
 
 Der Payload enthält keine Angaben zur Person: weder eine Kennung noch den Anmeldestatus oder die Mitgliedschaft.
-
-### Paywall-Kontakte in einer Einbettung
-
-Ist die Publikation [per iFrame oder Script eingebunden](./setup#iframe-script), wird derselbe Payload zusätzlich per `postMessage` an die einbettende Seite gesendet.
-Die Nachricht trägt dort die Property `event` mit dem Wert `PaywallTriggered`:
-
-```javascript
-window.addEventListener("message", (event) => {
-    if (event.origin !== "https://ihre-publikation.de") {
-        return;
-    }
-
-    if (event.data?.event === "PaywallTriggered") {
-        // Das eigene Angebot auf der einbettenden Seite anzeigen.
-    }
-});
-```
-
-> [!WARNING]
-> Prüfen Sie immer die Herkunft der Nachricht über `event.origin`, bevor Sie darauf reagieren.
