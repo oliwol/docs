@@ -29,7 +29,7 @@ Wird **keine Paywall** zugeordnet, wird stattdessen die in der [Schnittstelle](.
 ## Paywall erstellen
 
 Unter *Authentifizierung* → *Paywalls* erstellen Sie Ihre Paywall-Inhalte.
-Es stehen zwei Varianten zur Verfügung: ein **interner Editor** und die **Piano-Integration**.
+Es stehen drei Varianten zur Verfügung: ein **interner Editor**, die **Piano-Integration** und eine **individuelle Lösung**, bei der die Publikation die Anzeige vollständig Ihnen überlässt.
 
 ### Interner Editor
 
@@ -76,6 +76,37 @@ Achten Sie darauf, dass die in Piano hinterlegten **URL-Muster mit den URLs Ihre
 
 > [!INFO]
 > Detaillierte Informationen zur Konfiguration finden Sie in der [Piano-Dokumentation](https://docs.piano.io).
+
+### Individuell
+
+Bei dieser Variante zeigt die Publikation **keine Paywall** an.
+Sie erhalten stattdessen ein **Browser-Event** und bestimmen selbst, wie und an welcher Stelle Ihr Angebot erscheint.
+
+Rufen Nutzende einen Inhalt hinter der Paywall auf, geschieht Folgendes:
+
+1. Der eigentliche Inhalt wird verschleiert und bleibt unlesbar.
+2. Das Event [`PaywallTriggered`](./tracking#paywall-kontakte) wird ausgelöst.
+
+```javascript
+window.addEventListener('PaywallTriggered', (event) => {
+    const paywall = event.detail;
+
+    // paywall.state nennt den Zustand, der die Paywall ausgelöst hat.
+    // paywall.trigger nennt die Art des Auslösers, etwa 'page' oder 'feature'.
+    // paywall.type ist bei dieser Variante 'custom'.
+});
+```
+
+Der Payload beschreibt die Situation, die zur Paywall geführt hat: die betroffene Seite, die benutzte Funktion oder den Tag eines archivierten Rätsels.
+Eine vollständige Übersicht der Properties steht unter [Paywall-Kontakte](./tracking#paywall-kontakte).
+
+Inhalte hinterlegen Sie für diese Variante nicht, es genügt ein **Name** zur Unterscheidung.
+Ein **Icon** lässt sich weiterhin hinterlegen, denn es kennzeichnet die betroffenen Seiten in der Navigation.
+Ohne Icon steht dort das **Schlosssymbol**.
+
+> [!INFO]
+> `PaywallTriggered` wird bei allen drei Varianten ausgelöst und eignet sich damit auch zum Zählen von Paywall-Kontakten.
+> Die Variante steht im Payload unter `type`, sodass sich eine eigene Anzeige auf `custom` beschränken lässt.
 
 ---
 
