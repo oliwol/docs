@@ -158,6 +158,9 @@ Die [Cloud-Domain](#cloud-domain) lässt sich dagegen von **jeder Seite** aus ei
 Sie können die **Breite** und den **CSS-Code** des Iframes auf Ihre Bedürfnisse **anpassen**.
 Die **Höhe** wird über ein `postMessage`-Event gesteuert und passt sich an den Inhalt Ihrer Publikation an.
 
+Über denselben Weg gibt Ihre Publikation ihre [Custom-Events an die umgebende Seite](./tracking#events-in-einer-einbettung) weiter.
+Ihre Seite kann so auf jede Interaktion im Rätsel reagieren, etwa Werbung nachladen oder ein eigenes Angebot einblenden.
+
 > [!INFO]
 > Bei der Integration über Iframe oder Script wird **kein Logo** innerhalb der Publikation ausgespielt.
 

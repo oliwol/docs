@@ -296,6 +296,63 @@ Zusätzlich zu den [Allgemeinen Events](#allgemeine-events):
 | `RestartGame` | Das Kreuzworträtsel wurde zurückgesetzt und erneut begonnen. | <pre lang="json">{&#10;  "game_nr": "Integer",&#10;  "timer": "Integer"&#10;}</pre> `timer` = Zeitpunkt der Zurücksetzung in Sekunden. |
 | `ShareResult` | Payload für das [Allgemeine Event](#allgemeine-events). | <pre lang="json">{&#10;  "game_nr": "Integer",&#10;  "errors": "Integer",&#10;  "seconds": "Integer"&#10;}</pre> |
 
+### Events in einer Einbettung
+
+Ist Ihre Publikation [per Iframe oder Script](./setup#iframe-script) eingebunden, endet ein Custom-Event nicht an der Grenze des Iframes.
+Ihre Publikation reicht jedes der oben genannten Events an die umgebende Seite weiter, die darauf reagieren kann, wie sie möchte:
+Werbung nachladen, das Layout anpassen, ein eigenes Angebot einblenden, die Paywall bedienen oder das Event an ein Analyse-System übergeben.
+
+Die Nachricht trägt drei Properties:
+
+| Property | Bedeutung |
+|---|---|
+| `source` | Immer `oliwol-publisher`. Daran erkennt Ihre Seite unsere Nachrichten. |
+| `event` | Der Name des Events, etwa `PageView` oder `PaywallTriggered`. |
+| `detail` | Der Payload des Events, unverändert aus den Tabellen oben. |
+
+Auf Ihrer Seite nimmt ein `EventListener` die Nachricht entgegen:
+
+```javascript
+window.addEventListener('message', (event) => {
+    if (event.origin !== 'https://sudoku.example.com') {
+        return;
+    }
+
+    if (event.data?.source !== 'oliwol-publisher') {
+        return;
+    }
+
+    console.log(event.data.event, event.data.detail);
+}, false);
+```
+
+> [!WARNING]
+> Ohne die Prüfung von `event.origin` nimmt der Listener jede Nachricht an, die auf Ihrer Seite gesendet wird, auch die fremder Skripte.
+> Vergleichen Sie den Wert mit der Adresse Ihrer Publikation, wie im Beispiel oben.
+
+Nutzt Ihre Seite bereits Listener auf die Custom-Events, etwa für Ihr Analyse-System, lassen sich die Nachrichten in dieselben Events übersetzen.
+Ihre bestehenden Listener laufen dann unverändert weiter, unabhängig davon, ob die Publikation eingebettet ist:
+
+```javascript
+window.addEventListener('message', (event) => {
+    if (event.origin !== 'https://sudoku.example.com') {
+        return;
+    }
+
+    if (event.data?.source !== 'oliwol-publisher') {
+        return;
+    }
+
+    window.dispatchEvent(new CustomEvent(event.data.event, {
+        detail: event.data.detail,
+    }));
+}, false);
+```
+
+> [!INFO]
+> Die Höhe des Iframes wird über denselben Weg übertragen.
+> Sie erkennen diese Nachricht daran, dass sie eine Property `height` enthält und keine Property `source`.
+
 ---
 
 ## Virtuelle Seitenaufrufe
