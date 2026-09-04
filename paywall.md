@@ -10,7 +10,7 @@ Voraussetzung ist eine aktive [SSO-Anbindung](./sso).
 ## Zustände
 
 Unter *Authentifizierung* → *Zustände* definieren Sie **Authentifizierungszustände**, die Nutzer:innen anhand ihres [Payloads](./sso#zustand) zugeordnet werden.
-Zustände sind vergleichbar mit **Mitgliedschaften oder Abonnements** — z. B. *Premium*, *Basis* oder *Testphase*.
+Zustände sind vergleichbar mit **Mitgliedschaften oder Abonnements**, etwa *Premium*, *Basis* oder *Testphase*.
 
 Beim Anlegen eines Zustands wählen Sie zunächst die **Schnittstelle** aus, zu der der Zustand gehört.
 Anschließend vergeben Sie einen **Namen** und definieren die **Bedingungen**: einen oder mehrere Werte, die im Payload unter dem konfigurierten [Zustands-Key](./sso#zustand) erwartet werden.
@@ -38,7 +38,7 @@ Folgende Felder stehen Ihnen zur Verfügung:
 
 ![Interner Paywall-Editor mit Feldern für Überschrift, Text, CTA-Button und Icon](/images/paywall-internal-editor-light.png "dark:/images/paywall-internal-editor-dark.png")
 
-Unterhalb des Editors hinterlegen Sie die **Landingpage-URL**, auf die der CTA-Button verweist — z. B. ein Abo-Angebot oder eine Registrierungsseite.
+Unterhalb des Editors hinterlegen Sie die **Landingpage-URL**, auf die der CTA-Button verweist, etwa ein Abo-Angebot oder eine Registrierungsseite.
 Zusätzlich definieren Sie einen **Weiterleitungs-Parameter**, über den Sie Nutzer:innen nach Abschluss **zurück zur Publikation** leiten können.
 
 ```
@@ -50,7 +50,8 @@ https://abo.example.com/spiele?redirect=https://sudoku.example.com
 ### Piano
 
 Alternativ können Sie Ihre eigene **Piano-Integration** nutzen.
-Bei dieser Variante wird die **Darstellung der Paywall vollständig über Piano** gesteuert — Texte, Farben, Angebote und Aktionen konfigurieren Sie direkt im [Piano Publisher Dashboard](https://dashboard.piano.io).
+Bei dieser Variante wird die **Darstellung der Paywall vollständig über Piano** gesteuert.
+Texte, Farben, Angebote und Aktionen konfigurieren Sie direkt im [Piano Publisher Dashboard](https://dashboard.piano.io).
 
 #### Konfiguration im oliwol Publisher Tool
 
@@ -70,7 +71,8 @@ Das **Erscheinungsbild der Paywall** gestalten Sie im _Piano Publisher Dashboard
 Dort erstellen Sie eine **Experience**, die das Layout, die Texte und die Aktionen (z. B. Abo-Angebot, Login) Ihrer Paywall definiert.
 Die Gestaltung erfolgt im integrierten **Visual Composer**.
 
-**Wann** die Paywall angezeigt wird, steuert das *oliwol Publisher Tool* über die [Zugriffsteuerung](#zugriffsteuerung) — Piano ist ausschließlich für die **Darstellung** zuständig.
+**Wann** die Paywall angezeigt wird, steuert das *oliwol Publisher Tool* über die [Zugriffsteuerung](#zugriffsteuerung).
+Piano ist ausschließlich für die **Darstellung** zuständig.
 
 Achten Sie darauf, dass die in Piano hinterlegten **URL-Muster mit den URLs Ihrer Publikation übereinstimmen**, damit die Experience korrekt ausgeliefert wird.
 
@@ -97,12 +99,8 @@ window.addEventListener('PaywallTriggered', (event) => {
 });
 ```
 
-Der Payload beschreibt die Situation, die zur Paywall geführt hat: die betroffene Seite, die benutzte Funktion oder den Tag eines archivierten Rätsels.
+Der Payload beschreibt die Situation, die zur Paywall geführt hat.
 Eine vollständige Übersicht der Properties steht unter [Paywall-Kontakte](./tracking#paywall-kontakte).
-
-Inhalte hinterlegen Sie für diese Variante nicht, es genügt ein **Name** zur Unterscheidung.
-Ein **Icon** lässt sich weiterhin hinterlegen, denn es kennzeichnet die betroffenen Seiten in der Navigation.
-Ohne Icon steht dort das **Schlosssymbol**.
 
 > [!INFO]
 > `PaywallTriggered` wird bei allen drei Varianten ausgelöst und eignet sich damit auch zum Zählen von Paywall-Kontakten.
