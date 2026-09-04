@@ -296,6 +296,20 @@ Zusätzlich zu den [Allgemeinen Events](#allgemeine-events):
 | `RestartGame` | Das Kreuzworträtsel wurde zurückgesetzt und erneut begonnen. | <pre lang="json">{&#10;  "game_nr": "Integer",&#10;  "timer": "Integer"&#10;}</pre> `timer` = Zeitpunkt der Zurücksetzung in Sekunden. |
 | `ShareResult` | Payload für das [Allgemeine Event](#allgemeine-events). | <pre lang="json">{&#10;  "game_nr": "Integer",&#10;  "errors": "Integer",&#10;  "seconds": "Integer"&#10;}</pre> |
 
+### Kinonym
+
+Zusätzlich zu den [Allgemeinen Events](#allgemeine-events):
+
+| EventAction | Interaktion | EventValue |
+|---|---|---|
+| `GameStarted` | Wird einmalig ausgelöst, wenn ein(e) Nutzer:in zum ersten Mal mit dem Rätsel interagiert, also einen Begriff aufdeckt oder einen Titel rät. Bei der Wiederaufnahme eines bereits begonnenen Spiels wird das Event nicht erneut gefeuert. | <pre lang="json">{&#10;  "game_nr": "Integer"&#10;}</pre> |
+| `RevealClue` | Ein weiterer Begriff wurde aufgedeckt. `revealed` nennt die Anzahl der danach sichtbaren Begriffe. | <pre lang="json">{&#10;  "game_nr": "Integer",&#10;  "revealed": "Integer"&#10;}</pre> |
+| `GameFinished` | Ein Spiel wurde beendet, unabhängig davon ob der Titel erraten wurde. `won` unterscheidet die beiden Fälle, `earned` nennt die erreichten Punkte (bei einer Niederlage `0`), `revealed` die Anzahl der aufgedeckten Begriffe und `wrong_guesses` die Anzahl der Fehlversuche. | <pre lang="json">{&#10;  "game_nr": "Integer",&#10;  "won": "Boolean",&#10;  "earned": "Integer",&#10;  "revealed": "Integer",&#10;  "wrong_guesses": "Integer"&#10;}</pre> |
+| `GameFailed` | Ein Spiel wurde beendet, aber der Titel nicht erraten. Das schließt das Aufgeben ein. Der Payload entspricht `GameFinished`. | <pre lang="json">{&#10;  "game_nr": "Integer",&#10;  "won": "Boolean",&#10;  "earned": "Integer",&#10;  "revealed": "Integer",&#10;  "wrong_guesses": "Integer"&#10;}</pre> |
+
+> [!INFO]
+> Die geratenen Titel werden nicht übertragen, `wrong_guesses` enthält ausschließlich deren Anzahl.
+
 ### Events in einer Einbettung
 
 Ist Ihre Publikation [per Iframe oder Script](./setup#iframe-script) eingebunden, endet ein Custom-Event nicht an der Grenze des Iframes.
