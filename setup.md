@@ -208,6 +208,71 @@ const puzzle = (node) => {
 puzzle(document.getElementById('sudoku-wrapper'));
 ```
 
+### Meldungen an Ihre Seite
+
+Eine eingebettete Publikation meldet der umgebenden Seite, wie hoch sie ist, welchen **Farbmodus** sie zeigt und was im Rätsel passiert.
+Alle Nachrichten kommen über `postMessage` und tragen dieselbe Property `source` mit dem Wert `oliwol`.
+Daran erkennt Ihre Seite die Nachrichten Ihrer Publikation, auch wenn Werbe- oder Consent-Skripte eigene Nachrichten senden.
+
+| Nachricht | Property | Inhalt |
+|---|---|---|
+| Höhe | `height` | Die Höhe des Inhalts in Pixeln, beim Aufbau und bei jeder Änderung. |
+| Farbmodus | `colorScheme` | `dark` oder `light`, beim Aufbau und bei jedem Wechsel. |
+| Custom-Event | `event` und `detail` | Name und Payload eines [Custom-Events](./tracking#events-im-iframe). |
+
+Höhe und Farbmodus sind **Zustandsmeldungen**. Sie beschreiben, wie die Publikation gerade aussieht, und stehen für keine Interaktion.
+In der [Event-Liste](./tracking#custom-events) tauchen sie deshalb nicht auf.
+Schaltet jemand den Farbmodus im Menü der Publikation um, kommt zusätzlich das Custom-Event `SwitchSetup`.
+
+Der Farbmodus erreicht Ihre Seite, sobald die Publikation auf dem Schirm ist, und danach bei jedem Wechsel.
+So lässt sich Ihr eigenes Layout auf den Modus einfärben, in dem gespielt wird:
+
+```javascript
+window.addEventListener('message', (event) => {
+    if (event.origin !== 'https://sudoku.example.com') {
+        return;
+    }
+
+    const message = event.data;
+
+    if (message?.source !== 'oliwol') {
+        return;
+    }
+
+    if (typeof message.colorScheme === 'string') {
+        document.body.classList.toggle('is-dark', message.colorScheme === 'dark');
+    }
+}, false);
+```
+
+> [!WARNING]
+> Ohne die Prüfung von `event.origin` nimmt der Listener jede Nachricht an, die auf Ihrer Seite gesendet wird, auch die fremder Skripte.
+> Vergleichen Sie den Wert mit der Adresse Ihrer Publikation, wie im Beispiel oben.
+
+#### Farbmodus abfragen
+
+Meldet sich Ihr Listener erst später an, etwa nach der Zustimmung in einem Consent-Dialog, hat er die erste Meldung verpasst.
+Er kann den aktuellen Farbmodus deshalb jederzeit erfragen:
+
+```javascript
+const frame = document.getElementById('sudoku');
+
+frame.contentWindow.postMessage(
+    { source: 'oliwol', request: 'colorScheme' },
+    'https://sudoku.example.com'
+);
+```
+
+Bei der **Integration via Script** ist der Rahmen die im Skript erzeugte Variable, die Anfrage geht dann an `iframe.contentWindow`.
+Steht der Iframe im Markup, führt `document.getElementById(...)` zu ihm, sofern er eine `id` trägt.
+
+Die Antwort kommt in derselben Form wie die reguläre Meldung, also mit `source` und `colorScheme`, und wird von demselben Listener entgegengenommen.
+Sie kommt auch dann, wenn sich der Farbmodus seit der letzten Meldung nicht verändert hat.
+
+> [!INFO]
+> Die **Höhe** wird über denselben Weg gemeldet und trägt dieselbe Property `source`.
+> Ein Listener kann beide Nachrichten entgegennehmen, wie im Beispiel der [Script-Integration](#iframe-script) gezeigt.
+
 ---
 
 ## Domains
