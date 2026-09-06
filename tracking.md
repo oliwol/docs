@@ -345,8 +345,9 @@ window.addEventListener('message', (event) => {
 > Vergleichen Sie den Wert mit der Adresse Ihrer Publikation, wie im Beispiel oben.
 
 > [!INFO]
-> Die Höhe des Iframes wird über denselben Weg übertragen und trägt dieselbe Property `source`.
-> Diese Nachricht enthält statt `event` und `detail` eine Property `height`.
+> Die Höhe des Iframes und der Farbmodus der Publikation werden über denselben Weg übertragen und tragen dieselbe Property `source`.
+> Diese Nachrichten enthalten statt `event` und `detail` eine Property `height` beziehungsweise `colorScheme`.
+> Beide sind Zustandsmeldungen und keine Events, beschrieben unter [Meldungen an Ihre Seite](./setup#meldungen-an-ihre-seite).
 
 ---
 
