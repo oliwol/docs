@@ -163,7 +163,6 @@ Ihre Seite kann so auf jede Interaktion im Rätsel reagieren, etwa Werbung nachl
 
 Das Attribut `referrerpolicy` im Embed-Code gibt der Publikation die **Adresse der Seite** weiter, in die sie eingebettet ist.
 Daraus entsteht die Adresse, zu der Nutzer:innen nach [Anmeldung](./sso#umfang-der-rückkehradresse) oder [Paywall](./paywall#interner-editor) zurückkehren.
-Ältere Einbettungen wurden ohne dieses Attribut erstellt und geben nur die Domain der umgebenden Seite weiter. Ein erneut kopierter Embed-Code stellt die vollständige Adresse her.
 
 > [!INFO]
 > Bei der Integration über Iframe oder Script wird **kein Logo** innerhalb der Publikation ausgespielt.

@@ -205,7 +205,6 @@ Welche Adresse im Parameter steht, hängt davon ab, wo die Publikation läuft.
 | Die Publikation ist eingebettet, älterer Embed-Code | Schema und Domain der umgebenden Seite, etwa `https://www.example.com` |
 
 In einer Einbettung stammt die Adresse der umgebenden Seite aus dem Referrer. Wie viel davon der Browser übergibt, steuert das Attribut `referrerpolicy` am Iframe.
-Der aktuelle Embed-Code enthält dieses Attribut, ältere Einbettungen wurden ohne es erstellt. Ein erneut kopierter Embed-Code stellt die vollständige Adresse her.
 Unterdrückt die umgebende Seite den Referrer vollständig, steht die Adresse der Publikation im Parameter.
 
 > [!INFO]
