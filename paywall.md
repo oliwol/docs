@@ -42,8 +42,10 @@ Unterhalb des Editors hinterlegen Sie die **Landingpage-URL**, auf die der CTA-B
 Zusätzlich definieren Sie einen **Weiterleitungs-Parameter**, über den Sie Nutzer:innen nach Abschluss **zurück zur Publikation** leiten können.
 
 ```
-https://abo.example.com/spiele?redirect=https://sudoku.example.com
+https://abo.example.com/spiele?redirect=https%3A%2F%2Fsudoku.example.com%2Farchiv
 ```
+
+Der Wert ist prozentkodiert und folgt denselben Regeln wie bei der Anmeldung. Welche Adresse darin steht, hängt davon ab, ob die Publikation unter ihrer eigenen Domain oder eingebettet läuft: [Umfang der Rückkehradresse](./sso#umfang-der-rückkehradresse).
 
 ![Ablauf der Paywall: Nutzer:in sieht CTA, wird zur Landingpage geleitet und anschließend zurück zur Publikation](/images/paywall-flow-light.png "dark:/images/paywall-flow-dark.png")
 

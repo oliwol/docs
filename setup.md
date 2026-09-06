@@ -161,6 +161,9 @@ Die **Höhe** wird über ein `postMessage`-Event gesteuert und passt sich an den
 Über denselben Weg gibt Ihre Publikation ihre [Custom-Events an die umgebende Seite](./tracking#events-im-iframe) weiter.
 Ihre Seite kann so auf jede Interaktion im Rätsel reagieren, etwa Werbung nachladen oder ein eigenes Angebot einblenden.
 
+Das Attribut `referrerpolicy` im Embed-Code gibt der Publikation die **Adresse der Seite** weiter, in die sie eingebettet ist.
+Daraus entsteht die Adresse, zu der Nutzer:innen nach [Anmeldung](./sso#umfang-der-rückkehradresse) oder [Paywall](./paywall#interner-editor) zurückkehren.
+
 > [!INFO]
 > Bei der Integration über Iframe oder Script wird **kein Logo** innerhalb der Publikation ausgespielt.
 
@@ -171,6 +174,7 @@ Die Script-Variante ist speziell bei der **Nutzung von Javascript-Frameworks**, 
 const puzzle = (node) => {
     const iframe = document.createElement('iframe');
 
+    iframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
     iframe.setAttribute('width', '450');
     iframe.setAttribute('src', 'https://sudoku.example.com');
     iframe.setAttribute('title', 'Sudoku');

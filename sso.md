@@ -189,8 +189,26 @@ Der Parameter enthält als Wert die URL, auf die Sie die Nutzer:innen nach erfol
 Nach erfolgreichem Login landen Nutzende auf der URL, die im Parameter `redirect` angegeben ist:
 
 ```
-https://sso.example.com/login?redirect=https://sudoku.example.com
+https://sso.example.com/login?redirect=https%3A%2F%2Fsudoku.example.com%2Farchiv
 ```
+
+Der Wert ist **prozentkodiert**. Auf der Anmeldeseite lässt er sich mit `decodeURIComponent` in JavaScript oder `urldecode` in PHP wieder in eine lesbare Adresse verwandeln.
+
+### Umfang der Rückkehradresse
+
+Welche Adresse im Parameter steht, hängt davon ab, wo die Publikation läuft.
+
+| Situation | Wert im Parameter |
+|---|---|
+| Die Publikation läuft unter ihrer eigenen Domain | Adresse der Publikation samt Pfad, etwa `https://sudoku.example.com/archiv` |
+| Die Publikation ist [eingebettet](./setup#iframe-script), aktueller Embed-Code | vollständige Adresse der umgebenden Seite samt Pfad und Abfrage, etwa `https://www.example.com/kultur/raetsel?tag=montag` |
+| Die Publikation ist eingebettet, älterer Embed-Code | Schema und Domain der umgebenden Seite, etwa `https://www.example.com` |
+
+In einer Einbettung stammt die Adresse der umgebenden Seite aus dem Referrer. Wie viel davon der Browser übergibt, steuert das Attribut `referrerpolicy` am Iframe.
+Unterdrückt die umgebende Seite den Referrer vollständig, steht die Adresse der Publikation im Parameter.
+
+> [!INFO]
+> Prüft Ihre Anmeldeseite den Wert gegen eine Liste erlaubter Adressen, betrifft das auch die Adressen der einbettenden Seiten.
 
 ### Login über iframe
 
