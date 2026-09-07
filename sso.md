@@ -210,6 +210,9 @@ Unterdrückt die umgebende Seite den Referrer vollständig, steht die Adresse de
 > [!INFO]
 > Prüft Ihre Anmeldeseite den Wert gegen eine Liste erlaubter Adressen, betrifft das auch die Adressen der einbettenden Seiten.
 
+Die Anmeldeseite selbst öffnet in einer Einbettung im [gesamten Browserfenster](./setup#iframe-script) und nicht im Rahmen der Publikation.
+Nach der Anmeldung führt die Rückkehradresse zurück auf die einbettende Seite.
+
 ### Login über iframe
 
 Alternativ können Sie die **iframe-Variante für den Login** nutzen.

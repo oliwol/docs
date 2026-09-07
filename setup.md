@@ -164,6 +164,16 @@ Ihre Seite kann so auf jede Interaktion im Rätsel reagieren, etwa Werbung nachl
 Das Attribut `referrerpolicy` im Embed-Code gibt der Publikation die **Adresse der Seite** weiter, in die sie eingebettet ist.
 Daraus entsteht die Adresse, zu der Nutzer:innen nach [Anmeldung](./sso#umfang-der-rückkehradresse) oder [Paywall](./paywall#interner-editor) zurückkehren.
 
+Ein Klick, der aus der Publikation herausführt, übernimmt das **gesamte Browserfenster**.
+Das gilt für die [Anmeldung](./sso), für den Handlungsaufruf einer [Paywall](./paywall) und für gewöhnliche Links wie Impressum oder Datenschutz.
+Die Zielseite steht damit in voller Breite und mit ihrer eigenen Adresse in der Adresszeile, statt im Rahmen der Einbettung zu erscheinen.
+Nach der Anmeldung führt die Rückkehradresse zurück auf Ihre Seite.
+
+> [!WARNING]
+> Ein selbst geschriebener Iframe mit dem Attribut `sandbox` verhindert diese Übernahme, ohne dass eine Meldung erscheint.
+> Damit sie funktioniert, gehört `allow-top-navigation` zu den erlaubten Berechtigungen.
+> Der Embed-Code aus der Publikationsübersicht setzt kein `sandbox` und ist davon nicht betroffen.
+
 > [!INFO]
 > Bei der Integration über Iframe oder Script wird **kein Logo** innerhalb der Publikation ausgespielt.
 
