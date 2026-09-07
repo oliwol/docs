@@ -224,7 +224,7 @@ Höhe und Farbmodus sind **Zustandsmeldungen**. Sie beschreiben, wie die Publika
 In der [Event-Liste](./tracking#custom-events) tauchen sie deshalb nicht auf.
 Schaltet jemand den Farbmodus im Menü der Publikation um, kommt zusätzlich das Custom-Event `SwitchSetup`.
 
-Der Farbmodus erreicht Ihre Seite, sobald die Publikation auf dem Schirm ist, und danach bei jedem Wechsel.
+Der Farbmodus erreicht Ihre Seite, sobald die Publikation geladen ist, und danach bei jedem Wechsel.
 So lässt sich Ihr eigenes Layout auf den Modus einfärben, in dem gespielt wird:
 
 ```javascript
