@@ -208,7 +208,7 @@ const puzzle = (node) => {
 puzzle(document.getElementById('sudoku-wrapper'));
 ```
 
-### Meldungen an Ihre Seite
+#### Nachrichten an Ihre Seite
 
 Eine eingebettete Publikation meldet der umgebenden Seite, wie hoch sie ist, welchen **Farbmodus** sie zeigt und was im Rätsel passiert.
 Alle Nachrichten kommen über `postMessage` und tragen dieselbe Property `source` mit dem Wert `oliwol`.
@@ -249,7 +249,7 @@ window.addEventListener('message', (event) => {
 > Ohne die Prüfung von `event.origin` nimmt der Listener jede Nachricht an, die auf Ihrer Seite gesendet wird, auch die fremder Skripte.
 > Vergleichen Sie den Wert mit der Adresse Ihrer Publikation, wie im Beispiel oben.
 
-#### Farbmodus abfragen
+##### Farbmodus abfragen
 
 Meldet sich Ihr Listener erst später an, etwa nach der Zustimmung in einem Consent-Dialog, hat er die erste Meldung verpasst.
 Er kann den aktuellen Farbmodus deshalb jederzeit erfragen:
