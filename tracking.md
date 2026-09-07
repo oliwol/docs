@@ -234,7 +234,7 @@ Diese Events sind in allen Publikationen verfügbar:
 
 | EventAction | Interaktion | EventValue |
 |---|---|---|
-| `PageView` | Beim Navigieren durch die Publikation bzw. Aufruf einer neuen Seite (virtuelle Page-Impression). | <pre lang="json">{&#10;  "from": "Object",&#10;  "to": "Object"&#10;}</pre> Details siehe [Virtuelle Seitenaufrufe](#virtuelle-seitenaufrufe). |
+| `PageView` | Beim Aufruf der Publikation und bei jedem weiteren Seitenaufruf darin (virtuelle Page-Impression). | <pre lang="json">{&#10;  "from": "Object",&#10;  "to": "Object"&#10;}</pre> Details siehe [Virtuelle Seitenaufrufe](#virtuelle-seitenaufrufe). |
 | `Auth` | Sobald ein(e) Nutzer:in sich über die SSO erfolgreich authentifiziert. | – |
 | `PaywallTriggered` | Ein Inhalt hinter der Paywall wurde aufgerufen. Das Event wird bei allen [Paywall-Varianten](./paywall#paywall-erstellen) gesendet, auch wenn die Publikation die Paywall selbst anzeigt. | <pre lang="json">{&#10;  "state": "String",&#10;  "trigger": "String",&#10;  "path": "String",&#10;  ...&#10;}</pre> Details siehe [Paywall-Kontakte](#paywall-kontakte). |
 | `ShareResult` | Spiel-Ergebnis wird über die Teilen-Funktion (z. B. WebShare-API) geteilt. | Rätselspezifischer Payload — siehe jeweilige Tabelle. |
@@ -357,16 +357,36 @@ Da es sich bei allen Publikationen um *Single Page Applications (SPA)* handelt,
 wird beim Wechseln der URL kein Seiten-Reload ausgelöst.
 Einige Analyse-Systeme lauschen auf das `popstate`-Event und können das Navigieren innerhalb von SPAs tracken.
 
-Alle Publikationen senden beim Wechseln der URL das Custom-Event `PageView`.
+Alle Publikationen senden das Custom-Event `PageView`, sobald eine Seite aufgerufen wird.
 Im **Payload** werden die Properties `to` und `from` übergeben:
 `to` liefert die Daten zur angesteuerten Seite, `from` enthält die Daten zur Ausgangs-URL.
+
+Auch der erste Aufruf der Publikation wird gemeldet.
+Dort ist `from` gleich `null`, denn es gibt keine Seite, von der aus er erreicht wurde.
+In einer [Einbettung](./setup#iframe-script) ist das der einzige Hinweis auf die Ankunft im Rätsel:
+Die umgebende Seite zählt ihren eigenen Aufruf, nicht den des Rahmens.
+
+```javascript
+{
+  to: {
+    fullPath: "/",
+    hash: "",
+    name: "Home",
+    params: {},
+    path: "/",
+    query: {}
+  },
+  from: null
+}
+```
+
+Bei jedem weiteren Seitenaufruf tragen beide Properties eine Seite:
 
 ```javascript
 {
   to: {
     fullPath: "/schwierig",
     hash: "",
-    href: "/schwierig",
     name: "Home",
     params: {
         level: "schwierig"
@@ -377,7 +397,6 @@ Im **Payload** werden die Properties `to` und `from` übergeben:
   from: {
     fullPath: "/",
     hash: "",
-    href: "/",
     name: "Home",
     params: {
         level: "leicht"
