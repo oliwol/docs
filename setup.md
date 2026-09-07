@@ -170,8 +170,8 @@ Die Zielseite steht damit in voller Breite und mit ihrer eigenen Adresse in der 
 Nach der Anmeldung führt die Rückkehradresse zurück auf Ihre Seite.
 
 > [!WARNING]
-> Ein selbst geschriebener Iframe mit dem Attribut `sandbox` verhindert diese Übernahme, ohne dass eine Meldung erscheint.
-> Damit sie funktioniert, gehört `allow-top-navigation` zu den erlaubten Berechtigungen.
+> Ein selbst geschriebener Iframe mit dem Attribut `sandbox` verhindert diese Übernahme. Die Zielseite erscheint dann im Rahmen der Einbettung.
+> Damit die Übernahme funktioniert, gehört `allow-top-navigation` zu den erlaubten Berechtigungen.
 > Der Embed-Code aus der Publikationsübersicht setzt kein `sandbox` und ist davon nicht betroffen.
 
 > [!INFO]
