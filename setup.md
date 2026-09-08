@@ -341,7 +341,13 @@ Eigene Domains durchlaufen nach dem Anlegen einen **Verifizierungsprozess**:
 
 Für jede Domain wird automatisch ein **SSL-Zertifikat** bereitgestellt. Ein manueller Schritt ist hierfür nicht erforderlich.
 
+#### Konfiguration
+
+Was eine Domain eingestellt hat, finden Sie unter **Konfiguration**, erreichbar über einen Klick auf die Zeile oder über das Aktionsmenü. Dort stehen die DNS-Einträge und die Auswahl der Marke.
+
 #### Erscheinungsbild
 
-Jede Domain neben der Standard-Domain kann ein **eigenes Erscheinungsbild** tragen: Logo, Icon, Schrift, Akzentfarbe und individuelles CSS.
-Wie die Werte zwischen Publikation und Domain zusammenspielen, lesen Sie im Abschnitt [Erscheinungsbild je Domain](./layout#erscheinungsbild-je-domain).
+Jede Domain kann ein **eigenes Erscheinungsbild** tragen: Logo, Symbol, Schrift, Akzentfarbe und individuelles CSS. Diese Werte hängen an der [Marke](./brands), auf die die Domain zeigt.
+Wie Marke und Publikation zusammenspielen, lesen Sie im Abschnitt [Erscheinungsbild je Domain](./layout#erscheinungsbild-je-domain).
+
+Ohne Marke zeigt eine Domain das Erscheinungsbild ihrer Publikation.

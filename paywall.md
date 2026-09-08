@@ -24,6 +24,14 @@ Wird einem/einer Nutzer:in der Zugriff auf eine Funktion oder Seite verwehrt, we
 
 Wird **keine Paywall** zugeordnet, wird stattdessen die in der [Schnittstelle](./sso#login) hinterlegte **Anmeldeseite** angezeigt.
 
+### Eine Paywall je Marke
+
+Eine [Marke](./brands) kann eine eigene Paywall wählen. Sie gilt dann auf allen Domains dieser Marke, **unabhängig davon, welcher Zustand** eine Leserin oder einen Leser vorbeigelassen hat.
+
+Das Angebot gehört zum Portal, nicht zum Zustand: Auf einer Domain, die durchgehend nach einem Portal aussieht, wirbt das Angebot auch mit dessen Symbol und Text.
+
+Wählt eine Marke keine Paywall, behält jeder Zustand die seine.
+
 ---
 
 ## Paywall erstellen

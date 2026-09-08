@@ -104,45 +104,36 @@ Individuelles CSS steht in **jedem Paket** zur Verfügung.
 
 ## Erscheinungsbild je Domain
 
-Läuft eine Publikation unter **mehreren Domains**, kann jede Domain ein **eigenes Erscheinungsbild** tragen: Logo, Icon, Schrift, Akzentfarbe und individuelles CSS.
-Damit erscheint dasselbe Rätsel unter zwei Marken jeweils im passenden Auftritt.
+Läuft eine Publikation unter **mehreren Domains**, kann jede Domain ein **eigenes Erscheinungsbild** tragen: Logo, Symbol, Schrift, Akzentfarbe und individuelles CSS.
+Damit erscheint dasselbe Rätsel unter zwei Portalen jeweils im passenden Auftritt.
 
-Das Erscheinungsbild einer Domain wird in der [Domain-Verwaltung](./setup#eigene-domain) Ihrer Publikation verwaltet. Öffnen Sie dort eine Domain, finden Sie den Bereich _Erscheinungsbild_.
+Diese Werte hängen nicht an der Domain, sondern an einer [Marke](./brands). Die Domain zeigt auf eine Marke, und die Marke trägt das Erscheinungsbild.
+So pflegen Sie ein Portal einmal, auch wenn es unter vier Rätseln läuft.
 
 > [!INFO]
-> Das Erscheinungsbild je Domain gehört zum Modul **Branded Domains**. Ohne dieses Modul erscheinen alle Domains einer Publikation gleich.
-
-### Standard-Domain
-
-Eine Ihrer Domains ist die **Standard-Domain**. Sie zeigt immer das Layout Ihrer Publikation und hat daher keine eigenen Felder für das Erscheinungsbild.
-Was auf der Standard-Domain zu sehen ist, bestimmen Sie in der Bearbeitungsmaske Ihrer Publikation.
-
-Alle weiteren Domains richten sich nach der Standard-Domain, solange sie nichts Eigenes hinterlegt haben.
+> Das Erscheinungsbild je Domain gehört zum Modul **Marken**. Ohne dieses Modul erscheinen alle Domains einer Publikation gleich.
 
 ### Vererbung
 
-Über den Schalter **Einstellungen der Standard-Domain nutzen** entscheiden Sie, ob eine Domain ein eigenes Erscheinungsbild führt:
+Die Werte auf dieser Seite sind der **Grund**, auf den alles zurückfällt. Eine Marke überschreibt sie **feldweise** auf ihren Domains.
 
-- **Schalter aktiv:** Die Domain erscheint wie die Standard-Domain.
-- **Schalter aus:** Es gelten die Werte, die Sie für diese Domain hinterlegen.
-
-Die Vererbung greift **feldweise**. Ein leeres Feld ist keine Entscheidung gegen einen Wert, sondern übernimmt weiterhin den Wert der Standard-Domain.
-Hinterlegen Sie also nur eine abweichende Akzentfarbe, bleiben Logo, Icon und Schrift die Ihrer Publikation.
-
-| Feld auf der Domain | Ergebnis |
+| Feld an der Marke | Ergebnis auf ihren Domains |
 | --- | --- |
-| Gefüllt | Der Wert der Domain gilt |
-| Leer | Der Wert der Standard-Domain gilt |
+| Gefüllt | Der Wert der Marke gilt |
+| Leer | Der Wert der Publikation gilt |
 
-Schalten Sie die Vererbung wieder ein, bleiben die hinterlegten Werte gespeichert und gelten erneut, sobald Sie den Schalter ausschalten.
+Ein leeres Feld ist keine Entscheidung gegen einen Wert, sondern die Entscheidung, den der Publikation zu behalten.
+Trägt eine Marke also nur eine abweichende Akzentfarbe, bleiben Logo, Symbol und Schrift die Ihrer Publikation.
 
-### CSS je Domain
+Eine Domain **ohne** Marke zeigt das Erscheinungsbild dieser Seite unverändert. Das gilt für jede Domain, solange Sie keine Marke zuordnen, und für die [Cloud-Domain](./setup#cloud-domain).
+
+### CSS je Marke
 
 Beim CSS gilt die feldweise Vererbung nicht, denn hier **ergänzen** sich beide Ebenen:
-Zuerst wird das individuelle CSS Ihrer **Publikation** geladen, danach das der **Domain**.
-Damit hat die Domain das letzte Wort und kann einzelne Regeln überschreiben, ohne das gesamte Stylesheet zu wiederholen.
+Zuerst wird das individuelle CSS Ihrer **Publikation** geladen, danach das der **Marke**.
+Damit hat die Marke das letzte Wort und kann einzelne Regeln überschreiben, ohne das gesamte Stylesheet zu wiederholen.
 
-Auch je Domain stehen **8 KB** zur Verfügung.
+Auch je Marke stehen **8 KB** zur Verfügung.
 
 > [!INFO]
 > Änderungen am Erscheinungsbild werden gesammelt und mit der nächsten [Bereitstellung](./setup#bereitstellung) auf die Domain übertragen. Auf einer Live-Domain werden sie mit der nächsten [Synchronisation](./setup#nicht-synchronisiert) sichtbar.

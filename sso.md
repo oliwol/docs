@@ -179,6 +179,31 @@ Weitere Informationen finden Sie unter [Paywall](./paywall#zustände).
 
 ---
 
+## Eine Schnittstelle je Marke
+
+Die Schnittstelle Ihrer Publikation gilt auf allen Domains, deren [Marke](./brands) keine eigene setzt, und auf allen Domains ohne Marke.
+
+Meldet sich ein Portal woanders an, geben Sie **seiner Marke eine eigene Schnittstelle**. Auf deren Domains prüft das System die Token dann gegen deren Schlüssel.
+
+Alles über ein Anmeldesystem bleibt an der Schnittstelle, die **Anmeldeseite eingeschlossen**. Ein Portal mit eigener Anmeldeseite bekommt deshalb eine eigene Schnittstelle statt eines zweiten Ortes, an dem nachzusehen wäre.
+
+In der Liste der Schnittstellen zeigt die Spalte **Verwendet von**, welche Marken und welche Publikationen eine Schnittstelle verwenden. Prüfen Sie sie, bevor Sie Schlüssel wechseln.
+
+### Kurznamen der Zustände
+
+Seiten und Konfigurationswerte binden sich über den **Kurznamen** eines Zustands an diesen. Eine zweite Schnittstelle trägt eine geschützte Seite deshalb nur, solange ihre Zustände **dieselben Kurznamen** führen.
+
+Fehlt ein Kurzname, ist die Seite auf den Domains dieser Marke **ohne Anmeldung erreichbar**. Beim Zuordnen nennt die Console die betroffenen Seiten namentlich, hält Sie aber nicht auf.
+
+> [!WARNING]
+> Legen Sie eine zweite Schnittstelle an, übernehmen Sie die Kurznamen der Zustände unverändert, sofern dieselben Inhalte geschützt bleiben sollen.
+
+### Grenze
+
+**Werte je Zustand bleiben an der Publikation.** Umgebungs-Überschreibungen, etwa die Zahl der Archivtage je Zustand, kommen weiterhin aus der Publikation, während die Zustände von der Marke stammen können. Bei gleichen Kurznamen greifen sie, eine Marke kann dafür aber keine eigenen Werte setzen.
+
+---
+
 ## Login
 
 Beim Anlegen eines **Identity Providers** hinterlegen Sie die **URL zur Anmeldeseite** Ihrer SSO.
