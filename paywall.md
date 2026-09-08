@@ -26,11 +26,9 @@ Wird **keine Paywall** zugeordnet, wird stattdessen die in der [Schnittstelle](.
 
 ### Eine Paywall je Marke
 
-Eine [Marke](./brands) kann eine eigene Paywall wählen. Sie gilt dann auf allen Domains dieser Marke, **unabhängig davon, welcher Zustand** eine Leserin oder einen Leser vorbeigelassen hat.
+Eine [Marke](./brands) kann eine Paywall wählen. Sie gilt dann für **alle Zustände** dieser Marke. Ohne Angabe behält jeder Zustand seine eigene.
 
-Das Angebot gehört zum Portal, nicht zum Zustand: Auf einer Domain, die durchgehend nach einem Portal aussieht, wirbt das Angebot auch mit dessen Symbol und Text.
-
-Wählt eine Marke keine Paywall, behält jeder Zustand die seine.
+Das Angebot gehört damit zur Marke, nicht zum Zustand: Auf einer Domain, die durchgehend nach einem Portal aussieht, wirbt auch das Angebot mit dessen Symbol und Text.
 
 ---
 

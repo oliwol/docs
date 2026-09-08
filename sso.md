@@ -185,7 +185,7 @@ Die Schnittstelle Ihrer Publikation gilt auf allen Domains, deren [Marke](./bran
 
 Meldet sich ein Portal woanders an, geben Sie **seiner Marke eine eigene Schnittstelle**. Auf deren Domains prüft das System die Token dann gegen deren Schlüssel.
 
-Alles über ein Anmeldesystem bleibt an der Schnittstelle, die **Anmeldeseite eingeschlossen**. Ein Portal mit eigener Anmeldeseite bekommt deshalb eine eigene Schnittstelle statt eines zweiten Ortes, an dem nachzusehen wäre.
+Eine Schnittstelle enthält **Anmeldeseite**, **Schlüssel** und **Zustände**. Marken mit unterschiedlichen Anmeldungen brauchen deshalb jeweils eigene Schnittstellen, auch wenn sie zum selben Realm gehören.
 
 In der Liste der Schnittstellen zeigt die Spalte **Verwendet von**, welche Marken und welche Publikationen eine Schnittstelle verwenden. Prüfen Sie sie, bevor Sie Schlüssel wechseln.
 

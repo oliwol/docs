@@ -110,7 +110,7 @@ Beim Zuordnen nennt die Console die betroffenen Seiten namentlich. Sie hält Sie
 
 **Werte je Zustand bleiben an der Publikation.** Umgebungs-Überschreibungen, etwa die Zahl der Archivtage je Zustand, kommen weiterhin aus der Publikation, während die Zustände von der Marke stammen können. Bei gleichen Kurznamen greifen sie, eine Marke kann dafür aber keine eigenen Werte setzen.
 
-**Eine Marke wählt eine Paywall, sie ändert sie nicht.** Die Paywall selbst wird an einer Stelle gepflegt. Wählt eine Marke eine, gilt diese auf ihren Domains für **jeden** Zustand.
+**Eine Marke wählt eine Paywall, sie ändert sie nicht.** Die gewählte Paywall gilt für alle Zustände der Marke. Gepflegt wird sie weiterhin an einer Stelle.
 
 **Ein Anmeldesystem, ein Nutzerbestand.** Nutzen zwei Marken verschiedene Anmeldesysteme, sind es zwei getrennte Bestände. Konten werden nicht zusammengeführt.
 
