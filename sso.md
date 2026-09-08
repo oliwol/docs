@@ -198,6 +198,14 @@ Fehlt ein Kurzname, ist die Seite auf den Domains dieser Marke **ohne Anmeldung 
 > [!WARNING]
 > Legen Sie eine zweite Schnittstelle an, übernehmen Sie die Kurznamen der Zustände unverändert, sofern dieselben Inhalte geschützt bleiben sollen.
 
+### Getrennte Nutzerbestände
+
+Ein Konto gehört zu der Schnittstelle, über die es entstanden ist, und die Anmeldung findet nur Konten derselben Schnittstelle.
+
+Vergeben Ihre Systeme **fortlaufende Nummern** statt UUIDs, können zwei Portale beide die Kennung `42` ausgeben. Ohne diese Bindung würde die zweite Person im Konto der ersten landen.
+
+Bestandskonten sind der Schnittstelle ihrer Publikation zugeordnet.
+
 ### Grenze
 
 **Werte je Zustand bleiben an der Publikation.** Umgebungs-Überschreibungen, etwa die Zahl der Archivtage je Zustand, kommen weiterhin aus der Publikation, während die Zustände von der Marke stammen können. Bei gleichen Kurznamen greifen sie, eine Marke kann dafür aber keine eigenen Werte setzen.

@@ -113,3 +113,10 @@ Beim Zuordnen nennt die Console die betroffenen Seiten namentlich. Sie hält Sie
 **Eine Marke wählt eine Paywall, sie ändert sie nicht.** Die Paywall selbst wird an einer Stelle gepflegt. Wählt eine Marke eine, gilt diese auf ihren Domains für **jeden** Zustand.
 
 **Ein Anmeldesystem, ein Nutzerbestand.** Nutzen zwei Marken verschiedene Anmeldesysteme, sind es zwei getrennte Bestände. Konten werden nicht zusammengeführt.
+
+Ein Konto gehört zu der Schnittstelle, über die es entstanden ist. Die Anmeldung findet deshalb nur Konten derselben Schnittstelle.
+
+Das ist wichtig, wenn Ihre Systeme **fortlaufende Nummern** statt UUIDs vergeben: Zwei Portale können beide die Kennung `42` ausgeben, und ohne diese Bindung würde die zweite Person im Konto der ersten landen. Mit ihr sind es zwei Konten.
+
+> [!INFO]
+> Melden sich dieselben Lesenden über zwei Marken mit **derselben E-Mail-Adresse** an, bleibt es ein Konto je Publikation. Die E-Mail-Adresse gilt als Person, die Kennung als Konto im jeweiligen System.
