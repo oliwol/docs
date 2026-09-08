@@ -104,7 +104,7 @@ Individuelles CSS steht in **jedem Paket** zur Verfügung.
 
 ## Erscheinungsbild je Domain
 
-Läuft eine Publikation unter **mehreren Domains**, kann jede Domain ein **eigenes Erscheinungsbild** tragen: Logo, Symbol, Schrift, Akzentfarbe und individuelles CSS.
+Läuft eine Publikation unter **mehreren Domains**, kann jede Domain ein **eigenes Erscheinungsbild** tragen: Logo, Icon, Schrift, Akzentfarbe und individuelles CSS.
 Damit erscheint dasselbe Rätsel unter zwei Portalen jeweils im passenden Auftritt.
 
 Diese Werte hängen nicht an der Domain, sondern an einer [Marke](./brands). Die Domain zeigt auf eine Marke, und die Marke trägt das Erscheinungsbild.
@@ -123,7 +123,7 @@ Die Werte auf dieser Seite sind der **Grund**, auf den alles zurückfällt. Eine
 | Leer | Der Wert der Publikation gilt |
 
 Ein leeres Feld ist keine Entscheidung gegen einen Wert, sondern die Entscheidung, den der Publikation zu behalten.
-Trägt eine Marke also nur eine abweichende Akzentfarbe, bleiben Logo, Symbol und Schrift die Ihrer Publikation.
+Trägt eine Marke also nur eine abweichende Akzentfarbe, bleiben Logo, Icon und Schrift die Ihrer Publikation.
 
 Eine Domain **ohne** Marke zeigt das Erscheinungsbild dieser Seite unverändert. Das gilt für jede Domain, solange Sie keine Marke zuordnen, und für die [Cloud-Domain](./setup#cloud-domain).
 

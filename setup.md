@@ -347,7 +347,7 @@ Was eine Domain eingestellt hat, finden Sie unter **Konfiguration**, erreichbar 
 
 #### Erscheinungsbild
 
-Jede Domain kann ein **eigenes Erscheinungsbild** tragen: Logo, Symbol, Schrift, Akzentfarbe und individuelles CSS. Diese Werte hängen an der [Marke](./brands), auf die die Domain zeigt.
+Jede Domain kann ein **eigenes Erscheinungsbild** tragen: Logo, Icon, Schrift, Akzentfarbe und individuelles CSS. Diese Werte hängen an der [Marke](./brands), auf die die Domain zeigt.
 Wie Marke und Publikation zusammenspielen, lesen Sie im Abschnitt [Erscheinungsbild je Domain](./layout#erscheinungsbild-je-domain).
 
 Ohne Marke zeigt eine Domain das Erscheinungsbild ihrer Publikation.

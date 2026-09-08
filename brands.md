@@ -15,7 +15,7 @@ Vier Rätsel unter dreizehn Portalen sind dreizehn Marken, nicht 52 Wertesätze.
 
 | Bereich | Inhalt |
 | --- | --- |
-| Erscheinungsbild | Logo, Symbol, Schrift, Akzentfarbe, individuelles CSS |
+| Erscheinungsbild | Logo, Icon, Schrift, Akzentfarbe, individuelles CSS |
 | Authentifizierung | die [Schnittstelle](./sso), über die sich Lesende anmelden |
 | Angebot | die [Paywall](./paywall), die auf den Domains dieser Marke erscheint |
 
@@ -33,7 +33,7 @@ Jedes Feld wird einzeln aufgelöst. Was die Marke trägt, gilt. Wo sie leer ist,
 | Leer | Der Wert der Publikation gilt |
 
 Ein leeres Feld ist also **keine Entscheidung gegen einen Wert**, sondern die Entscheidung, den der Publikation zu behalten.
-Setzen Sie an einer Marke nur eine abweichende Akzentfarbe, bleiben Logo, Symbol und Schrift die Ihrer Publikation.
+Setzen Sie an einer Marke nur eine abweichende Akzentfarbe, bleiben Logo, Icon und Schrift die Ihrer Publikation.
 
 Dasselbe gilt für die Anmeldung: Trägt eine Marke keine eigene Schnittstelle, melden sich Lesende auf ihren Domains über die Schnittstelle der Publikation an.
 

@@ -28,7 +28,7 @@ Wird **keine Paywall** zugeordnet, wird stattdessen die in der [Schnittstelle](.
 
 Eine [Marke](./brands) kann eine Paywall wählen. Sie gilt dann für **alle Zustände** dieser Marke. Ohne Angabe behält jeder Zustand seine eigene.
 
-Das Angebot gehört damit zur Marke, nicht zum Zustand: Auf einer Domain, die durchgehend nach einem Portal aussieht, wirbt auch das Angebot mit dessen Symbol und Text.
+Das Angebot gehört damit zur Marke, nicht zum Zustand: Auf einer Domain, die durchgehend nach einem Portal aussieht, wirbt auch das Angebot mit dessen Icon und Text.
 
 ---
 
