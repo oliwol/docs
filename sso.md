@@ -195,7 +195,7 @@ In der Liste der Schnittstellen zeigt die Spalte **Verwendet von**, welche Marke
 
 Seiten und Konfigurationswerte binden sich über den **Kurznamen** eines Zustands an diesen. Eine zweite Schnittstelle trägt eine geschützte Seite deshalb nur, solange ihre Zustände **dieselben Kurznamen** führen.
 
-Fehlt ein Kurzname, ist die Seite auf den Domains dieser Marke **ohne Anmeldung erreichbar**. Beim Zuordnen nennt die Console die betroffenen Seiten namentlich, hält Sie aber nicht auf.
+Führt eine Schnittstelle einen Kurznamen nicht, setzt die Console die betroffene Bindung beim Speichern auf **Angemeldet**. Der Inhalt bleibt hinter der Anmeldung und verhält sich auf allen Domains gleich. Gewarnt wird vorher, mit den Namen der betroffenen Seiten und Funktionen.
 
 Neu binden lässt sich eine Seite nur an einen Kurznamen, den **jede** auf dieser Publikation antwortende Schnittstelle führt. Die Auswahl unter **Erlaubt für** zeigt deshalb die Schnittmenge, nicht alles, was eine einzelne Schnittstelle kennt.
 

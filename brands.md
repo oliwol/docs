@@ -92,16 +92,16 @@ Trägt eine Marke eine **eigene Schnittstelle**, ist eine Bedingung zu beachten.
 Seiten und Konfigurationswerte binden sich über den **Kurznamen** eines Zustands an diesen, nicht über eine interne Nummer.
 Eine andere Schnittstelle trägt eine geschützte Seite deshalb, solange ihre Zustände **dieselben Kurznamen** führen.
 
-Fehlt ein Kurzname, ist die betroffene Seite auf den Domains dieser Marke **ohne Anmeldung erreichbar**.
+Führt eine Schnittstelle einen Kurznamen nicht, ist die Bindung dort wertlos. Die Console setzt eine solche Bindung deshalb auf **Angemeldet**: Der Inhalt bleibt hinter der Anmeldung und verhält sich auf allen Domains gleich. Er verliert die feinere Unterscheidung, nie den Schutz.
 
-Beim Zuordnen nennt die Console die betroffenen Seiten namentlich. Sie hält Sie nicht auf, denn womöglich ist genau das gewollt.
+Das passiert beim Speichern, und vorher wird gewarnt — beim Zuordnen einer Marke, beim Wechsel der Schnittstelle einer Marke und beim Umbenennen oder Verschieben eines Zustands. Die Warnung nennt die betroffenen Seiten und Funktionen namentlich und hält Sie nicht auf.
 
 Für **neue** Bindungen stellt sich die Frage gar nicht erst: Unter **Erlaubt für** und bei den Werten je Zustand stehen nur die Kurznamen zur Auswahl, die **jede** hier antwortende Schnittstelle führt. Antworten auf einer Publikation `JWT Test` und `Piano SSO WAZ`, und nur die erste kennt `testphase`, taucht `testphase` in der Auswahl nicht auf.
 
 | Zustand an der Publikation | Zustand an der Marke | Ergebnis |
 | --- | --- | --- |
 | `abonnentin` | `abonnentin` | Die Seite bleibt geschützt |
-| `abonnentin` | `subscriber` | Die Seite ist frei zugänglich |
+| `abonnentin` | `subscriber` | Die Seite wird auf „Angemeldet" gesetzt |
 
 > [!WARNING]
 > Legen Sie eine zweite Schnittstelle an, übernehmen Sie die Kurznamen der Zustände unverändert, sofern dieselben Inhalte geschützt bleiben sollen.
