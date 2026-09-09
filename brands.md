@@ -96,6 +96,8 @@ Fehlt ein Kurzname, ist die betroffene Seite auf den Domains dieser Marke **ohne
 
 Beim Zuordnen nennt die Console die betroffenen Seiten namentlich. Sie hält Sie nicht auf, denn womöglich ist genau das gewollt.
 
+Für **neue** Bindungen stellt sich die Frage gar nicht erst: Unter **Erlaubt für** und bei den Werten je Zustand stehen nur die Kurznamen zur Auswahl, die **jede** hier antwortende Schnittstelle führt. Antworten auf einer Publikation `JWT Test` und `Piano SSO WAZ`, und nur die erste kennt `testphase`, taucht `testphase` in der Auswahl nicht auf.
+
 | Zustand an der Publikation | Zustand an der Marke | Ergebnis |
 | --- | --- | --- |
 | `abonnentin` | `abonnentin` | Die Seite bleibt geschützt |
