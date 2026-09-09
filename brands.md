@@ -17,7 +17,7 @@ Vier Rätsel unter dreizehn Portalen sind dreizehn Marken, nicht 52 Wertesätze.
 | --- | --- |
 | Erscheinungsbild | Logo, Icon, Schrift, Akzentfarbe, individuelles CSS |
 | Authentifizierung | die [Schnittstelle](./sso), über die sich Lesende anmelden |
-| Angebot | die [Paywall](./paywall), die auf den Domains dieser Marke erscheint |
+| Angebot | das **Icon** der [Paywall](./paywall) auf den Domains dieser Marke |
 
 ---
 
@@ -112,7 +112,7 @@ Für **neue** Bindungen stellt sich die Frage gar nicht erst: Unter **Erlaubt f�
 
 **Werte je Zustand bleiben an der Publikation.** Umgebungs-Überschreibungen, etwa die Zahl der Archivtage je Zustand, kommen weiterhin aus der Publikation, während die Zustände von der Marke stammen können. Bei gleichen Kurznamen greifen sie, eine Marke kann dafür aber keine eigenen Werte setzen.
 
-**Eine Marke wählt eine Paywall, sie ändert sie nicht.** Die gewählte Paywall gilt für alle Zustände der Marke. Gepflegt wird sie weiterhin an einer Stelle.
+**Eine Marke wählt kein Angebot, nur sein Zeichen.** Welches Angebot jemand sieht, hängt davon ab, wie er sich angemeldet hat, und steht am [Zustand](./sso). Eine Marke kann dessen **Icon** ersetzen; Überschrift, Text und Schaltfläche bleiben die der Paywall.
 
 **Ein Anmeldesystem, ein Nutzerbestand.** Nutzen zwei Marken verschiedene Anmeldesysteme, sind es zwei getrennte Bestände. Konten werden nicht zusammengeführt.
 

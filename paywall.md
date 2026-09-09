@@ -24,11 +24,11 @@ Wird einem/einer Nutzer:in der Zugriff auf eine Funktion oder Seite verwehrt, we
 
 Wird **keine Paywall** zugeordnet, wird stattdessen die in der [Schnittstelle](./sso#login) hinterlegte **Anmeldeseite** angezeigt.
 
-### Eine Paywall je Marke
+### Ein eigenes Icon je Marke
 
-Eine [Marke](./brands) kann eine Paywall wählen. Sie gilt dann für **alle Zustände** dieser Marke. Ohne Angabe behält jeder Zustand seine eigene.
+Welches Angebot jemand zu sehen bekommt, hängt davon ab, wie er sich angemeldet hat — die Antwort steht am Zustand. Eine [Marke](./brands) wählt deshalb kein eigenes Angebot.
 
-Das Angebot gehört damit zur Marke, nicht zum Zustand: Auf einer Domain, die durchgehend nach einem Portal aussieht, wirbt auch das Angebot mit dessen Icon und Text.
+Was sie setzen kann, ist das **Icon**. Es ersetzt das der jeweiligen Paywall auf allen Domains dieser Marke, gleich welcher Zustand sie zeigt. So wirbt das Angebot auf einer Domain, die durchgehend nach einem Portal aussieht, auch mit dessen Zeichen — Überschrift, Text und Schaltfläche bleiben die der Paywall.
 
 ---
 
