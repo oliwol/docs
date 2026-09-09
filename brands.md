@@ -116,6 +116,8 @@ Für **neue** Bindungen stellt sich die Frage gar nicht erst: Unter **Erlaubt f�
 
 **Ein Anmeldesystem, ein Nutzerbestand.** Nutzen zwei Marken verschiedene Anmeldesysteme, sind es zwei getrennte Bestände. Konten werden nicht zusammengeführt.
 
+Wechselt eine Marke ihre Schnittstelle, nimmt sie ihre Leser:innen deshalb **nicht mit**: Auf ihren Domains treffen sie danach auf einen leeren Bestand und melden sich neu an. Gelöscht wird nichts — die alten Konten bleiben dort, wo die bisherige Schnittstelle weiter antwortet. Die Console nennt die Zahl der betroffenen Konten, bevor Sie speichern.
+
 Ein Konto gehört zu der Schnittstelle, über die es entstanden ist. Die Anmeldung findet deshalb nur Konten derselben Schnittstelle.
 
 Das ist wichtig, wenn Ihre Systeme **fortlaufende Nummern** statt UUIDs vergeben: Zwei Portale können beide die Kennung `42` ausgeben, und ohne diese Bindung würde die zweite Person im Konto der ersten landen. Mit ihr sind es zwei Konten.
