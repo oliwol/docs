@@ -179,6 +179,43 @@ Weitere Informationen finden Sie unter [Paywall](./paywall#zustände).
 
 ---
 
+## Eine Schnittstelle je Marke
+
+Die Schnittstelle Ihrer Publikation gilt auf allen Domains, deren [Marke](./brands) keine eigene setzt, und auf allen Domains ohne Marke.
+
+Meldet sich ein Portal woanders an, geben Sie **seiner Marke eine eigene Schnittstelle**. Auf deren Domains prüft das System die Token dann gegen deren Schlüssel.
+
+Zeigt **jede** Domain Ihrer Publikation auf eine Marke, die eine eigene Schnittstelle trägt, braucht die Publikation selbst keine. Lassen Sie das Feld dann leer. Unter **Über Marken** steht darunter, was auf welcher Marke tatsächlich antwortet.
+
+Eine Schnittstelle enthält **Anmeldeseite**, **Schlüssel** und **Zustände**. Marken mit unterschiedlichen Anmeldungen brauchen deshalb jeweils eigene Schnittstellen, auch wenn sie zum selben Realm gehören.
+
+In der Liste der Schnittstellen zeigt die Spalte **Verwendet von**, welche Marken und welche Publikationen eine Schnittstelle verwenden. Prüfen Sie sie, bevor Sie Schlüssel wechseln.
+
+### Kurznamen der Zustände
+
+Seiten und Konfigurationswerte binden sich über den **Kurznamen** eines Zustands an diesen. Eine zweite Schnittstelle trägt eine geschützte Seite deshalb nur, solange ihre Zustände **dieselben Kurznamen** führen.
+
+Führt eine Schnittstelle einen Kurznamen nicht, setzt die Console die betroffene Bindung beim Speichern auf **Angemeldet**. Der Inhalt bleibt hinter der Anmeldung und verhält sich auf allen Domains gleich. Gewarnt wird vorher, mit den Namen der betroffenen Seiten und Funktionen.
+
+Neu binden lässt sich eine Seite nur an einen Kurznamen, den **jede** auf dieser Publikation antwortende Schnittstelle führt. Die Auswahl unter **Erlaubt für** zeigt deshalb die Schnittmenge, nicht alles, was eine einzelne Schnittstelle kennt.
+
+> [!WARNING]
+> Legen Sie eine zweite Schnittstelle an, übernehmen Sie die Kurznamen der Zustände unverändert, sofern dieselben Inhalte geschützt bleiben sollen.
+
+### Getrennte Nutzerbestände
+
+Ein Konto gehört zu der Schnittstelle, über die es entstanden ist, und die Anmeldung findet nur Konten derselben Schnittstelle.
+
+Vergeben Ihre Systeme **fortlaufende Nummern** statt UUIDs, können zwei Portale beide die Kennung `42` ausgeben. Ohne diese Bindung würde die zweite Person im Konto der ersten landen.
+
+Bestandskonten sind der Schnittstelle ihrer Publikation zugeordnet.
+
+### Grenze
+
+**Werte je Zustand bleiben an der Publikation.** Umgebungs-Überschreibungen, etwa die Zahl der Archivtage je Zustand, kommen weiterhin aus der Publikation, während die Zustände von der Marke stammen können. Bei gleichen Kurznamen greifen sie, eine Marke kann dafür aber keine eigenen Werte setzen.
+
+---
+
 ## Login
 
 Beim Anlegen eines **Identity Providers** hinterlegen Sie die **URL zur Anmeldeseite** Ihrer SSO.
