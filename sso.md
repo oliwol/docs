@@ -138,6 +138,9 @@ Für den obigen Response können Sie die User-ID über den Key `user.id` extrahi
 Die E-Mail-Adresse wird im **Profil der Spieler:innen angezeigt** und kann unter dem Menüpunkt *Spieler:innen* zur **Suche** genutzt werden.
 Wenn Sie keinen Key für die E-Mail angeben, wird im Profil der Nutzer:innen *Anonym* ausgegeben.
 
+Ohne Key für die E-Mail kommen keine Adressen im System an. Die Konsole blendet dann aus, was eine Adresse voraussetzt: in der Liste unter *Spieler:innen* die Spalten *E-Mail* und *Verifiziert* sowie den Versand der Verifizierungs-E-Mail, beim Bearbeiten von Spieler:innen das Feld für die E-Mail. In der Liste steht dann die SSO-ID an erster Stelle. Sobald Spieler:innen doch eine Adresse haben, bleiben Spalten und Feld sichtbar.
+Ein Pflichtfeld ist die E-Mail nur bei der integrierten Anmeldung, weil sich Spieler:innen dort mit ihr anmelden.
+
 > [!INFO]
 > **E-Mail-Adressen** werden im Profil zum Schutz **maskiert**. Dennoch erkennen Nutzende, dass es sich um ihr Profil handelt. Adressen werden **ausschließlich für die Ausgabe** im Profil oder in der Spieler:innen-Liste genutzt und für **keinerlei Marketingzwecke** verwendet.
 
