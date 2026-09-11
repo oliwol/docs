@@ -94,7 +94,7 @@ Eine andere Schnittstelle trägt eine geschützte Seite deshalb, solange ihre Zu
 
 Führt eine Schnittstelle einen Kurznamen nicht, ist die Bindung dort wertlos. Die Console setzt eine solche Bindung deshalb auf **Angemeldet**: Der Inhalt bleibt hinter der Anmeldung und verhält sich auf allen Domains gleich. Er verliert die feinere Unterscheidung, nie den Schutz.
 
-Das passiert beim Speichern, und vorher wird gewarnt — beim Zuordnen einer Marke, beim Wechsel der Schnittstelle einer Marke und beim Umbenennen oder Verschieben eines Zustands. Die Warnung nennt die betroffenen Seiten und Funktionen namentlich und hält Sie nicht auf.
+Das passiert beim Speichern, und vorher wird gewarnt: beim Zuordnen einer Marke, beim Wechsel der Schnittstelle einer Marke und beim Umbenennen oder Verschieben eines Zustands. Die Warnung nennt die betroffenen Seiten und Funktionen namentlich und hält Sie nicht auf.
 
 Für **neue** Bindungen stellt sich die Frage gar nicht erst: Unter **Erlaubt für** und bei den Werten je Zustand stehen nur die Kurznamen zur Auswahl, die **jede** hier antwortende Schnittstelle führt. Antworten auf einer Publikation `JWT Test` und `Piano SSO WAZ`, und nur die erste kennt `testphase`, taucht `testphase` in der Auswahl nicht auf.
 
@@ -112,11 +112,11 @@ Für **neue** Bindungen stellt sich die Frage gar nicht erst: Unter **Erlaubt f�
 
 **Werte je Zustand bleiben an der Publikation.** Umgebungs-Überschreibungen, etwa die Zahl der Archivtage je Zustand, kommen weiterhin aus der Publikation, während die Zustände von der Marke stammen können. Bei gleichen Kurznamen greifen sie, eine Marke kann dafür aber keine eigenen Werte setzen.
 
-**Eine Marke wählt kein Angebot, nur sein Zeichen.** Welches Angebot jemand sieht, hängt davon ab, wie er sich angemeldet hat, und steht am [Zustand](./sso). Eine Marke kann dessen **Icon** ersetzen; Überschrift, Text und Schaltfläche bleiben die der Paywall.
+**Eine Marke wählt kein Angebot, nur sein Zeichen.** Welches Angebot jemand sieht, hängt davon ab, wie sich die Person angemeldet hat, und steht am [Zustand](./sso). Eine Marke kann dessen **Icon** ersetzen; Überschrift, Text und Schaltfläche bleiben die der Paywall.
 
 **Ein Anmeldesystem, ein Nutzerbestand.** Nutzen zwei Marken verschiedene Anmeldesysteme, sind es zwei getrennte Bestände. Konten werden nicht zusammengeführt.
 
-Wechselt eine Marke ihre Schnittstelle, nimmt sie ihre Leser:innen deshalb **nicht mit**: Auf ihren Domains treffen sie danach auf einen leeren Bestand und melden sich neu an. Gelöscht wird nichts — die alten Konten bleiben dort, wo die bisherige Schnittstelle weiter antwortet. Die Console nennt die Zahl der betroffenen Konten, bevor Sie speichern.
+Wechselt eine Marke ihre Schnittstelle, nimmt sie ihre Leser:innen deshalb **nicht mit**: Auf ihren Domains treffen sie danach auf einen leeren Bestand und melden sich neu an. Gelöscht wird nichts. Die alten Konten bleiben dort, wo die bisherige Schnittstelle weiter antwortet. Die Console nennt die Zahl der betroffenen Konten, bevor Sie speichern.
 
 Ein Konto gehört zu der Schnittstelle, über die es entstanden ist. Die Anmeldung findet deshalb nur Konten derselben Schnittstelle.
 
