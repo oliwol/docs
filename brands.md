@@ -86,7 +86,7 @@ Trägt eine Marke eine eigene Schnittstelle, melden sich Nutzer:innen auf ihren 
 Eine Schnittstelle umfasst **Anmeldeseite**, **Schlüssel** und **Zustände**. Marken mit unterschiedlicher Anmeldung brauchen deshalb jeweils eine eigene Schnittstelle, auch wenn ihre Konten im selben System liegen.
 In der Liste der Schnittstellen zeigt die Spalte **Verwendet von**, welche Marken und Publikationen eine Schnittstelle verwenden.
 
-Zeigt **jede** Domain einer Publikation auf eine Marke mit eigener Schnittstelle, braucht die Publikation selbst keine. Werte je Zustand entfallen dann allerdings, siehe [Grenzen](#grenzen).
+Zeigt **jede** Domain einer Publikation auf eine Marke mit eigener Schnittstelle, braucht die Publikation selbst keine.
 
 ### Übereinstimmende Zustände
 
@@ -102,7 +102,7 @@ Führt eine Schnittstelle **keinen** gleichnamigen Zustand, setzt das System die
 
 Vor dem Speichern warnt das System und nennt die betroffenen Seiten und Funktionen namentlich. Die Warnung erscheint in drei Situationen:
 
-- beim **Zuordnen** einer Marke mit eigener Schnittstelle
+- beim **Zuordnen** einer Marke mit eigener Schnittstelle, auch direkt beim Anlegen einer Domain
 - beim **Wechsel** der Schnittstelle einer Marke
 - beim **Umbenennen oder Verschieben** eines Zustands
 
@@ -115,7 +115,7 @@ Zur Auswahl stehen nur die aktiven Zustände, die **alle** auf der Publikation a
 
 ## Grenzen
 
-**Werte je Zustand kommen aus der Schnittstelle der Publikation.** Umgebungs-Überschreibungen, etwa die Zahl der Archivtage, stehen an den Zuständen der Schnittstelle, die die Publikation selbst gewählt hat. Sie greifen auch auf den Domains einer Marke mit eigener Schnittstelle, sofern deren Zustände gleich heißen. Werte an den Zuständen einer Marken-Schnittstelle werden nicht verwendet, und eine Publikation ohne eigene Schnittstelle hat keine Werte je Zustand.
+**Ein Zustand, ein Wert.** Umgebungs-Überschreibungen, etwa die Zahl der Archivtage, stehen an den Zuständen einer Schnittstelle. Es zählen die Zustände aller Schnittstellen, die auf der Publikation antworten. Führen mehrere denselben Zustand, gilt der Wert der Schnittstelle der Publikation, danach der Wert der Marke, deren Name alphabetisch zuerst kommt. Unterschiedliche Werte je Marke für denselben Zustand sind nicht vorgesehen.
 
 **Eine Marke ersetzt nur das Icon der Paywall.** Überschrift, Text und Schaltfläche bleiben die der jeweiligen [Paywall](./paywall#ein-eigenes-icon-je-marke). Welche Paywall erscheint, bestimmt wie bisher der Zustand.
 
