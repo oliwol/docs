@@ -104,36 +104,32 @@ Individuelles CSS steht in **jedem Paket** zur Verfügung.
 
 ## Erscheinungsbild je Domain
 
-Läuft eine Publikation unter **mehreren Domains**, kann jede Domain ein **eigenes Erscheinungsbild** tragen: Logo, Icon, Schrift, Akzentfarbe und individuelles CSS.
-Damit erscheint dasselbe Rätsel unter zwei Portalen jeweils im passenden Auftritt.
+Läuft eine Publikation unter **mehreren Domains**, kann jede Domain ein **eigenes Erscheinungsbild** tragen: Logo, Icon, Schrift, Akzentfarbe und individuelles CSS. Dasselbe Rätsel erscheint damit unter jeder Domain im passenden Layout.
 
-Diese Werte hängen nicht an der Domain, sondern an einer [Marke](./brands). Die Domain zeigt auf eine Marke, und die Marke trägt das Erscheinungsbild.
-So pflegen Sie ein Portal einmal, auch wenn es unter vier Rätseln läuft.
+Das Erscheinungsbild hängt dabei nicht an der Domain, sondern an einer [Marke](./brands): Die Domain zeigt auf eine Marke, die Marke trägt das Erscheinungsbild. Zeigen Domains mehrerer Publikationen auf dieselbe Marke, pflegen Sie deren Layout nur **einmal**.
 
 > [!INFO]
 > Das Erscheinungsbild je Domain gehört zum Modul **Marken**. Ohne dieses Modul erscheinen alle Domains einer Publikation gleich.
+> Endet das Modul, bleiben bestehende Zuordnungen wirksam, lassen sich aber nicht mehr ändern.
 
 ### Vererbung
 
-Die Werte auf dieser Seite sind der **Grund**, auf den alles zurückfällt. Eine Marke überschreibt sie **feldweise** auf ihren Domains.
+Die Layout-Werte Ihrer Publikation (Logo, Icon, Schrift, Akzentfarbe und individuelles CSS) sind der **Standard**. Eine Marke überschreibt ihn auf ihren Domains **feldweise**:
 
 | Feld an der Marke | Ergebnis auf ihren Domains |
 | --- | --- |
 | Gefüllt | Der Wert der Marke gilt |
 | Leer | Der Wert der Publikation gilt |
 
-Ein leeres Feld ist keine Entscheidung gegen einen Wert, sondern die Entscheidung, den der Publikation zu behalten.
-Trägt eine Marke also nur eine abweichende Akzentfarbe, bleiben Logo, Icon und Schrift die Ihrer Publikation.
+Sie pflegen an einer Marke also nur die Abweichungen: Setzt eine Marke nur Logo, Icon und Akzentfarbe, bleibt die Schrift die der Publikation.
 
-Eine Domain **ohne** Marke zeigt das Erscheinungsbild dieser Seite unverändert. Das gilt für jede Domain, solange Sie keine Marke zuordnen, und für die [Cloud-Domain](./setup#cloud-domain).
+Eine Domain **ohne** Marke zeigt das Erscheinungsbild der Publikation unverändert.
 
 ### CSS je Marke
 
-Beim CSS gilt die feldweise Vererbung nicht, denn hier **ergänzen** sich beide Ebenen:
-Zuerst wird das individuelle CSS Ihrer **Publikation** geladen, danach das der **Marke**.
-Damit hat die Marke das letzte Wort und kann einzelne Regeln überschreiben, ohne das gesamte Stylesheet zu wiederholen.
+Für das individuelle CSS gilt eine Ausnahme von der feldweisen Vererbung: Beide Ebenen werden **kombiniert**. Zuerst lädt das CSS der **Publikation**, danach das der **Marke**. Die Marke kann damit einzelne Regeln überschreiben, ohne das gesamte Stylesheet zu wiederholen.
 
-Auch je Marke stehen **8 KB** zur Verfügung.
+Je Marke und Publikation stehen **8 KB** zur Verfügung.
 
 > [!INFO]
-> Änderungen am Erscheinungsbild werden gesammelt und mit der nächsten [Bereitstellung](./setup#bereitstellung) auf die Domain übertragen. Auf einer Live-Domain werden sie mit der nächsten [Synchronisation](./setup#nicht-synchronisiert) sichtbar.
+> Änderungen am Erscheinungsbild werden gesammelt und mit der nächsten [Bereitstellung](./setup#bereitstellung) auf die Domains übertragen. Auf einer Live-Domain werden sie mit der nächsten [Synchronisation](./setup#nicht-synchronisiert) sichtbar.
