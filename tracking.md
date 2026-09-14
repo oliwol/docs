@@ -349,6 +349,10 @@ window.addEventListener('message', (event) => {
 > Diese Nachrichten enthalten statt `event` und `detail` eine Property `height` beziehungsweise `colorScheme`.
 > Beide sind Zustandsmeldungen und keine Events, beschrieben unter [Nachrichten an Ihre Seite](./setup#nachrichten-an-ihre-seite).
 
+> [!INFO]
+> In die umgekehrte Richtung nimmt die Publikation die Meldung `PaywallClosed` entgegen, sobald ein eigenes Angebot der Variante **Individuell** geschlossen wurde.
+> Sie trägt dieselben Properties `source` und `event`, beschrieben unter [Paywall schließen](./paywall#paywall-schließen).
+
 ---
 
 ## Virtuelle Seitenaufrufe
