@@ -199,7 +199,7 @@ const puzzle = (node) => {
     iframe.style.marginRight = 'auto';
     iframe.onload = () => {
         window.addEventListener('message', function(e) {
-            if (e.origin !== 'https://sudoku.example.com') {
+            if (e.origin !== 'https://sudoku.example.com' || e.source !== iframe.contentWindow) {
                 return;
             }
 
@@ -296,57 +296,6 @@ Das Custom-Event `PageView` meldet jeden Seitenwechsel mit dem Pfad der neuen Se
 Damit lässt sich der Pfad in der Adresse Ihrer Seite festhalten, hier als Parameter `raetsel`, und beim nächsten Laden an den Iframe übergeben.
 Der Name des Parameters ist frei wählbar.
 
-```html
-<iframe id="sudoku" width="100%" height="720" referrerpolicy="no-referrer-when-downgrade"
-        src="https://sudoku.example.com" title="Sudoku"></iframe>
-<script>
-(function () {
-    const origin = 'https://sudoku.example.com';
-    const param = 'raetsel';
-    const iframe = document.getElementById('sudoku');
-
-    const saved = new URLSearchParams(window.location.search).get(param);
-
-    if (saved) {
-        const target = new URL(saved, origin);
-
-        if (target.origin === origin && target.pathname !== '/') {
-            iframe.src = target.href;
-        }
-    }
-
-    window.addEventListener('message', function (e) {
-        if (e.origin !== origin || e.data?.source !== 'oliwol') {
-            return;
-        }
-
-        if (typeof e.data.height === 'number') {
-            iframe.style.height = e.data.height + 'px';
-        }
-
-        if (e.data.event === 'PageView') {
-            const url = new URL(window.location.href);
-            const path = e.data.detail.to.fullPath;
-
-            path === '/' ? url.searchParams.delete(param) : url.searchParams.set(param, path);
-            history.replaceState(history.state, '', url);
-        }
-    }, false);
-})();
-</script>
-```
-
-Nach einem Wechsel auf `/statistiken` steht in der Adresszeile `?raetsel=%2Fstatistiken`.
-Ein Neuladen, ein Lesezeichen oder ein geteilter Link führt dann direkt auf diese Seite des Rätsels.
-Auf der Startseite verschwindet der Parameter wieder.
-`history.replaceState` ändert dabei nur die Adresse und legt keinen zusätzlichen Eintrag im Verlauf an.
-
-Leitet die Publikation um, etwa weil eine Seite hinter einer Paywall steht, meldet `PageView` die Seite, auf der der Iframe tatsächlich landet.
-Der Parameter folgt dieser Seite.
-
-Das Skript steht direkt hinter dem Iframe und stellt dessen Adresse um, bevor die Startseite geladen ist.
-Bei der **Integration via Script** entfällt auch dieser Schritt, weil die Adresse feststeht, bevor der Iframe in die Seite eingefügt wird:
-
 ```javascript
 const origin = 'https://sudoku.example.com';
 const param = 'raetsel';
@@ -355,26 +304,26 @@ const puzzle = (node) => {
     const iframe = document.createElement('iframe');
     const src = new URL(origin);
 
-    const saved = new URLSearchParams(window.location.search).get(param);
-
-    if (saved) {
-        const target = new URL(saved, origin);
+    try {
+        const target = new URL(new URLSearchParams(window.location.search).get(param) ?? '/', origin);
 
         if (target.origin === origin) {
             src.pathname = target.pathname;
             src.search = target.search;
             src.hash = target.hash;
         }
+    } catch (error) {
+        // Keine lesbare Adresse im Parameter: Der Iframe beginnt auf der Startseite.
     }
 
     iframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
     iframe.setAttribute('width', '450');
-    iframe.setAttribute('src', src.toString());
+    iframe.setAttribute('src', src.href);
     iframe.setAttribute('title', 'Sudoku');
     iframe.setAttribute('height', '720');
 
     window.addEventListener('message', (e) => {
-        if (e.origin !== origin || e.data?.source !== 'oliwol') {
+        if (e.origin !== origin || e.source !== iframe.contentWindow || e.data?.source !== 'oliwol') {
             return;
         }
 
@@ -382,9 +331,10 @@ const puzzle = (node) => {
             iframe.style.height = e.data.height + 'px';
         }
 
-        if (e.data.event === 'PageView') {
+        const path = e.data.event === 'PageView' ? e.data.detail?.to?.fullPath : null;
+
+        if (typeof path === 'string' && path.startsWith('/')) {
             const url = new URL(window.location.href);
-            const path = e.data.detail.to.fullPath;
 
             path === '/' ? url.searchParams.delete(param) : url.searchParams.set(param, path);
             history.replaceState(history.state, '', url);
@@ -397,12 +347,75 @@ const puzzle = (node) => {
 puzzle(document.getElementById('sudoku-wrapper'));
 ```
 
-Der Listener meldet sich hier an, bevor der Iframe eingefügt wird. So erreicht ihn auch der `PageView` der ersten Seite.
+Der Listener meldet sich an, bevor der Iframe eingefügt wird. So erreicht ihn auch der `PageView` der ersten Seite.
+Die Prüfung von `e.source` lässt nur Nachrichten des eigenen Iframes durch.
+Ohne sie verarbeitet jeder Listener auch die Nachrichten eines zweiten Rätsels derselben Publikation auf der Seite und überschreibt dessen Höhe und Parameter.
+Zwei Rätsel auf einer Seite brauchen außerdem je einen eigenen Parameter.
 
-> [!WARNING]
+Nach einem Wechsel auf `/statistiken` steht in der Adresszeile `?raetsel=%2Fstatistiken`.
+Ein Neuladen, ein Lesezeichen oder ein geteilter Link führt dann direkt auf diese Seite des Rätsels.
+Auf der Startseite verschwindet der Parameter wieder.
+`history.replaceState` ändert dabei nur die Adresse und legt keinen zusätzlichen Eintrag im Verlauf an.
+
+Leitet die Publikation um, etwa weil eine Seite hinter einer Paywall steht, meldet `PageView` die Seite, auf der der Iframe tatsächlich landet.
+Der Parameter folgt dieser Seite.
+
+Beim **Iframe-Code** entfällt das `src` im Markup, und das Skript setzt die Adresse genau einmal.
+Stünde die Startseite im Markup, würde sie bereits geladen, bevor das Skript die Adresse umstellt.
+
+```html
+<iframe id="sudoku" width="100%" height="720" referrerpolicy="no-referrer-when-downgrade" title="Sudoku"></iframe>
+<script>
+(function () {
+    const origin = 'https://sudoku.example.com';
+    const param = 'raetsel';
+    const iframe = document.getElementById('sudoku');
+    const src = new URL(origin);
+
+    try {
+        const target = new URL(new URLSearchParams(window.location.search).get(param) ?? '/', origin);
+
+        if (target.origin === origin) {
+            src.pathname = target.pathname;
+            src.search = target.search;
+            src.hash = target.hash;
+        }
+    } catch (error) {
+        // Keine lesbare Adresse im Parameter: Der Iframe beginnt auf der Startseite.
+    }
+
+    window.addEventListener('message', function (e) {
+        if (e.origin !== origin || e.source !== iframe.contentWindow || e.data?.source !== 'oliwol') {
+            return;
+        }
+
+        if (typeof e.data.height === 'number') {
+            iframe.style.height = e.data.height + 'px';
+        }
+
+        const path = e.data.event === 'PageView' ? e.data.detail?.to?.fullPath : null;
+
+        if (typeof path === 'string' && path.startsWith('/')) {
+            const url = new URL(window.location.href);
+
+            path === '/' ? url.searchParams.delete(param) : url.searchParams.set(param, path);
+            history.replaceState(history.state, '', url);
+        }
+    }, false);
+
+    iframe.src = src.href;
+})();
+</script>
+```
+
+> [!INFO]
 > Der Parameter steht in der Adresse Ihrer Seite und lässt sich über einen Link beliebig setzen.
-> Die Prüfung `target.origin === origin` sorgt dafür, dass der Iframe ausschließlich Seiten Ihrer Publikation lädt.
-> Ohne sie ließe sich über einen präparierten Link wie `?raetsel=//example.org` eine fremde Seite in den Rahmen laden.
+> Übernommen werden daraus nur Pfad, Query und Fragment. Die Domain stammt immer aus `origin`, der Iframe lädt so ausschließlich Seiten Ihrer Publikation.
+> Eine Adresse wie `?raetsel=//example.org` wird verworfen, der Iframe beginnt dann auf der Startseite.
+
+> [!INFO]
+> Jeder geteilte Link mit dem Parameter ist eine weitere Adresse derselben Seite.
+> Ein `<link rel="canonical">` auf die Adresse ohne Parameter führt diese Varianten für Suchmaschinen zusammen.
 
 ---
 
