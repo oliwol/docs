@@ -286,6 +286,124 @@ Sie kommt auch dann, wenn sich der Farbmodus seit der letzten Meldung nicht ver�
 > Die **Höhe** wird über denselben Weg gemeldet und trägt dieselbe Property `source`.
 > Ein Listener kann beide Nachrichten entgegennehmen, wie im Beispiel der [Script-Integration](#iframe-script) gezeigt.
 
+#### Zuletzt besuchte Seite
+
+Ihre Publikation ist eine *Single Page Application*. Ein Wechsel innerhalb des Rätsels, etwa auf `/statistiken`, ändert nur die Adresse im Iframe.
+Die umgebende Seite erfährt davon nichts und kann die Adresse des Iframes auch nicht auslesen.
+Wird sie neu geladen, beginnt der Iframe deshalb wieder auf der Startseite der Publikation.
+
+Das Custom-Event `PageView` meldet jeden Seitenwechsel mit dem Pfad der neuen Seite in `detail.to.fullPath`.
+Damit lässt sich der Pfad in der Adresse Ihrer Seite festhalten, hier als Parameter `raetsel`, und beim nächsten Laden an den Iframe übergeben.
+Der Name des Parameters ist frei wählbar.
+
+```html
+<iframe id="sudoku" width="100%" height="720" referrerpolicy="no-referrer-when-downgrade"
+        src="https://sudoku.example.com" title="Sudoku"></iframe>
+<script>
+(function () {
+    const origin = 'https://sudoku.example.com';
+    const param = 'raetsel';
+    const iframe = document.getElementById('sudoku');
+
+    const saved = new URLSearchParams(window.location.search).get(param);
+
+    if (saved) {
+        const target = new URL(saved, origin);
+
+        if (target.origin === origin && target.pathname !== '/') {
+            iframe.src = target.href;
+        }
+    }
+
+    window.addEventListener('message', function (e) {
+        if (e.origin !== origin || e.data?.source !== 'oliwol') {
+            return;
+        }
+
+        if (typeof e.data.height === 'number') {
+            iframe.style.height = e.data.height + 'px';
+        }
+
+        if (e.data.event === 'PageView') {
+            const url = new URL(window.location.href);
+            const path = e.data.detail.to.fullPath;
+
+            path === '/' ? url.searchParams.delete(param) : url.searchParams.set(param, path);
+            history.replaceState(history.state, '', url);
+        }
+    }, false);
+})();
+</script>
+```
+
+Nach einem Wechsel auf `/statistiken` steht in der Adresszeile `?raetsel=%2Fstatistiken`.
+Ein Neuladen, ein Lesezeichen oder ein geteilter Link führt dann direkt auf diese Seite des Rätsels.
+Auf der Startseite verschwindet der Parameter wieder.
+`history.replaceState` ändert dabei nur die Adresse und legt keinen zusätzlichen Eintrag im Verlauf an.
+
+Leitet die Publikation um, etwa weil eine Seite hinter einer Paywall steht, meldet `PageView` die Seite, auf der der Iframe tatsächlich landet.
+Der Parameter folgt dieser Seite.
+
+Das Skript steht direkt hinter dem Iframe und stellt dessen Adresse um, bevor die Startseite geladen ist.
+Bei der **Integration via Script** entfällt auch dieser Schritt, weil die Adresse feststeht, bevor der Iframe in die Seite eingefügt wird:
+
+```javascript
+const origin = 'https://sudoku.example.com';
+const param = 'raetsel';
+
+const puzzle = (node) => {
+    const iframe = document.createElement('iframe');
+    const src = new URL(origin);
+
+    const saved = new URLSearchParams(window.location.search).get(param);
+
+    if (saved) {
+        const target = new URL(saved, origin);
+
+        if (target.origin === origin) {
+            src.pathname = target.pathname;
+            src.search = target.search;
+            src.hash = target.hash;
+        }
+    }
+
+    iframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
+    iframe.setAttribute('width', '450');
+    iframe.setAttribute('src', src.toString());
+    iframe.setAttribute('title', 'Sudoku');
+    iframe.setAttribute('height', '720');
+
+    window.addEventListener('message', (e) => {
+        if (e.origin !== origin || e.data?.source !== 'oliwol') {
+            return;
+        }
+
+        if (typeof e.data.height === 'number') {
+            iframe.style.height = e.data.height + 'px';
+        }
+
+        if (e.data.event === 'PageView') {
+            const url = new URL(window.location.href);
+            const path = e.data.detail.to.fullPath;
+
+            path === '/' ? url.searchParams.delete(param) : url.searchParams.set(param, path);
+            history.replaceState(history.state, '', url);
+        }
+    }, false);
+
+    node.after(iframe);
+};
+
+puzzle(document.getElementById('sudoku-wrapper'));
+```
+
+Der Listener meldet sich hier an, bevor der Iframe eingefügt wird. So erreicht ihn auch der `PageView` der ersten Seite.
+
+> [!WARNING]
+> Der Parameter steht in der Adresse Ihrer Seite und lässt sich über einen Link beliebig setzen.
+> Die Prüfung `target.origin === origin` sorgt dafür, dass der Iframe ausschließlich Seiten Ihrer Publikation lädt.
+> Ohne sie ließe sich über einen präparierten Link wie `?raetsel=//example.org` eine fremde Seite in den Rahmen laden.
+
 ---
 
 ## Domains
