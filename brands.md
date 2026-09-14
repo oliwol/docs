@@ -103,7 +103,7 @@ Führt eine Schnittstelle **keinen** gleichnamigen Zustand, setzt das System die
 Vor dem Speichern warnt das System und nennt die betroffenen Seiten und Funktionen namentlich. Die Warnung erscheint in drei Situationen:
 
 - beim **Zuordnen** einer Marke mit eigener Schnittstelle, auch direkt beim Anlegen einer Domain
-- beim **Wechsel** der Schnittstelle einer Marke
+- beim **Wechsel** der Schnittstelle einer Marke oder der Publikation
 - beim **Umbenennen oder Verschieben** eines Zustands
 
 Zur Auswahl stehen nur die aktiven Zustände, die **alle** auf der Publikation antwortenden Schnittstellen führen, etwa unter **Erlaubt für**.
