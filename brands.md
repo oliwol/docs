@@ -1,13 +1,14 @@
 # Marken
 
-Eine **Marke** bündelt, was ein Portal ausmacht: das **Erscheinungsbild**, die **Anmeldung** und das **Angebot**.
-Sie gehört zu Ihrer Organisation und gilt über alle Publikationen hinweg.
+Eine **Marke** bündelt das **Erscheinungsbild**, die **Schnittstelle** für die Anmeldung und das **Icon** der Paywall.
+Marken gehören zu Ihrer **Organisation** und stehen damit in allen Publikationen zur Verfügung.
 
-Führen Sie mehrere Portale auf denselben Rätseln, pflegen Sie eine Marke einmal statt einmal je Rätsel.
-Vier Rätsel unter dreizehn Portalen sind dreizehn Marken, nicht 52 Wertesätze.
+Marken sind für Organisationen gedacht, die dieselben Rätsel unter **mehreren eigenständigen Auftritten** betreiben, etwa ein Verlag, der ein Sudoku unter allen seinen Zeitungsmarken anbietet.
+Statt Logo, Farben und Schnittstelle in jeder Publikation einzeln zu hinterlegen, pflegen Sie sie **einmal je Marke**: Bei drei Rätseln und fünf Marken pflegen Sie fünf Konfigurationen statt 15.
 
 > [!INFO]
-> Marken gehören zum Modul **Marken**. Ohne dieses Modul erscheint der Menüpunkt nicht, und Ihre Publikationen verhalten sich unverändert.
+> Marken gehören zum **gleichnamigen Modul**. Ohne dieses Modul erscheint der Menüpunkt nicht, und Ihre Publikationen verhalten sich unverändert.
+> Endet das Modul, bleiben bestehende Zuordnungen wirksam, lassen sich aber nicht mehr ändern.
 
 ---
 
@@ -16,111 +17,114 @@ Vier Rätsel unter dreizehn Portalen sind dreizehn Marken, nicht 52 Wertesätze.
 | Bereich | Inhalt |
 | --- | --- |
 | Erscheinungsbild | Logo, Icon, Schrift, Akzentfarbe, individuelles CSS |
-| Authentifizierung | die [Schnittstelle](./sso), über die sich Lesende anmelden |
-| Angebot | das **Icon** der [Paywall](./paywall) auf den Domains dieser Marke |
+| Authentifizierung | die [Schnittstelle](./sso), über die sich Nutzer:innen anmelden |
+| Paywall | das [Icon](./paywall#ein-eigenes-icon-je-marke) der Paywall |
 
 ---
 
 ## Vererbung
 
-Eine Marke **überschreibt** die Publikation, sie ersetzt sie nicht.
-
-Jedes Feld wird einzeln aufgelöst. Was die Marke trägt, gilt. Wo sie leer ist, gilt der Wert der Publikation.
+Eine Marke **überschreibt** die Werte ihrer Publikation **feldweise**:
 
 | Feld an der Marke | Ergebnis auf ihren Domains |
 | --- | --- |
 | Gefüllt | Der Wert der Marke gilt |
 | Leer | Der Wert der Publikation gilt |
 
-Ein leeres Feld ist also **keine Entscheidung gegen einen Wert**, sondern die Entscheidung, den der Publikation zu behalten.
-Setzen Sie an einer Marke nur eine abweichende Akzentfarbe, bleiben Logo, Icon und Schrift die Ihrer Publikation.
+Sie müssen an einer Marke also nur die Werte pflegen, die vom Standard der Publikation **abweichen**.
+Setzt eine Marke beispielsweise nur Logo, Icon und Akzentfarbe, bleibt die Schrift die der Publikation.
+Dasselbe gilt für die Anmeldung: Trägt eine Marke keine eigene Schnittstelle, gilt die [Schnittstelle der Publikation](./sso#aktivierung-der-sso).
 
-Dasselbe gilt für die Anmeldung: Trägt eine Marke keine eigene Schnittstelle, melden sich Lesende auf ihren Domains über die Schnittstelle der Publikation an.
-
-### Die Reihenfolge
+Die Auflösung folgt immer derselben Reihenfolge:
 
 ```
 Domain  →  Marke  →  Publikation
 ```
 
-Eine Domain zeigt auf höchstens eine Marke, und die Marke fällt auf die Publikation zurück.
+Eine Domain zeigt auf **höchstens eine Marke**; für jedes leere Feld der Marke gilt der Wert der Publikation.
 
 ### Domains ohne Marke
 
-Eine Domain **braucht** keine Marke. Ohne eine zeigt sie das Erscheinungsbild ihrer Publikation und meldet sich über deren Schnittstelle an, genau wie vor der Einführung der Marken.
-Das gilt auch für die [Cloud-Domain](./setup#cloud-domain).
+Eine Domain benötigt **keine** Marke. Ohne Marke gelten Erscheinungsbild und Schnittstelle der Publikation.
 
 ---
 
 ## Eine Marke anlegen
 
-Marken finden Sie in der Navigation neben **Publikationen**.
+Marken verwalten Sie in der Navigation Ihrer Organisation unter **Marken**.
 
-Eine neue Marke braucht nur einen **Namen**. Alles Weitere dürfen Sie leer lassen und später ergänzen; leer bedeutet, dass die Publikation den Wert liefert.
-
-Wie viele Marken Sie führen, ist nicht begrenzt.
+Beim Anlegen ist nur der **Name** ein Pflichtfeld. Alle weiteren Werte können Sie leer lassen und später ergänzen; leere Felder erben von der jeweiligen Publikation.
+Die Anzahl der Marken ist nicht begrenzt.
 
 ---
 
 ## Eine Marke zuordnen
 
-Die Zuordnung geschieht an der **Domain**, denn eine Domain gehört zu einem Rätsel.
+Die Zuordnung erfolgt an der **Domain**.
 
-Öffnen Sie in Ihrer Publikation die [Domain-Verwaltung](./setup#eigene-domain) und dort die **Konfiguration** einer Domain, entweder über einen Klick auf die Zeile oder über das Aktionsmenü. Neben den DNS-Einträgen finden Sie dort die Auswahl der Marke.
-
+Öffnen Sie dazu in Ihrer Publikation die [Domain-Verwaltung](./setup#eigene-domain) und anschließend die **Konfiguration** der gewünschten Domain, per Klick auf die Zeile oder über das Aktionsmenü. Oberhalb der DNS-Einträge finden Sie dort die Auswahl der Marke.
 Die Voreinstellung ist **Ohne Marke**.
 
 > [!INFO]
-> Eine Änderung an einer Marke oder an einer Zuordnung wird gesammelt und mit der nächsten [Bereitstellung](./setup#bereitstellung) auf die Domains übertragen.
+> Änderungen an einer Marke oder Zuordnung werden gesammelt und mit der nächsten [Bereitstellung](./setup#bereitstellung) auf die Domains übertragen.
 
 ---
 
-## Die Reichweite einer Marke
+## Domains einer Marke
 
-Öffnen Sie eine Marke, sehen Sie unter **Domains** alle Domains, die sie zeigen, **über alle Publikationen hinweg**, jede mit ihrem Rätsel.
+In der Detailansicht einer Marke sehen Sie unter **Domains** alle Domains, die auf die Marke zeigen, **über alle Publikationen hinweg** und jeweils mit ihrer Publikation.
+Prüfen Sie diese Liste vor größeren Änderungen: Sie zeigt, welche Domains eine Änderung an der Marke betrifft.
 
-Dort steht auch, wie weit eine Änderung reicht, bevor Sie sie machen.
-
-Eine Marke lässt sich **nicht löschen**, solange eine Domain auf sie zeigt. Andernfalls verlöre diese Domain ihr Erscheinungsbild, ohne dass es jemand gesagt hätte.
+Eine Marke kann erst **gelöscht** werden, wenn keine Domain mehr auf sie zeigt.
 
 ---
 
-## Zustände und ihre Kurznamen
+## Eigene Schnittstelle je Marke
 
-Trägt eine Marke eine **eigene Schnittstelle**, ist eine Bedingung zu beachten.
+Trägt eine Marke eine eigene Schnittstelle, melden sich Nutzer:innen auf ihren Domains über diese Schnittstelle an. Für die [Zugriffsteuerung](./paywall#zugriffsteuerung) ist dabei eine Bedingung zu beachten.
 
-Seiten und Konfigurationswerte binden sich über den **Kurznamen** eines Zustands an diesen, nicht über eine interne Nummer.
-Eine andere Schnittstelle trägt eine geschützte Seite deshalb, solange ihre Zustände **dieselben Kurznamen** führen.
+Eine Schnittstelle umfasst **Anmeldeseite**, **Schlüssel** und **Zustände**. Marken mit unterschiedlicher Anmeldung brauchen deshalb jeweils eine eigene Schnittstelle, auch wenn ihre Konten im selben System liegen.
+In der Liste der Schnittstellen zeigt die Spalte **Verwendet von**, welche Marken und Publikationen eine Schnittstelle verwenden.
 
-Führt eine Schnittstelle einen Kurznamen nicht, ist die Bindung dort wertlos. Die Console setzt eine solche Bindung deshalb auf **Angemeldet**: Der Inhalt bleibt hinter der Anmeldung und verhält sich auf allen Domains gleich. Er verliert die feinere Unterscheidung, nie den Schutz.
+Zeigt **jede** Domain einer Publikation auf eine Marke mit eigener Schnittstelle, braucht die Publikation selbst keine.
 
-Das passiert beim Speichern, und vorher wird gewarnt: beim Zuordnen einer Marke, beim Wechsel der Schnittstelle einer Marke und beim Umbenennen oder Verschieben eines Zustands. Die Warnung nennt die betroffenen Seiten und Funktionen namentlich und hält Sie nicht auf.
+### Übereinstimmende Zustände
 
-Für **neue** Bindungen stellt sich die Frage gar nicht erst: Unter **Erlaubt für** und bei den Werten je Zustand stehen nur die Kurznamen zur Auswahl, die **jede** hier antwortende Schnittstelle führt. Antworten auf einer Publikation `JWT Test` und `Piano SSO WAZ`, und nur die erste kennt `testphase`, taucht `testphase` in der Auswahl nicht auf.
+Geschützte Seiten, Funktionen und Werbeplätze sind an einen [Zustand](./paywall#zustände) gebunden, nicht an eine bestimmte Schnittstelle.
+Eine Bindung greift deshalb auf jeder Domain, deren Schnittstelle einen **gleichnamigen Zustand** führt.
+
+Führt eine Schnittstelle **keinen** gleichnamigen Zustand, setzt das System die betroffene Bindung beim Speichern auf **Angemeldet**. Der Inhalt bleibt damit hinter der Anmeldung geschützt und verhält sich auf allen Domains gleich; nur die feinere Unterscheidung nach Zustand entfällt.
 
 | Zustand an der Publikation | Zustand an der Marke | Ergebnis |
 | --- | --- | --- |
-| `abonnentin` | `abonnentin` | Die Seite bleibt geschützt |
-| `abonnentin` | `subscriber` | Die Seite wird auf „Angemeldet" gesetzt |
+| `abonnentin` | `abonnentin` | Die Seite bleibt auf den Zustand beschränkt |
+| `abonnentin` | `subscriber` | Die Bindung wird auf **Angemeldet** gesetzt |
+
+Vor dem Speichern warnt das System und nennt die betroffenen Seiten, Funktionen und Werbeplätze namentlich. Die Warnung erscheint in drei Situationen:
+
+- beim **Zuordnen** einer Marke mit eigener Schnittstelle, auch direkt beim Anlegen einer Domain
+- beim **Wechsel** der Schnittstelle einer Marke oder der Publikation
+- beim **Umbenennen oder Verschieben** eines Zustands
+
+Zur Auswahl stehen nur die aktiven Zustände, die **alle** auf der Publikation antwortenden Schnittstellen führen, etwa unter **Erlaubt für**.
 
 > [!WARNING]
-> Legen Sie eine zweite Schnittstelle an, übernehmen Sie die Kurznamen der Zustände unverändert, sofern dieselben Inhalte geschützt bleiben sollen.
+> Wenn Sie eine weitere Schnittstelle anlegen, übernehmen Sie die Namen der bestehenden Zustände unverändert, sofern dieselben Inhalte geschützt bleiben sollen.
 
 ---
 
 ## Grenzen
 
-**Werte je Zustand bleiben an der Publikation.** Umgebungs-Überschreibungen, etwa die Zahl der Archivtage je Zustand, kommen weiterhin aus der Publikation, während die Zustände von der Marke stammen können. Bei gleichen Kurznamen greifen sie, eine Marke kann dafür aber keine eigenen Werte setzen.
+**Ein Zustand, ein Wert.** Umgebungs-Überschreibungen, etwa die Zahl der Archivtage, stehen an den Zuständen einer Schnittstelle. Es zählen die Zustände aller Schnittstellen, die auf der Publikation antworten. Führen mehrere denselben Zustand, gilt der Wert der Schnittstelle der Publikation, danach der Wert der Marke, deren Name alphabetisch zuerst kommt. Unterschiedliche Werte je Marke für denselben Zustand sind nicht vorgesehen.
 
-**Eine Marke wählt kein Angebot, nur sein Zeichen.** Welches Angebot jemand sieht, hängt davon ab, wie sich die Person angemeldet hat, und steht am [Zustand](./sso). Eine Marke kann dessen **Icon** ersetzen; Überschrift, Text und Schaltfläche bleiben die der Paywall.
+**Eine Marke ersetzt nur das Icon der Paywall.** Überschrift, Text und Schaltfläche bleiben die der jeweiligen [Paywall](./paywall#ein-eigenes-icon-je-marke). Welche Paywall erscheint, bestimmt wie bisher der Zustand.
 
-**Ein Anmeldesystem, ein Nutzerbestand.** Nutzen zwei Marken verschiedene Anmeldesysteme, sind es zwei getrennte Bestände. Konten werden nicht zusammengeführt.
+**Je Schnittstelle ein eigener Nutzerbestand.** Ein Konto gehört zu der Schnittstelle, über die es angelegt wurde; die Anmeldung findet nur Konten derselben Schnittstelle. Das gilt auch für die E-Mail-Adresse: Sie findet ein Konto nur innerhalb derselben Schnittstelle, etwa wenn eine Schnittstelle einer Person eine neue User-ID vergibt. Nutzen zwei Marken verschiedene Schnittstellen, sind es zwei getrennte Bestände. Konten werden nicht zusammengeführt.
 
-Wechselt eine Marke ihre Schnittstelle, nimmt sie ihre Leser:innen deshalb **nicht mit**: Auf ihren Domains treffen sie danach auf einen leeren Bestand und melden sich neu an. Gelöscht wird nichts. Die alten Konten bleiben dort, wo die bisherige Schnittstelle weiter antwortet. Die Console nennt die Zahl der betroffenen Konten, bevor Sie speichern.
+Diese Bindung verhindert Kollisionen, wenn Ihre Systeme fortlaufende Nummern statt UUIDs als [User-ID](./sso#user-id) vergeben: Zwei Systeme können dieselbe Kennung ausgeben, ohne dass sich zwei Personen ein Konto teilen.
 
-Ein Konto gehört zu der Schnittstelle, über die es entstanden ist. Die Anmeldung findet deshalb nur Konten derselben Schnittstelle.
-
-Das ist wichtig, wenn Ihre Systeme **fortlaufende Nummern** statt UUIDs vergeben: Zwei Portale können beide die Kennung `42` ausgeben, und ohne diese Bindung würde die zweite Person im Konto der ersten landen. Mit ihr sind es zwei Konten.
+Daraus folgt für den **Wechsel der Schnittstelle** einer Marke: Auf den Domains der Marke startet der Nutzerbestand leer, Nutzer:innen melden sich neu an. Gelöscht wird nichts. Die bestehenden Konten bleiben der bisherigen Schnittstelle zugeordnet und stehen überall dort zur Verfügung, wo diese weiterhin antwortet. Bevor Sie speichern, nennt das System, wie viele Konten der bisherigen Schnittstelle auf den betroffenen Publikationen bestehen.
 
 > [!INFO]
-> Melden sich dieselben Lesenden über zwei Marken mit **derselben E-Mail-Adresse** an, bleibt es ein Konto je Publikation. Die E-Mail-Adresse gilt als Person, die Kennung als Konto im jeweiligen System.
+> Melden sich dieselben Nutzer:innen über zwei Marken mit derselben E-Mail-Adresse an, entsteht je Schnittstelle ein eigenes Konto.
+> Eine Adresse kann auf einer Publikation nur einmal vergeben sein. Das zweite Konto bleibt deshalb ohne [E-Mail-Adresse](./sso#e-mail).

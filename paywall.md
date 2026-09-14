@@ -26,9 +26,9 @@ Wird **keine Paywall** zugeordnet, wird stattdessen die in der [Schnittstelle](.
 
 ### Ein eigenes Icon je Marke
 
-Welches Angebot jemand zu sehen bekommt, hängt davon ab, wie sich die Person angemeldet hat. Die Antwort steht am Zustand. Eine [Marke](./brands) wählt deshalb kein eigenes Angebot.
+Eine [Marke](./brands) kann das **Icon** der Paywall ersetzen. Das eigene Icon erscheint auf allen Domains der Marke, bei jeder Paywall und unabhängig vom Zustand. So passt auch der Hinweis auf geschützte Inhalte zum Erscheinungsbild der jeweiligen Marke.
 
-Was sie setzen kann, ist das **Icon**. Es ersetzt das der jeweiligen Paywall auf allen Domains dieser Marke, gleich welcher Zustand sie zeigt. So wirbt das Angebot auf einer Domain, die durchgehend nach einem Portal aussieht, auch mit dessen Zeichen. Überschrift, Text und Schaltfläche bleiben die der Paywall.
+Alle übrigen Elemente, also Überschrift, Text und Schaltfläche, bleiben die der jeweiligen Paywall. Welche Paywall erscheint, bestimmt wie bisher der [Zustand](#zustände); eine Marke wählt kein eigenes Angebot aus.
 
 ---
 
