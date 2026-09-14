@@ -90,7 +90,7 @@ Zeigt **jede** Domain einer Publikation auf eine Marke mit eigener Schnittstelle
 
 ### Übereinstimmende Zustände
 
-Geschützte Seiten und Funktionen sind an einen [Zustand](./paywall#zustände) gebunden, nicht an eine bestimmte Schnittstelle.
+Geschützte Seiten, Funktionen und Werbeplätze sind an einen [Zustand](./paywall#zustände) gebunden, nicht an eine bestimmte Schnittstelle.
 Eine Bindung greift deshalb auf jeder Domain, deren Schnittstelle einen **gleichnamigen Zustand** führt.
 
 Führt eine Schnittstelle **keinen** gleichnamigen Zustand, setzt das System die betroffene Bindung beim Speichern auf **Angemeldet**. Der Inhalt bleibt damit hinter der Anmeldung geschützt und verhält sich auf allen Domains gleich; nur die feinere Unterscheidung nach Zustand entfällt.
@@ -100,7 +100,7 @@ Führt eine Schnittstelle **keinen** gleichnamigen Zustand, setzt das System die
 | `abonnentin` | `abonnentin` | Die Seite bleibt auf den Zustand beschränkt |
 | `abonnentin` | `subscriber` | Die Bindung wird auf **Angemeldet** gesetzt |
 
-Vor dem Speichern warnt das System und nennt die betroffenen Seiten und Funktionen namentlich. Die Warnung erscheint in drei Situationen:
+Vor dem Speichern warnt das System und nennt die betroffenen Seiten, Funktionen und Werbeplätze namentlich. Die Warnung erscheint in drei Situationen:
 
 - beim **Zuordnen** einer Marke mit eigener Schnittstelle, auch direkt beim Anlegen einer Domain
 - beim **Wechsel** der Schnittstelle einer Marke oder der Publikation
