@@ -114,6 +114,45 @@ Eine vollständige Übersicht der Properties steht unter [Paywall-Kontakte](./tr
 > `PaywallTriggered` wird bei allen drei Varianten ausgelöst und eignet sich damit auch zum Zählen von Paywall-Kontakten.
 > Die Variante steht im Payload unter `type`, sodass sich eine eigene Anzeige auf `custom` beschränken lässt.
 
+#### Paywall schließen
+
+Steht eine ganze Seite hinter der Paywall, etwa eine Schwierigkeitsstufe oder die Statistik, bleibt ihr Inhalt verschleiert, auch nachdem das eigene Angebot geschlossen wurde.
+Die Publikation erfährt vom Schließen über das Event `PaywallClosed` und verlässt diese Seite daraufhin.
+
+Läuft das eigene Angebot im selben Fenster wie die Publikation, wird das Event dort ausgelöst:
+
+```javascript
+window.dispatchEvent(new CustomEvent('PaywallClosed'));
+```
+
+Ist die Publikation [per Iframe oder Script](./setup#iframe-script) eingebunden, erreicht ein Event der umgebenden Seite den Iframe nicht.
+Die Meldung geht dann per `postMessage` an den Iframe, in derselben Form wie die [Events der Publikation](./tracking#events-im-iframe):
+
+```javascript
+const frame = document.getElementById('sudoku');
+
+frame.contentWindow.postMessage(
+    { source: 'oliwol', event: 'PaywallClosed' },
+    'https://sudoku.example.com'
+);
+```
+
+Bei der **Integration via Script** ist der Rahmen die im Skript erzeugte Variable, die Meldung geht dann an `iframe.contentWindow`.
+Einen Payload braucht `PaywallClosed` in keinem der beiden Fälle.
+
+Nach der Meldung wechselt die Publikation auf die erste der folgenden Seiten, die nicht hinter einer Paywall steht:
+
+1. die zuvor besuchte Seite innerhalb der Publikation,
+2. bei der Statistik das Rätsel, über dem sie geöffnet wurde,
+3. die Startseite.
+
+Steht jede dieser Seiten hinter einer Paywall, bleibt die aktuelle Seite stehen.
+Abschnitte innerhalb einer sonst sichtbaren Seite, etwa die Community-Statistik, sowie Funktionen wie das Ausdrucken ändern sich durch `PaywallClosed` nicht.
+
+> [!WARNING]
+> Ein Aufruf von `history.back()` auf der umgebenden Seite führt nicht verlässlich zurück.
+> Iframe und umgebende Seite teilen sich einen Browserverlauf. Je nach vorherigem Verlauf springt dadurch der Iframe eine Seite zurück, oder die umgebende Seite selbst wird verlassen.
+
 ---
 
 ## Zugriffsteuerung
