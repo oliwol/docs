@@ -81,41 +81,30 @@ Eine Marke kann erst **gelöscht** werden, wenn keine Domain mehr auf sie zeigt.
 
 ## Eigene Schnittstelle je Marke
 
-Trägt eine Marke eine eigene Schnittstelle, melden sich Nutzer:innen auf ihren Domains über diese Schnittstelle an. Für die [Zugriffsteuerung](./paywall#zugriffsteuerung) ist dabei eine Bedingung zu beachten.
+Trägt eine Marke eine eigene Schnittstelle, melden sich Nutzer:innen auf ihren Domains über diese Schnittstelle an.
 
-Eine Schnittstelle umfasst **Anmeldeseite**, **Schlüssel** und **Zustände**. Marken mit unterschiedlicher Anmeldung brauchen deshalb jeweils eine eigene Schnittstelle, auch wenn ihre Konten im selben System liegen.
+Eine Schnittstelle umfasst **Anmeldeseite** und **Schlüssel**. Marken mit unterschiedlicher Anmeldung brauchen deshalb jeweils eine eigene Schnittstelle, auch wenn ihre Konten im selben System liegen.
 In der Liste der Schnittstellen zeigt die Spalte **Verwendet von**, welche Marken und Publikationen eine Schnittstelle verwenden.
 
 Zeigt **jede** Domain einer Publikation auf eine Marke mit eigener Schnittstelle, braucht die Publikation selbst keine.
 
-### Übereinstimmende Zustände
+### Zustände an jeder Schnittstelle
 
-Geschützte Seiten, Funktionen und Werbeplätze sind an einen [Zustand](./paywall#zustände) gebunden, nicht an eine bestimmte Schnittstelle.
-Eine Bindung greift deshalb auf jeder Domain, deren Schnittstelle einen **gleichnamigen Zustand** führt.
+[Zustände](./paywall#zustände) gehören Ihrer Organisation, nicht einer Schnittstelle.
+Jeder Zustand gilt an **jeder** Schnittstelle Ihrer Organisation. Eine Seite, eine Funktion oder ein Werbeplatz, die an einen Zustand gebunden sind, verlangen deshalb auf jeder Domain dasselbe, gleich über welche Marke sich Nutzer:innen anmelden.
 
-Führt eine Schnittstelle **keinen** gleichnamigen Zustand, setzt das System die betroffene Bindung beim Speichern auf **Angemeldet**. Der Inhalt bleibt damit hinter der Anmeldung geschützt und verhält sich auf allen Domains gleich; nur die feinere Unterscheidung nach Zustand entfällt.
-
-| Zustand an der Publikation | Zustand an der Marke | Ergebnis |
+| Zustand | Anmeldung über | Ergebnis |
 | --- | --- | --- |
-| `abonnentin` | `abonnentin` | Die Seite bleibt auf den Zustand beschränkt |
-| `abonnentin` | `subscriber` | Die Bindung wird auf **Angemeldet** gesetzt |
+| `games-abo` | Schnittstelle der Publikation | Die Seite ist auf den Zustand beschränkt |
+| `games-abo` | Schnittstelle einer Marke | Die Seite ist auf denselben Zustand beschränkt |
 
-Vor dem Speichern warnt das System und nennt die betroffenen Seiten, Funktionen und Werbeplätze namentlich. Die Warnung erscheint in drei Situationen:
-
-- beim **Zuordnen** einer Marke mit eigener Schnittstelle, auch direkt beim Anlegen einer Domain
-- beim **Wechsel** der Schnittstelle einer Marke oder der Publikation
-- beim **Umbenennen oder Verschieben** eines Zustands
-
-Zur Auswahl stehen nur die aktiven Zustände, die **alle** auf der Publikation antwortenden Schnittstellen führen, etwa unter **Erlaubt für**.
-
-> [!WARNING]
-> Wenn Sie eine weitere Schnittstelle anlegen, übernehmen Sie die Namen der bestehenden Zustände unverändert, sofern dieselben Inhalte geschützt bleiben sollen.
+Ob ein Zustand vorliegt, entscheiden seine [Bedingungen](./paywall#zustände): Liefert eine Schnittstelle im Payload einen der hinterlegten Werte, gilt der Zustand als erfüllt.
 
 ---
 
 ## Grenzen
 
-**Ein Zustand, ein Wert.** Umgebungs-Überschreibungen, etwa die Zahl der Archivtage, stehen an den Zuständen einer Schnittstelle. Es zählen die Zustände aller Schnittstellen, die auf der Publikation antworten. Führen mehrere denselben Zustand, gilt der Wert der Schnittstelle der Publikation, danach der Wert der Marke, deren Name alphabetisch zuerst kommt. Unterschiedliche Werte je Marke für denselben Zustand sind nicht vorgesehen.
+**Ein Zustand, ein Wert.** Umgebungs-Überschreibungen, etwa die Zahl der Archivtage, stehen am Zustand und gelten an jeder Schnittstelle gleich. Unterschiedliche Werte je Marke für denselben Zustand sind nicht vorgesehen.
 
 **Eine Marke ersetzt nur das Icon der Paywall.** Überschrift, Text und Schaltfläche bleiben die der jeweiligen [Paywall](./paywall#ein-eigenes-icon-je-marke). Welche Paywall erscheint, bestimmt wie bisher der Zustand.
 

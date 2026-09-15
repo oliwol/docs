@@ -12,8 +12,8 @@ Voraussetzung ist eine aktive [SSO-Anbindung](./sso).
 Unter *Authentifizierung* → *Zustände* definieren Sie **Authentifizierungszustände**, die Nutzer:innen anhand ihres [Payloads](./sso#zustand) zugeordnet werden.
 Zustände sind vergleichbar mit **Mitgliedschaften oder Abonnements**, etwa *Premium*, *Basis* oder *Testphase*.
 
-Beim Anlegen eines Zustands wählen Sie zunächst die **Schnittstelle** aus, zu der der Zustand gehört.
-Anschließend vergeben Sie einen **Namen** und definieren die **Bedingungen**: einen oder mehrere Werte, die im Payload unter dem konfigurierten [Zustands-Key](./sso#zustand) erwartet werden.
+Ein Zustand gehört Ihrer **Organisation** und gilt an **jeder** ihrer Schnittstellen, auch an denen Ihrer [Marken](./brands#zustände-an-jeder-schnittstelle). Er wird deshalb nur einmal angelegt.
+Sie vergeben einen **Namen** und definieren die **Bedingungen**: einen oder mehrere Werte, die im Payload unter dem konfigurierten [Zustands-Key](./sso#zustand) erwartet werden.
 
 Stimmt ein Wert aus dem Payload mit einer der Bedingungen überein, wird der/die Nutzer:in dem jeweiligen **Zustand zugeordnet**.
 
