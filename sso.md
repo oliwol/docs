@@ -98,7 +98,7 @@ Die in der Publikation gewählte Schnittstelle ist der **Standard** für alle Do
 
 Mit dem Modul **Marken** kann eine [Marke](./brands) eine **eigene Schnittstelle** wählen. Auf den Domains dieser Marke melden sich Nutzer:innen dann über deren Schnittstelle an; Domains ohne Marke verwenden weiterhin den Standard der Publikation. In der Bearbeitungsmaske der Publikation sehen Sie unter *Schnittstelle*, welche Marken den Standard verwenden und welche eine eigene Schnittstelle gewählt haben.
 
-Beachten Sie bei Marken mit eigener Schnittstelle die Hinweise zu [übereinstimmenden Zuständen](./brands#übereinstimmende-zustände) sowie zum [getrennten Nutzerbestand je Schnittstelle](./brands#grenzen).
+[Zustände](./brands#zustände-an-jeder-schnittstelle) gehören Ihrer Organisation und gelten an jeder Schnittstelle, auch an der einer Marke. Getrennt bleibt dagegen der [Nutzerbestand je Schnittstelle](./brands#grenzen).
 
 ---
 
@@ -180,7 +180,7 @@ Der Wert im Payload kann ein **String**, ein **Array** oder ein **Objekt** sein.
 { "membership": { "type": "premium" } }
 ```
 
-Der extrahierte Wert wird verwendet, um Nutzer:innen einem unter *Authentifizierung* → *Zustände* definierten **Authentifizierungszustand** zuzuordnen.
+Der extrahierte Wert wird verwendet, um Nutzer:innen einem unter *Authentifizierung* → *Zustände* definierten **Authentifizierungszustand** zuzuordnen. Zustände gehören Ihrer Organisation und gelten an jeder ihrer Schnittstellen.
 Über Zustände lässt sich der **Zugriff auf bestimmte Funktionen oder Inhalte** steuern.
 
 Weitere Informationen finden Sie unter [Paywall](./paywall#zustände).
