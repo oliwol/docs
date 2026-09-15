@@ -28,7 +28,7 @@ Die Product Identifier lauten wie folgt:
 | Kinonym | `knnym` |
 
 Als Bereich kommen `user`, `pref` und `storage` vor.
-Einige Einträge weichen vom Muster ab: `[product identifier]-token`, `[product identifier]-rank-shown`, `[product identifier]-record-shown` und `[product identifier]-streak-shown` tragen keinen Bereich. Der Eintrag `supporter:checkout` trägt keinen Identifier.
+Einige Einträge weichen vom Muster ab: `[product identifier]-token`, `[product identifier]-rank-shown`, `[product identifier]-record-shown` und `[product identifier]-streak-shown` tragen keinen Bereich.
 
 ---
 
@@ -48,10 +48,8 @@ Die Spalte *Gilt für* nennt die Rätsel, in denen ein Eintrag vorkommt, und die
 | `[product identifier]-storage-version` | Vermerkt, welchen Bearbeitungsstand des Spielstands im Konto das Gerät zuletzt erhalten hat, damit eine nachträgliche Korrektur im Konto nicht von älteren Daten des Geräts überschrieben wird | HTML Local Storage | Alle, mit Anmeldung | Persistent, wird beim Abmelden entfernt | Wurde der Spielstand im Konto nachträglich korrigiert, gelten beim nächsten Start dessen Statistiken |
 | `[product identifier]-streak-decay-anchored` | Vermerkt, dass der Verfall der Serie auf diesem Gerät bereits berücksichtigt wurde | HTML Local Storage | Worteck, mit Verfall der Serie | Persistent | Die Serie kann fälschlich verfallen |
 | `[product identifier]-token` | Speichert die Anmeldung beim integrierten Anmelde-Interface | HTTP Cookie | Alle, mit Anmeldung | 7 Tage, wird beim Abmelden entfernt | Nutzer:innen werden abgemeldet |
-| `XSRF-TOKEN` | Wird von Laravel gesetzt und bei einer Anmeldung über eine Session gelesen | HTTP Cookie | Alle, mit Anmeldung über eine Session | Laravel-Standard | Die Anmeldung schlägt fehl |
 | Name aus der SSO-Konfiguration | Speichert das Token einer externen Anmeldung. Der Eintrag wird gelesen und beim Abmelden entfernt, jedoch nicht von den Rätseln gesetzt | HTTP Cookie | Alle, mit externer Anmeldung | Wird extern bestimmt | Nutzer:innen werden abgemeldet |
 | `[product identifier]-token` | Sichert den Rahmen der externen Anmeldung ab. Der Eintrag trägt denselben Namen wie das Cookie, erfüllt aber eine andere Aufgabe | HTML Session Storage | Alle, mit externer Anmeldung | Bis zum Schließen des Tabs | Die Anmeldung beginnt von vorn |
-| `supporter:checkout` | Vermerkt die Rückkehr aus einem Bezahlvorgang | HTML Session Storage | Alle, mit Bezahlfunktion | Einmalig, wird direkt nach dem Lesen entfernt | Die Bestätigungsseite erkennt die Rückkehr nicht |
 
 ---
 
