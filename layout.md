@@ -137,6 +137,12 @@ Der [Embed-Code](./setup#iframe-script) bringt das passende `color-scheme` am If
 > ```
 >
 > `light dark` gehört zu einem Rätsel, das dem Gerät folgt. Legen Sie den Modus über den Parameter fest, tragen Sie denselben Wert hier ein: `color-scheme: dark` zu `color-scheme=dark`.
+>
+> Setzt Ihre Seite den Modus über die [Laufzeitnachricht](#laufzeitnachricht), zieht der Wert am Element mit jeder Nachricht nach:
+>
+> ```javascript
+> frame.style.colorScheme = 'dark';
+> ```
 
 Einen eigenen Hintergrund setzen Sie über [Individuelles CSS](#individuelles-css). Es wird nach allem anderen geladen und überschreibt es.
 
