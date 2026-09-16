@@ -158,6 +158,11 @@ Die [Cloud-Domain](#cloud-domain) lässt sich dagegen von **jeder Seite** aus ei
 Sie können die **Breite** und den **CSS-Code** des Iframes auf Ihre Bedürfnisse **anpassen**.
 Die **Höhe** wird über ein `postMessage`-Event gesteuert und passt sich an den Inhalt Ihrer Publikation an.
 
+Über die Auswahl **Farbmodus** im selben Dialog bestimmen Sie, ob die eingebettete Publikation dem **Gerät** folgt oder fest **hell** oder **dunkel** erscheint.
+Ein fester Modus steht als Parameter `color-scheme` in der Adresse des Iframes, und der Iframe selbst trägt in jedem Fall das passende `color-scheme`.
+Eingebettet zeichnet die Publikation keinen eigenen Hintergrund: Der Rahmen ist in beiden Modi **durchsichtig** und zeigt den Hintergrund Ihrer Seite. Aus demselben Grund setzt der Embed-Code **keinen Rahmen**.
+Wie der Farbmodus zustande kommt und was bei einem selbst gebauten Iframe zu beachten ist, steht unter [Farbmodus](./layout#farbmodus).
+
 Über denselben Weg gibt Ihre Publikation ihre [Custom-Events an die umgebende Seite](./tracking#events-im-iframe) weiter.
 Ihre Seite kann so auf jede Interaktion im Rätsel reagieren, etwa Werbung nachladen oder ein eigenes Angebot einblenden.
 
@@ -192,7 +197,8 @@ const puzzle = (node) => {
     iframe.setAttribute('src', 'https://sudoku.example.com');
     iframe.setAttribute('title', 'Sudoku');
     iframe.setAttribute('height', '720');
-    iframe.style.border = '1px solid #e5e7eb';
+    iframe.style.border = 'none';
+    iframe.style.colorScheme = 'light dark';
     iframe.style.display = 'block';
     iframe.style.overflow = 'hidden';
     iframe.style.marginLeft = 'auto';
@@ -235,7 +241,6 @@ Daran erkennt Ihre Seite die Nachrichten Ihrer Publikation, auch wenn Werbe- ode
 
 Höhe und Farbmodus sind **Zustandsmeldungen**. Sie beschreiben, wie die Publikation gerade aussieht, und stehen für keine Interaktion.
 In der [Event-Liste](./tracking#custom-events) tauchen sie deshalb nicht auf.
-Schaltet jemand den Farbmodus im Menü der Publikation um, kommt zusätzlich das Custom-Event `SwitchSetup`.
 
 Der Farbmodus erreicht Ihre Seite, sobald die Publikation geladen ist, und danach bei jedem Wechsel.
 So lässt sich Ihr eigenes Layout auf den Modus einfärben, in dem gespielt wird:
@@ -261,6 +266,8 @@ window.addEventListener('message', (event) => {
 > [!WARNING]
 > Ohne die Prüfung von `event.origin` nimmt der Listener jede Nachricht an, die auf Ihrer Seite gesendet wird, auch die fremder Skripte.
 > Vergleichen Sie den Wert mit der Adresse Ihrer Publikation, wie im Beispiel oben.
+
+Umgekehrt kann Ihre Seite den Farbmodus auch **vorgeben**, etwa wenn sie einen eigenen Umschalter trägt. Wie das geht, steht unter [Laufzeitnachricht](./layout#laufzeitnachricht).
 
 ##### Farbmodus abfragen
 

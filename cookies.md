@@ -15,7 +15,7 @@ Session Storage, IndexedDB und der Zwischenspeicher bleiben davon unberührt. Si
 ## Namensschema
 
 Einträge werden nach folgendem Muster benannt: `[product identifier]-[bereich]-[name]`.
-Ein Präferenz-Eintrag für die Einstellung des Dark-Modes unter Sudoku lautet `sdk-pref-darkmode`.
+Ein Präferenz-Eintrag für die Darstellung der Zahlen unter Sudoku lautet `sdk-pref-handwritten`.
 
 Die Product Identifier lauten wie folgt:
 
@@ -62,7 +62,6 @@ Ebenfalls unter Präferenzen fallen Einträge, die den zuletzt angezeigten Stand
 
 | Eintrag | Beschreibung | Typ | Gilt für | Ablauf | Bei Löschung |
 |---|---|---|---|---|---|
-| `[product identifier]-pref-darkmode` | Speichert die Einstellung zum Dark-Mode | HTML Local Storage | Alle | Persistent | Der Dark-Mode fällt auf die Voreinstellung zurück |
 | `[product identifier]-pref-contrast` | Speichert die Einstellung für einen stärkeren Kontrast der Farben | HTML Local Storage | Worteck | Persistent | Der Kontrast fällt auf die Voreinstellung zurück |
 | `[product identifier]-pref-hardmode` | Speichert die Einstellung, ob Nutzer:innen bevorzugt im schwierigen Modus rätseln | HTML Local Storage | Worteck | Persistent | Der schwierige Modus ist wieder abgeschaltet |
 | `[product identifier]-pref-handwritten` | Speichert die Einstellung, ob Zahlen in Schreibschrift dargestellt werden | HTML Local Storage | Sudoku | Persistent | Die Schreibschrift fällt auf die Voreinstellung zurück |

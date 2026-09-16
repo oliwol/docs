@@ -163,7 +163,7 @@ Nachdem Sie Zustände und Paywalls eingerichtet haben, können Sie den **Zugriff
 
 ### Funktionen
 
-In der Konfiguration Ihrer Publikation lässt sich für jede Funktion (z. B. Archiv, Dark Mode, Drucken) eine **Zugangsstufe** festlegen:
+In der Konfiguration Ihrer Publikation lässt sich für jede Funktion (z. B. Archiv, Community Stats, Drucken) eine **Zugangsstufe** festlegen:
 
 | Zugangsstufe | Beschreibung |
 |---|---|
@@ -172,6 +172,9 @@ In der Konfiguration Ihrer Publikation lässt sich für jede Funktion (z. B. Arc
 | **Zustand** | Die Funktion ist nur für Nutzer:innen mit einem bestimmten Zustand verfügbar. |
 
 Wird eine Funktion auf einen **bestimmten Zustand** eingeschränkt, wird bei Nutzer:innen ohne passenden Zustand die dem Zustand zugeordnete **Paywall** oder alternativ die Anmeldeseite angezeigt.
+
+> [!INFO]
+> Eine Ausnahme ist das [Dunkle Layout](./configuration#dunkles-layout): Es trägt keine Zugangsstufe und lässt sich nicht hinter eine Paywall setzen. Der [Farbmodus](./layout#farbmodus) kommt vom Gerät, aus der Adresse oder von der einbettenden Seite.
 
 ### Seiten
 
