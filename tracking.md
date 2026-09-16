@@ -240,9 +240,13 @@ Diese Events sind in allen Publikationen verfügbar:
 | `ShareResult` | Spiel-Ergebnis wird über die Teilen-Funktion (z. B. WebShare-API) geteilt. | Rätselspezifischer Payload — siehe jeweilige Tabelle. |
 | `CopyResult` | Spiel-Ergebnis wird in die Zwischenablage kopiert. | – |
 | `ClickOtherGame` | Klick auf eine verlinkte andere Publikation (z. B. im Footer). | <pre lang="json">{&#10;  "game": "String"&#10;}</pre> Name der Publikation. |
-| `SwitchSetup` | Eine Einstellung (z. B. Dark Mode) wurde umgeschaltet. | <pre lang="json">{&#10;  "setup": "String",&#10;  "value": "Boolean &#124; String"&#10;}</pre> `setup` z. B. `dark_mode` oder `wordlist_sort`. `value` ist ein `Boolean` bei An/Aus-Einstellungen, sonst ein `String` bei mehrwertigen Einstellungen (z. B. Sortier-Modus `newest` / `alpha` / `points`). |
+| `SwitchSetup` | Eine Einstellung (z. B. der schwierige Modus) wurde umgeschaltet. | <pre lang="json">{&#10;  "setup": "String",&#10;  "value": "Boolean &#124; String"&#10;}</pre> `setup` z. B. `hardMode` oder `wordlist_sort`. `value` ist ein `Boolean` bei An/Aus-Einstellungen, sonst ein `String` bei mehrwertigen Einstellungen (z. B. Sortier-Modus `newest` / `alpha` / `points`). |
 | `UseHeaderIcon` | Ein Icon im Header (Hilfe, Statistiken, Login) wurde angeklickt. | <pre lang="json">{&#10;  "icon": "String"&#10;}</pre> z. B. `help`, `stats`, `auth`. |
 | `UseOffCanvasMenuItem` | Ein Eintrag im Off-Canvas-Menü wurde ausgewählt. | <pre lang="json">{&#10;  "item": "String"&#10;}</pre> Titel des Eintrags. |
+
+> [!INFO]
+> Der [Farbmodus](./layout#farbmodus) löst kein `SwitchSetup` mehr aus. Er wird nicht mehr im Rätsel umgeschaltet, sondern kommt vom Gerät, aus der Adresse oder von der einbettenden Seite. Auswertungen auf `setup: "dark_mode"` bleiben ab der Umstellung ohne Werte.
+> Ebenso entfällt `PaywallTriggered` mit `feature: "dark_mode"`, denn das [Dunkle Layout](./configuration#dunkles-layout) trägt keine Zugangsstufe mehr.
 
 ### Worteck
 
@@ -481,7 +485,7 @@ Der Payload beschreibt die Situation, die zur Paywall geführt hat:
 | `paywall` | – | Die Kennung der konfigurierten Paywall. |
 | `page` | – | Der interne Name der betroffenen Seite. |
 | `title` | – | Der Titel der betroffenen Seite. |
-| `feature` | – | Der Schlüssel einer Funktion hinter der Paywall, etwa `dark_mode`. |
+| `feature` | – | Der Schlüssel einer Funktion hinter der Paywall, etwa `printing`. |
 | `date` | – | Der Tag eines archivierten Rätsels im Format `JJJJ-MM-TT`. |
 
 Die Auslöserarten im Einzelnen:

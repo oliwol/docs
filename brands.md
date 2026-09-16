@@ -16,7 +16,7 @@ Statt Logo, Farben und Schnittstelle in jeder Publikation einzeln zu hinterlegen
 
 | Bereich | Inhalt |
 | --- | --- |
-| Erscheinungsbild | Logo, Icon, Schrift, Akzentfarbe, individuelles CSS |
+| Erscheinungsbild | Logo, Icon, Schrift, Akzentfarbe, dunkle Grundfarbe, individuelles CSS |
 | Authentifizierung | die [Schnittstelle](./sso), über die sich Nutzer:innen anmelden |
 | Paywall | das [Icon](./paywall#ein-eigenes-icon-je-marke) der Paywall |
 

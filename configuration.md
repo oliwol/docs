@@ -17,9 +17,13 @@ Bei Anbindung an eine [SSO](./sso) kann der [Zugriff eingeschränkt](#zugangsbes
 
 Für *Worteck* können **Community Stats** aktiviert werden. Diese zeigen Nutzer:innen aggregierte Statistiken der Spielergemeinschaft an. Community Stats sind ab dem Paket **Publisher** verfügbar.
 
-### Dark Mode
+### Dunkles Layout
 
-Der **Dark Mode** ist in der Standardkonfiguration aktiviert und für alle Nutzer:innen frei zugänglich.
+Die Einstellung **Dunkles Layout** erlaubt das dunkle Erscheinungsbild und ist in der Standardkonfiguration aktiviert. Ist sie aus, erscheint die Publikation immer hell.
+
+Ob ein Rätsel hell oder dunkel erscheint, entscheidet sich nicht in der Konfiguration, sondern beim Aufruf: über das Gerät, die Adresse oder die einbettende Seite. Die Einstellung sagt allein, ob das dunkle Layout überhaupt in Frage kommt. Wie der Modus zustande kommt, steht unter [Farbmodus](./layout#farbmodus).
+
+Anders als die übrigen Funktionen trägt sie **keine Zugangsstufe**. Der Farbmodus kommt von außen, es bleibt also kein Moment, in dem eine Stufe greifen könnte.
 
 ---
 
