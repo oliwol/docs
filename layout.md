@@ -155,11 +155,9 @@ Im dunklen Layout liegt Ihre Publikation auf einem **dunklen Grundton**. Über d
 Der eingetragene Wert erscheint **exakt** als Hintergrund. Alle weiteren dunklen Flächen, etwa Karten, Felder und Trennlinien, leiten sich daraus ab und werden schrittweise heller.
 Das helle Layout und die [Akzentfarbe](#akzentfarbe) bleiben davon unberührt.
 
-Neben dem Feld zeigt eine **Vorschau**, wie ein Rätsel mit dieser Farbe aussieht.
-
 Bleibt das Feld leer, gilt das gewohnte Grau.
 
-Eine Farbe, die als Hintergrund nicht mehr dunkel genug ist, wird **abgelehnt**. Bei sehr bunten Farben und bei zu geringem Abstand zur Akzentfarbe erscheint ein Hinweis, die Farbe lässt sich aber speichern.
+Als Grundton taugt nur eine **dunkle** Farbe, zu helle Töne sind nicht möglich. Sehr bunte Farben und Farben nahe an der Akzentfarbe sind möglich, kosten aber Lesbarkeit.
 
 Die dunkle Grundfarbe steht an der **Publikation** und an jeder [Marke](./brands). Sie wird wie die Akzentfarbe vererbt: Ist sie an der Marke gefüllt, gilt sie auf deren Domains, sonst die der Publikation. Siehe [Erscheinungsbild je Domain](#erscheinungsbild-je-domain).
 
