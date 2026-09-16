@@ -244,6 +244,10 @@ Diese Events sind in allen Publikationen verfügbar:
 | `UseHeaderIcon` | Ein Icon im Header (Hilfe, Statistiken, Login) wurde angeklickt. | <pre lang="json">{&#10;  "icon": "String"&#10;}</pre> z. B. `help`, `stats`, `auth`. |
 | `UseOffCanvasMenuItem` | Ein Eintrag im Off-Canvas-Menü wurde ausgewählt. | <pre lang="json">{&#10;  "item": "String"&#10;}</pre> Titel des Eintrags. |
 
+> [!INFO]
+> Der [Farbmodus](./layout#farbmodus) löst kein `SwitchSetup` mehr aus. Er wird nicht mehr im Rätsel umgeschaltet, sondern kommt vom Gerät, aus der Adresse oder von der einbettenden Seite. Auswertungen auf `setup: "dark_mode"` bleiben ab der Umstellung ohne Werte.
+> Ebenso entfällt `PaywallTriggered` mit `feature: "dark_mode"`, denn das [Dunkle Layout](./configuration#dunkles-layout) trägt keine Zugangsstufe mehr.
+
 ### Worteck
 
 Zusätzlich zu den [Allgemeinen Events](#allgemeine-events):
