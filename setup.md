@@ -174,6 +174,10 @@ Das gilt für die [Anmeldung](./sso), für den Handlungsaufruf einer [Paywall](.
 Die Zielseite steht damit in voller Breite und mit ihrer eigenen Adresse in der Adresszeile, statt im Rahmen der Einbettung zu erscheinen.
 Nach der Anmeldung führt die Rückkehradresse zurück auf Ihre Seite.
 
+Verweise auf Ihre **anderen Rätsel** im Menü unter **Weitere Rätsel** und am Ende eines Spiels führen zu der Seite, auf der das jeweilige Rätsel eingebettet ist, und übernehmen ebenfalls das gesamte Browserfenster.
+Ist für ein Rätsel keine solche Seite hinterlegt, führt der Verweis zur Adresse des Rätsels selbst.
+Betreiben Sie mehrere Portale, bleibt der Verweis auf dem Portal, auf dem gerade gespielt wird.
+
 > [!WARNING]
 > Ein selbst geschriebener Iframe mit dem Attribut `sandbox` verhindert diese Übernahme. Die Zielseite erscheint dann im Rahmen der Einbettung.
 > Damit die Übernahme funktioniert, gehört `allow-top-navigation` zu den erlaubten Berechtigungen.
