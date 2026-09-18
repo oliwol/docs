@@ -176,6 +176,9 @@ Nach der Anmeldung führt die Rückkehradresse zurück auf Ihre Seite.
 
 Verweise auf Ihre **anderen Rätsel** im Menü unter **Weitere Rätsel** und am Ende eines Spiels führen zu der Seite, auf der das jeweilige Rätsel eingebettet ist, und übernehmen ebenfalls das gesamte Browserfenster.
 Ist für ein Rätsel keine solche Seite hinterlegt, führt der Verweis zur Adresse des Rätsels selbst.
+Läuft die Einbettung auf einer anderen Subdomain derselben Domain, etwa auf einem Testsystem, führt der Verweis zur gleichen Seite auf dieser Subdomain.
+Aus `https://www.beispiel.de/raetsel/sudoku/` wird auf `test.beispiel.de` die Adresse `https://test.beispiel.de/raetsel/sudoku/`, die hinterlegte Adresse bleibt beim Wechsel vom Test- in den Livebetrieb also dieselbe.
+Subdomains, auf denen bereits eines Ihrer Rätsel hinterlegt ist, behalten die dort hinterlegten Seiten.
 Betreiben Sie mehrere Portale, bleibt der Verweis auf dem Portal, auf dem gerade gespielt wird.
 
 > [!WARNING]
