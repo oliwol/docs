@@ -5,6 +5,18 @@
 Für die Installation einer Publikation benötigen Sie einen [Account](/preise) im oliwol Publisher Tool.
 Wenn Sie eine eigene Domain nutzen möchten, sollten Sie über die technischen Möglichkeiten verfügen, die **DNS-Konfiguration** bei Ihrem Provider anzupassen.
 
+### Browser Ihrer Spieler:innen
+
+Die Rätsel setzen einen aktuellen Browser voraus:
+
+| Browser | ab Version | erschienen |
+|---|---|---|
+| Safari | 16.4 | März 2023 |
+| Chrome, Edge | 111 | März 2023 |
+| Firefox | 128 | Juli 2024 |
+
+In älteren Browsern bleibt das Rätsel bedienbar, einzelne Teile des Layouts erscheinen aber anders als vorgesehen.
+
 ---
 
 ## Publikation erstellen

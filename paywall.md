@@ -69,7 +69,7 @@ Im *oliwol Publisher Tool* hinterlegen Sie die Verbindungsdaten zu Ihrer Piano-I
 |---|---|
 | **SDK-URL** | Die URL zum Piano JavaScript SDK, das in die Publikation eingebunden wird. |
 | **Application-ID (AID)** | Ihre Piano Application-ID zur Identifikation Ihrer Anwendung. |
-| **Icon** | Ein SVG-Icon, das bei geschützten Inhalten in der Navigation angezeigt wird. |
+| **Icon** | Ein SVG-Icon, das bei geschützten Inhalten in der Navigation angezeigt wird. Innerhalb der Datei können Sie dieselben [CSS-Klassen](./layout#dunkles-layout-und-css-klassen) verwenden wie im Logo. |
 
 Zusätzlich steht Ihnen ein Bereich für **Custom Code** zur Verfügung, in dem Sie eigenes **HTML**, **JavaScript** und **CSS** einbinden können, um die Piano-Integration individuell anzupassen.
 
