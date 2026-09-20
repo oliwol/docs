@@ -49,6 +49,12 @@ Damit Ihr Logo in beiden Varianten korrekt dargestellt wird, können Sie innerha
 Mit den Klassen `dark:text-white fill-current` wird Ihr SVG-Logo in Weiß dargestellt.
 Sie können jedoch auch **andere Farben und Styles** für Ihr Logo definieren.
 
+Dieselben Klassen stehen Ihnen im [Paywall-Symbol](./paywall) und in Ihren [Inhalten](./content) zur Verfügung.
+
+> [!INFO]
+> Die Rätsel nutzen **Tailwind 4**. Einige Klassen heißen dort anders als früher, etwa `shadow-xs` statt `shadow-sm` oder `rounded-xs` statt `rounded-sm`.
+> Ihre bestehenden Inhalte müssen Sie deswegen nicht anpassen: Die älteren Namen werden beim Anzeigen automatisch übersetzt.
+
 ---
 
 ## Akzentfarbe
@@ -193,6 +199,12 @@ Sie können eine **eigene Schriftart** im Format **WOFF2** für Ihre Publikation
 Den Editor finden Sie in der Bearbeitungsmaske Ihrer Publikation im Bereich _Individuelles CSS_.
 
 Die Regeln werden **nach dem Stylesheet** Ihrer Publikation geladen und überschreiben es. Zur Verfügung stehen **8 KB** je Publikation.
+
+Ihre Regeln haben dabei immer Vorrang, auch gegenüber einer Regel des Rätsels, die ein Element genauer benennt als Ihre. Auch eine Regel auf einen Elementtyp wie `button { … }` setzt sich also durch.
+
+> [!WARNING]
+> Weil Ihre Regeln alles überschreiben, wirken sie auch dort, wo Sie es vielleicht nicht erwarten.
+> Benennen Sie Elemente deshalb so genau wie möglich, statt etwa alle Schaltflächen eines Rätsels auf einmal zu treffen.
 
 Individuelles CSS steht in **jedem Paket** zur Verfügung.
 
