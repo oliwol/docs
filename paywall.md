@@ -53,6 +53,8 @@ https://abo.example.com/spiele?redirect=https%3A%2F%2Fsudoku.example.com%2Farchi
 
 Der Wert ist prozentkodiert und folgt denselben Regeln wie bei der Anmeldung. Welche Adresse darin steht, hängt davon ab, ob die Publikation unter ihrer eigenen Domain oder eingebettet läuft: [Umfang der Rückkehradresse](./sso#umfang-der-rückkehradresse).
 
+Erwartet Ihre Landingpage die Rückkehradresse in einer anderen Form, legen Sie unter *Rücksprungadresse* eine eigene Vorlage mit den Platzhaltern `{url}` und `{path}` fest. Sie gilt nur für diese Paywall und ist unabhängig von der Vorlage der Anmeldung, da Kauf und Anmeldung oft über verschiedene Systeme laufen. Aufbau und Kodierung beschreibt [Format der Rückkehradresse](./sso#format-der-rückkehradresse).
+
 ![Ablauf der Paywall: Nutzer:in sieht CTA, wird zur Landingpage geleitet und anschließend zurück zur Publikation](/images/paywall-flow-light.png "dark:/images/paywall-flow-dark.png")
 
 ### Piano

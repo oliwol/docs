@@ -221,6 +221,40 @@ Unterdrückt die umgebende Seite den Referrer vollständig, steht die Adresse de
 Die Anmeldeseite selbst öffnet in einer Einbettung im [gesamten Browserfenster](./setup#iframe-script) und nicht im Rahmen der Publikation.
 Nach der Anmeldung führt die Rückkehradresse zurück auf die einbettende Seite.
 
+### Format der Rückkehradresse
+
+Erwartet Ihre Anmeldeseite die Rückkehradresse in einer anderen Form, legen Sie unter *Rücksprungadresse* eine Vorlage fest. Zwei Platzhalter stehen zur Verfügung:
+
+| Platzhalter | Inhalt | Beispiel |
+|---|---|---|
+| `{url}` | vollständige Adresse der Seite mit dem Rätsel, wie im [Umfang der Rückkehradresse](#umfang-der-rückkehradresse) beschrieben | `https://www.example.com/kultur/raetsel?tag=montag` |
+| `{path}` | nur der Pfad dieser Seite, ohne Abfrage und ohne `#` | `/kultur/raetsel` |
+
+Ohne Vorlage steht die vollständige Adresse im Parameter, wie bei `{url}`.
+
+Mit einer Zwischenseite auf Ihrer eigenen Domain, die den Pfad übernimmt, sieht die Vorlage etwa so aus:
+
+```
+https://www.example.com/weiter.html?o={path}
+```
+
+Die Anmeldeseite erhält dann:
+
+```
+https://sso.example.com/login?redirect=https%3A%2F%2Fwww.example.com%2Fweiter.html%3Fo%3D%252Fkultur%252Fraetsel
+```
+
+Ein Platzhalter hinter `?` oder `#` der Vorlage wird für sich kodiert, weil er dort zum Parameter Ihrer Zwischenseite wird. Anschließend wird die gesamte Adresse noch einmal als Wert des Parameters `redirect` kodiert. Daher stammt das doppelt kodierte `%252F`: Ihre Zwischenseite liest über `o` wieder `/kultur/raetsel`.
+
+Soll nur der Pfad übergeben werden, genügt `{path}` als Vorlage:
+
+```
+https://sso.example.com/login?redirect=%2Fkultur%2Fraetsel
+```
+
+> [!NOTE]
+> In einer Einbettung kennt die Publikation den Pfad der umgebenden Seite nur mit dem aktuellen [Embed-Code](./setup#iframe-script). Mit einem älteren Embed-Code steht für `{path}` nur `/`.
+
 ### Login über iframe
 
 Alternativ können Sie die **iframe-Variante für den Login** nutzen.
