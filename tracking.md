@@ -485,7 +485,7 @@ Der Payload beschreibt die Situation, die zur Paywall geführt hat:
 | `paywall` | – | Die Kennung der konfigurierten Paywall. |
 | `page` | – | Der interne Name der betroffenen Seite. |
 | `title` | – | Der Titel der betroffenen Seite. |
-| `feature` | – | Der Schlüssel einer Funktion hinter der Paywall, etwa `printing`. |
+| `feature` | – | Der Schlüssel einer Funktion hinter der Paywall, etwa `printing`, oder `sync`, wenn Nutzende über den Hinweis zum [Spielstand](./configuration#spielstand-speichern) kommen. |
 | `date` | – | Der Tag eines archivierten Rätsels im Format `JJJJ-MM-TT`. |
 
 Die Auslöserarten im Einzelnen:
