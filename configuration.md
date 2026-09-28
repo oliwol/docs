@@ -27,7 +27,7 @@ Anders als die übrigen Funktionen trägt sie **keine Zugangsstufe**. Der Farbmo
 
 ### Spielstand speichern
 
-Angemeldete Nutzer:innen bekommen ihre **Statistiken und Spielstände** auf unserem Server gespeichert. So finden sie ihren Fortschritt auf jedem Gerät wieder, auf dem sie sich anmelden.
+Die **Statistiken und Spielstände** angemeldeter Nutzer:innen werden dauerhaft gespeichert. So finden sie ihren Fortschritt auf jedem Gerät wieder, auf dem sie sich anmelden.
 
 Diese Funktion ist immer aktiv. Einstellbar ist allein, **für wen** sie gilt: für alle angemeldeten Nutzer:innen oder nur für Nutzer:innen mit einem **bestimmten Status**, etwa einem Abo. So lässt sich das geräteübergreifende Speichern als Leistung eines Abos anbieten.
 
