@@ -31,9 +31,9 @@ Angemeldete Nutzer:innen bekommen ihre **Statistiken und Spielstände** auf unse
 
 Diese Funktion ist immer aktiv. Einstellbar ist allein, **für wen** sie gilt: für alle angemeldeten Nutzer:innen oder nur für Nutzer:innen mit einem **bestimmten Status**, etwa einem Abo. So lässt sich das geräteübergreifende Speichern als Leistung eines Abos anbieten.
 
-Wer angemeldet ist, den Status aber nicht hat, spielt ganz normal weiter. Statistiken und Spielstände bleiben dann **nur auf dem jeweiligen Gerät**. Auf der Statistikseite erscheint dazu ein Hinweis mit einem Link zur [Paywall](./paywall) des Status.
+Wer angemeldet ist, den Status aber nicht hat, spielt ganz normal weiter. Statistiken und Spielstände liegen dann **nur im jeweiligen Browser**. Ein anderer Browser sieht sie nicht, und mit den Browserdaten gehen sie verloren. Auf der Statistikseite erscheint dazu ein Hinweis mit einem Link zur [Paywall](./paywall) des Status.
 
-Kommt der Status später hinzu, wird der Spielstand des Geräts ab dann gespeichert. Liegt aus früherer Zeit schon ein Spielstand auf dem Server, wählen Nutzer:innen, mit welchem sie fortfahren. Endet der Status, bleibt der gespeicherte Spielstand erhalten, wird aber nicht mehr fortgeschrieben. **Gelöscht wird dabei nichts.**
+Kommt der Status später hinzu, wird der Spielstand aus dem Browser ab dann gespeichert. Liegt aus früherer Zeit schon ein Spielstand auf dem Server, wählen Nutzer:innen, mit welchem sie fortfahren. Endet der Status, bleibt der gespeicherte Spielstand erhalten, wird aber nicht mehr fortgeschrieben. **Gelöscht wird dabei nichts.**
 
 ---
 
