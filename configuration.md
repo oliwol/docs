@@ -25,6 +25,16 @@ Ob ein Rätsel hell oder dunkel erscheint, entscheidet sich nicht in der Konfigu
 
 Anders als die übrigen Funktionen trägt sie **keine Zugangsstufe**. Der Farbmodus kommt von außen, es bleibt also kein Moment, in dem eine Stufe greifen könnte.
 
+### Spielstand speichern
+
+Die **Statistiken und Spielstände** angemeldeter Nutzer:innen werden dauerhaft gespeichert. So finden sie ihren Fortschritt auf jedem Gerät wieder, auf dem sie sich anmelden.
+
+Diese Funktion ist immer aktiv. Einstellbar ist allein, **für wen** sie gilt: für alle angemeldeten Nutzer:innen oder nur für Nutzer:innen mit einem **bestimmten Status**, etwa einem Abo. So lässt sich das geräteübergreifende Speichern als Leistung eines Abos anbieten.
+
+Wer angemeldet ist, den Status aber nicht hat, spielt ganz normal weiter. Statistiken und Spielstände liegen dann **nur im jeweiligen Browser**. Ein anderer Browser sieht sie nicht, und mit den Browserdaten gehen sie verloren. Auf der Statistikseite erscheint dazu ein Hinweis mit einem Link zur [Paywall](./paywall) des Status.
+
+Kommt der Status später hinzu, wird der Spielstand aus dem Browser ab dann gespeichert. Liegt aus früherer Zeit schon ein Spielstand auf dem Server, wählen Nutzer:innen, mit welchem sie fortfahren. Endet der Status, bleibt der gespeicherte Spielstand erhalten, wird aber nicht mehr fortgeschrieben. **Gelöscht wird dabei nichts.**
+
 ---
 
 ## Spieleinstellungen
