@@ -54,10 +54,10 @@ Sie können diesen Wert über das Feld *Anzahl Tage im Archiv* auf bis zu **14 T
 #### Worteck
 
 Bei *Worteck* definiert das Feld *Errungenschaften* die **Ränge**, die Nutzer:innen erreichen können.
-Der **Key** definiert den **Streak** — die Anzahl der hintereinander erratenen Wörter.
+Der **Key** definiert die **Siegesserie** — die Anzahl der hintereinander erratenen Wörter.
 Der **Wert** stellt den **Rang** dar, den ein(e) Nutzer:in damit erreicht hat.
 
-![Konfiguration der Worteck-Errungenschaften: Streak-Werte und zugehörige Ränge als Key-Value-Paare](/images/achievements-light.png "dark:/images/achievements-dark.png")
+![Konfiguration der Worteck-Errungenschaften: Werte der Siegesserie und zugehörige Ränge als Key-Value-Paare](/images/achievements-light.png "dark:/images/achievements-dark.png")
 
 ### Meilensteine
 
