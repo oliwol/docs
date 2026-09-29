@@ -126,48 +126,18 @@ Abschnitte innerhalb einer sonst sichtbaren Seite, etwa die Community-Statistik,
 
 #### Beispiel: Piano
 
-Piano binden Sie über den Tab [Scripts](./tracking#integration-von-analyse-systemen) Ihrer Publikation ein.
+Piano und andere Anbieter binden Sie über den Tab [Scripts](./tracking#integration-von-analyse-systemen) Ihrer Publikation ein.
 Die Scripts laufen im Fenster der Publikation, auch wenn diese eingebettet ist. `PaywallTriggered` und `PaywallClosed` bleiben deshalb im selben Fenster.
 
-Das SDK tragen Sie als **externes Script** mit der Position „After inline script" ein, und zwar mit der URL, die Piano Ihnen für Ihre Region nennt, etwa:
+Die Anbindung besteht aus drei Teilen:
 
-```
-https://cdn.tinypass.com/api/tinypass.min.js
-```
-
-Den folgenden Code tragen Sie als **Inline-Script** ein. Weil das SDK erst danach lädt, landen seine Aufrufe in der Warteschlange von Piano:
-
-```javascript
-window.tp = window.tp || [];
-
-tp.push(['setAid', 'IHRE_AID']);
-
-// Piano startet ohne Angebot; die Experience wartet auf den Zustand.
-tp.push(['init', () => tp.experience.init()]);
-
-// Die Publikation meldet, dass eine Paywall nötig ist.
-window.addEventListener('PaywallTriggered', (event) => {
-    if (event.detail.type !== 'custom') {
-        return;
-    }
-
-    tp.push(['setCustomVariable', 'oliwolState', event.detail.state]);
-    tp.push(['init', () => tp.experience.execute()]);
-});
-
-// Schließt jemand das Angebot, verlässt die Publikation die verschleierte Seite.
-tp.push(['addHandler', 'checkoutClose', () => {
-    window.dispatchEvent(new CustomEvent('PaywallClosed'));
-}]);
-```
-
-Im _Piano Composer_ legen Sie eine **Experience** an, die ein Angebot als **Modal** zeigt, sobald die Custom Variable `oliwolState` gesetzt ist.
-Über deren Wert lassen sich für verschiedene [Zustände](#zustände) unterschiedliche Angebote ausspielen.
-Achten Sie darauf, dass die URL-Muster der Experience die Domains Ihrer Publikation abdecken.
+1. Das SDK des Anbieters wird als **externes Script** geladen, seine Einrichtung (bei Piano etwa die Application-ID) steht in einem **Inline-Script**.
+2. Auf `PaywallTriggered` zeigt das Script das Angebot an, bei Piano durch Ausführen einer Experience. Der Zustand aus `event.detail.state` kann dabei bestimmen, welches Angebot erscheint.
+3. Schließt jemand das Angebot, meldet das Script `PaywallClosed`, wie unter [Paywall schließen](#paywall-schließen) beschrieben. Bei Piano eignet sich dafür ein Handler auf das Schließen des Angebots.
 
 > [!INFO]
-> Die Publikation hält für Piano keinen eigenen Container bereit. Das Angebot erscheint deshalb als Modal oder Overlay von Piano.
-> Details zu Experiences und Handlern stehen in der [Piano-Dokumentation](https://docs.piano.io).
+> Die Publikation hält für den Anbieter keinen eigenen Container bereit. Das Angebot erscheint deshalb als Modal oder Overlay des Anbieters.
+> Wie SDK, Experiences und Handler im Einzelnen eingerichtet werden, beschreibt die [Piano-Dokumentation](https://docs.piano.io).
 
 ---
 
