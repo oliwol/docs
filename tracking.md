@@ -481,7 +481,7 @@ Der Payload beschreibt die Situation, die zur Paywall geführt hat:
 | `state` | ja | Der Zustand, der die Paywall ausgelöst hat. |
 | `trigger` | ja | Die Art des Auslösers: `page`, `content`, `navigation`, `feature` oder `archive`. |
 | `path` | ja | Der Pfad, den Nutzende angesteuert haben. |
-| `type` | – | Die Variante der Paywall: `internal`, `piano` oder `custom`. |
+| `type` | – | Die Variante der Paywall: `internal` oder `custom`. |
 | `paywall` | – | Die Kennung der konfigurierten Paywall. |
 | `page` | – | Der interne Name der betroffenen Seite. |
 | `title` | – | Der Titel der betroffenen Seite. |

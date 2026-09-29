@@ -35,7 +35,7 @@ Alle übrigen Elemente, also Überschrift, Text und Schaltfläche, bleiben die d
 ## Paywall erstellen
 
 Unter *Authentifizierung* → *Paywalls* erstellen Sie Ihre Paywall-Inhalte.
-Es stehen drei Varianten zur Verfügung: ein **interner Editor**, die **Piano-Integration** und eine **individuelle Lösung**, bei der die Publikation die Anzeige vollständig Ihnen überlässt.
+Es stehen zwei Varianten zur Verfügung: ein **interner Editor** und eine **individuelle Lösung**, bei der die Publikation die Anzeige vollständig Ihnen überlässt.
 
 ### Interner Editor
 
@@ -57,42 +57,11 @@ Erwartet Ihre Landingpage die Rückkehradresse in einer anderen Form, legen Sie 
 
 ![Ablauf der Paywall: Nutzer:in sieht CTA, wird zur Landingpage geleitet und anschließend zurück zur Publikation](/images/paywall-flow-light.png "dark:/images/paywall-flow-dark.png")
 
-### Piano
-
-Alternativ können Sie Ihre eigene **Piano-Integration** nutzen.
-Bei dieser Variante wird die **Darstellung der Paywall vollständig über Piano** gesteuert.
-Texte, Farben, Angebote und Aktionen konfigurieren Sie direkt im [Piano Publisher Dashboard](https://dashboard.piano.io).
-
-#### Konfiguration im oliwol Publisher Tool
-
-Im *oliwol Publisher Tool* hinterlegen Sie die Verbindungsdaten zu Ihrer Piano-Instanz:
-
-| Feld | Beschreibung |
-|---|---|
-| **SDK-URL** | Die URL zum Piano JavaScript SDK, das in die Publikation eingebunden wird. |
-| **Application-ID (AID)** | Ihre Piano Application-ID zur Identifikation Ihrer Anwendung. |
-| **Icon** | Ein SVG-Icon, das bei geschützten Inhalten in der Navigation angezeigt wird. Innerhalb der Datei können Sie dieselben [CSS-Klassen](./layout#dunkles-layout-und-css-klassen) verwenden wie im Logo. |
-
-Zusätzlich steht Ihnen ein Bereich für **Custom Code** zur Verfügung, in dem Sie eigenes **HTML**, **JavaScript** und **CSS** einbinden können, um die Piano-Integration individuell anzupassen.
-
-#### Konfiguration in Piano
-
-Das **Erscheinungsbild der Paywall** gestalten Sie im _Piano Publisher Dashboard_.
-Dort erstellen Sie eine **Experience**, die das Layout, die Texte und die Aktionen (z. B. Abo-Angebot, Login) Ihrer Paywall definiert.
-Die Gestaltung erfolgt im integrierten **Visual Composer**.
-
-**Wann** die Paywall angezeigt wird, steuert das *oliwol Publisher Tool* über die [Zugriffsteuerung](#zugriffsteuerung).
-Piano ist ausschließlich für die **Darstellung** zuständig.
-
-Achten Sie darauf, dass die in Piano hinterlegten **URL-Muster mit den URLs Ihrer Publikation übereinstimmen**, damit die Experience korrekt ausgeliefert wird.
-
-> [!INFO]
-> Detaillierte Informationen zur Konfiguration finden Sie in der [Piano-Dokumentation](https://docs.piano.io).
-
 ### Individuell
 
 Bei dieser Variante zeigt die Publikation **keine Paywall** an.
 Sie erhalten stattdessen ein **Browser-Event** und bestimmen selbst, wie und an welcher Stelle Ihr Angebot erscheint.
+Die Variante ist an keinen Anbieter gebunden: Piano, eine andere Paywall-Lösung oder ein eigenes Angebot lassen sich gleichermaßen anbinden.
 
 Rufen Nutzende einen Inhalt hinter der Paywall auf, geschieht Folgendes:
 
@@ -113,7 +82,7 @@ Der Payload beschreibt die Situation, die zur Paywall geführt hat.
 Eine vollständige Übersicht der Properties steht unter [Paywall-Kontakte](./tracking#paywall-kontakte).
 
 > [!INFO]
-> `PaywallTriggered` wird bei allen drei Varianten ausgelöst und eignet sich damit auch zum Zählen von Paywall-Kontakten.
+> `PaywallTriggered` wird bei beiden Varianten ausgelöst und eignet sich damit auch zum Zählen von Paywall-Kontakten.
 > Die Variante steht im Payload unter `type`, sodass sich eine eigene Anzeige auf `custom` beschränken lässt.
 
 #### Paywall schließen
@@ -154,6 +123,21 @@ Abschnitte innerhalb einer sonst sichtbaren Seite, etwa die Community-Statistik,
 > [!WARNING]
 > Ein Aufruf von `history.back()` auf der umgebenden Seite führt nicht verlässlich zurück.
 > Iframe und umgebende Seite teilen sich einen Browserverlauf. Je nach vorherigem Verlauf springt dadurch der Iframe eine Seite zurück, oder die umgebende Seite selbst wird verlassen.
+
+#### Beispiel: Piano
+
+Piano und andere Anbieter binden Sie über den Tab [Scripts](./tracking#integration-von-analyse-systemen) Ihrer Publikation ein.
+Die Scripts laufen im Fenster der Publikation, auch wenn diese eingebettet ist. `PaywallTriggered` und `PaywallClosed` bleiben deshalb im selben Fenster.
+
+Die Anbindung besteht aus drei Teilen:
+
+1. Das SDK des Anbieters wird als **externes Script** geladen, seine Einrichtung (bei Piano etwa die Application-ID) steht in einem **Inline-Script**.
+2. Auf `PaywallTriggered` zeigt das Script das Angebot an, bei Piano durch Ausführen einer Experience. Der Zustand aus `event.detail.state` kann dabei bestimmen, welches Angebot erscheint.
+3. Schließt jemand das Angebot, meldet das Script `PaywallClosed`, wie unter [Paywall schließen](#paywall-schließen) beschrieben. Bei Piano eignet sich dafür ein Handler auf das Schließen des Angebots.
+
+> [!INFO]
+> Die Publikation hält für den Anbieter keinen eigenen Container bereit. Das Angebot erscheint deshalb als Modal oder Overlay des Anbieters.
+> Wie SDK, Experiences und Handler im Einzelnen eingerichtet werden, beschreibt die [Piano-Dokumentation](https://docs.piano.io).
 
 ---
 
