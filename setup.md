@@ -486,9 +486,6 @@ document.getElementById('sudoku-wrapper').after(iframe);
 > Ruft der Iframe direkt eine Seite auf, die eine Anmeldung voraussetzt, sendet die Publikation `LoginTriggered` gleich beim Laden.
 > Ein Listener, der erst danach registriert wird, erhält dieses Event nicht. Im Beispiel steht er deshalb vor dem Einfügen des Iframes.
 
-> [!INFO]
-> Ein Attribut am Iframe, etwa `data-login`, kann die Publikation nicht lesen. Sie läuft unter einer anderen Adresse als die umgebende Seite, auch wenn beide zur selben Domain gehören. Der Browser verwehrt ihr deshalb den Zugriff auf das Iframe-Element.
-
 ---
 
 ## Domains
