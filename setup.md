@@ -171,6 +171,7 @@ Daraus entsteht die Adresse, zu der Nutzer:innen nach [Anmeldung](./sso#umfang-d
 
 Ein Klick, der aus der Publikation herausführt, übernimmt das **gesamte Browserfenster**.
 Das gilt für die [Anmeldung](./sso), für den Handlungsaufruf einer [Paywall](./paywall) und für gewöhnliche Links wie Impressum oder Datenschutz.
+Die Anmeldung kann die einbettende Seite auch selbst übernehmen, beschrieben unter [Anmeldung übernehmen](#anmeldung-übernehmen).
 Die Zielseite steht damit in voller Breite und mit ihrer eigenen Adresse in der Adresszeile, statt im Rahmen der Einbettung zu erscheinen.
 Nach der Anmeldung führt die Rückkehradresse zurück auf Ihre Seite.
 
@@ -430,6 +431,60 @@ Stünde die Startseite im Markup, würde sie bereits geladen, bevor das Skript d
 > [!INFO]
 > Jeder geteilte Link mit dem Parameter ist eine weitere Adresse derselben Seite.
 > Ein `<link rel="canonical">` auf die Adresse ohne Parameter führt diese Varianten für Suchmaschinen zusammen.
+
+#### Anmeldung übernehmen
+
+Läuft die Publikation in einer App, etwa in einem WebView mit Iframe, soll die Anmeldung oft nicht auf der Anmeldeseite für das Web landen, sondern in der Anmeldung der App.
+Dafür trägt die Adresse des Iframes den Parameter `login=event`:
+
+```html
+<iframe src="https://sudoku.example.com/?login=event" referrerpolicy="no-referrer-when-downgrade"></iframe>
+```
+
+Mit diesem Parameter öffnet die Publikation keine Anmeldung mehr. Sie sendet nur das Custom-Event [`LoginTriggered`](./tracking#login-kontakte) an die umgebende Seite, mit dem Auslöser in `trigger` und dem Pfad für die Rückkehr in `path`.
+Was danach geschieht, bestimmt die umgebende Seite.
+
+- Der Parameter gilt für **jeden Login-Weg** der Publikation: die [externe Anmeldeseite](./sso#login), den [Login über iframe](./sso#login-über-iframe) und die integrierte Anmeldung.
+- Er gilt für die **gesamte Sitzung**, auch nachdem Nutzende innerhalb der Publikation die Seite gewechselt haben.
+- Er wirkt **nur in einer Einbettung**. Wird die Adresse mit dem Parameter direkt aufgerufen, verhält sich die Anmeldung wie gewohnt.
+- Nach einem Klick auf einen Login bleibt die Publikation auf der aktuellen Seite.
+- Wird eine Seite, die eine Anmeldung voraussetzt, oder die Anmeldeseite `/anmelden` direkt im Iframe aufgerufen, zeigt die Publikation ihre Startseite und sendet `LoginTriggered` mit `trigger: "page"`.
+
+Nach der Anmeldung erkennt die Publikation den Login auf demselben Weg wie im Web, über die [Schnittstelle](./sso#authentifizierung) Ihres Identity Providers.
+Mit `path` aus dem Event lässt sich der Iframe danach auf der Seite neu laden, von der aus der Login angestoßen wurde:
+
+```javascript
+const origin = 'https://sudoku.example.com';
+const iframe = document.createElement('iframe');
+
+window.addEventListener('message', (event) => {
+    if (event.origin !== origin || event.data?.source !== 'oliwol') {
+        return;
+    }
+
+    if (event.data.event === 'LoginTriggered') {
+        openAppLogin(() => {
+            const src = new URL(event.data.detail.path, origin);
+
+            src.searchParams.set('login', 'event');
+            iframe.src = src.href;
+        });
+    }
+}, false);
+
+const src = new URL(origin);
+src.searchParams.set('login', 'event');
+
+iframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
+iframe.src = src.href;
+document.getElementById('sudoku-wrapper').after(iframe);
+```
+
+`openAppLogin` steht hier für die Anmeldung der App, die nach erfolgreichem Login die übergebene Funktion aufruft.
+
+> [!WARNING]
+> Ruft der Iframe direkt eine Seite auf, die eine Anmeldung voraussetzt, sendet die Publikation `LoginTriggered` gleich beim Laden.
+> Ein Listener, der erst danach registriert wird, erhält dieses Event nicht. Im Beispiel steht er deshalb vor dem Einfügen des Iframes.
 
 ---
 

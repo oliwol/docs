@@ -221,6 +221,10 @@ Unterdrückt die umgebende Seite den Referrer vollständig, steht die Adresse de
 Die Anmeldeseite selbst öffnet in einer Einbettung im [gesamten Browserfenster](./setup#iframe-script) und nicht im Rahmen der Publikation.
 Nach der Anmeldung führt die Rückkehradresse zurück auf die einbettende Seite.
 
+> [!INFO]
+> Mit dem Parameter `login=event` am Iframe öffnet die Publikation keine Anmeldeseite, sondern meldet den Login nur an die einbettende Seite, etwa an eine App.
+> Beschrieben ist das unter [Anmeldung übernehmen](./setup#anmeldung-übernehmen).
+
 ### Format der Rückkehradresse
 
 Erwartet Ihre Anmeldeseite die Rückkehradresse in einer anderen Form, legen Sie unter *Rücksprungadresse* eine Vorlage fest. Zwei Platzhalter stehen zur Verfügung:
