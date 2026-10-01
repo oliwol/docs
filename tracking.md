@@ -237,6 +237,7 @@ Diese Events sind in allen Publikationen verfügbar:
 | `PageView` | Beim Aufruf der Publikation und bei jedem weiteren Seitenaufruf darin (virtuelle Page-Impression). | <pre lang="json">{&#10;  "from": "Object",&#10;  "to": "Object"&#10;}</pre> Details siehe [Virtuelle Seitenaufrufe](#virtuelle-seitenaufrufe). |
 | `Auth` | Sobald ein(e) Nutzer:in sich über die SSO erfolgreich authentifiziert. | – |
 | `PaywallTriggered` | Ein Inhalt hinter der Paywall wurde aufgerufen. Das Event wird bei allen [Paywall-Varianten](./paywall#paywall-erstellen) gesendet, auch wenn die Publikation die Paywall selbst anzeigt. | <pre lang="json">{&#10;  "state": "String",&#10;  "trigger": "String",&#10;  "path": "String",&#10;  ...&#10;}</pre> Details siehe [Paywall-Kontakte](#paywall-kontakte). |
+| `LoginTriggered` | Ein Login wurde angestoßen, etwa über das Login-Symbol oder den Aufruf einer Seite, die eine Anmeldung voraussetzt. Das Event wird bei jedem Login-Weg gesendet, auch wenn die Publikation die Anmeldung selbst öffnet. | <pre lang="json">{&#10;  "trigger": "String",&#10;  "path": "String"&#10;}</pre> Details siehe [Login-Kontakte](#login-kontakte). |
 | `ShareResult` | Spiel-Ergebnis wird über die Teilen-Funktion (z. B. WebShare-API) geteilt. | Rätselspezifischer Payload — siehe jeweilige Tabelle. |
 | `CopyResult` | Spiel-Ergebnis wird in die Zwischenablage kopiert. | – |
 | `ClickOtherGame` | Klick auf eine verlinkte andere Publikation (z. B. im Footer). | <pre lang="json">{&#10;  "game": "String"&#10;}</pre> Name der Publikation. |
@@ -514,3 +515,42 @@ window.addEventListener("PaywallTriggered", (event) => {
 ```
 
 Der Payload enthält keine Angaben zur Person: weder eine Kennung noch den Anmeldestatus oder die Mitgliedschaft.
+
+---
+
+## Login-Kontakte
+
+Wird ein Login angestoßen, sendet die Publikation das Custom-Event `LoginTriggered`.
+Das geschieht bei jedem Login-Weg, also auch dann, wenn die Publikation die Anmeldeseite selbst öffnet.
+Übernimmt die einbettende Seite die [Anmeldung](./setup#anmeldung-übernehmen), ist es zugleich das Signal, die eigene Anmeldung zu öffnen.
+
+Bereits angemeldete Nutzer:innen lösen das Event nicht aus.
+
+Der Payload enthält genau zwei Properties:
+
+| Property | Bedeutung |
+|---|---|
+| `trigger` | Die Art des Auslösers: `header`, `menu`, `page`, `content` oder `feature`. |
+| `path` | Der Pfad, auf den Nutzende nach der Anmeldung zurückkehren, etwa `/archiv`. |
+
+Die Auslöserarten im Einzelnen:
+
+| `trigger` | Situation |
+|---|---|
+| `header` | Das Login-Symbol im Kopf der Publikation wurde angeklickt. |
+| `menu` | Der Login-Eintrag im Menü wurde angeklickt. |
+| `page` | Eine Seite, die eine Anmeldung voraussetzt, oder die Anmeldeseite selbst wurde aufgerufen. |
+| `content` | Der Hinweis „Zum Login“ an einem Abschnitt, der eine Anmeldung voraussetzt, wurde angeklickt. |
+| `feature` | Der Hinweis „Zum Login“ nach einer Funktion, die eine Anmeldung voraussetzt, wurde angeklickt. |
+
+`page`, `content` und `feature` bedeuten dasselbe wie bei den [Paywall-Kontakten](#paywall-kontakte).
+
+```javascript
+window.addEventListener("LoginTriggered", (event) => {
+    const login = event.detail;
+
+    console.log(login.trigger, login.path);
+});
+```
+
+Der Payload enthält keine Angaben zur Person und auch nicht die Adresse der Anmeldeseite.
