@@ -50,10 +50,21 @@ Damit können Sie Texte mit **Formatierungen**, **Überschriften**, **Listen**, 
 
 Je nach Seitentyp hat der Inhalt eine unterschiedliche Bedeutung:
 
-- **Startseite** — beim ersten Besuch öffnet sich ein Layer, der dazu dient, das Spielprinzip zu erklären
+- **Startseite** — der Text erscheint in einem Layer, der das Spielprinzip erklärt (siehe [Layer der Startseite](#layer-der-startseite))
 - **Hilfe-Seite** — der Inhalt dient als Einleitung vor den [FAQs](#faqs)
 - **Login / Registrierung** — der Inhalt wird über dem jeweiligen Formular dargestellt
 - **Impressum / Datenschutz** — der Inhalt bildet die rechtlichen Texte
+
+### Layer der Startseite
+
+Der Text der Startseite heißt im Editor **Layer**. Er erscheint nicht auf der Seite selbst, sondern in einem Fenster über dem Rätsel:
+
+- **automatisch**, solange Nutzer:innen noch kein Rätsel gespielt haben und nicht angemeldet sind
+- **auf Wunsch** über das Hilfe-Symbol im Kopf der Publikation, sofern Sie keine [FAQs](#faqs) angelegt haben – mit FAQs führt das Symbol zur Hilfe-Seite
+
+Ist kein Text hinterlegt, öffnet sich kein Layer. Unter dem Text ergänzt die Publikation automatisch eine kurze Übersicht der Vorteile (etwa Archiv und Spielstand-Speicher) und den Button *Start*.
+
+Welche Seite die Startseite ist, hängt vom Rätsel ab. Bei **Sudoku** ist es die Schwierigkeitsstufe **Leicht**: Dort pflegen Sie den Layer.
 
 ### SEO
 
