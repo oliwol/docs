@@ -130,27 +130,11 @@ Umgekehrt meldet die Publikation ihren Modus an Ihre Seite, siehe [Nachrichten a
 
 ### Durchsichtigkeit in der Einbettung
 
-Eingebettet zeichnet die Publikation **keinen eigenen Hintergrund**. Sie liegt in beiden Modi durchsichtig auf Ihrer Seite und zeigt deren Hintergrund.
+Eingebettet ist die Publikation **durchsichtig**: Sie zeichnet keinen eigenen Hintergrund und zeigt den Ihrer Seite. Ist eine [dunkle Grundfarbe](#dunkle-grundfarbe) eingetragen, liegt im dunklen Layout diese Farbe darunter.
 
-Dafür muss der Iframe denselben Farbmodus tragen wie das eingebettete Rätsel. Andernfalls zeichnet der Browser hinter dem Rahmen eine deckende weiße Fläche.
-Der [Embed-Code](./setup#iframe-script) bringt das passende `color-scheme` am Iframe schon mit.
+Dafür muss `color-scheme` am Iframe zum Farbmodus des Rätsels passen, sonst legt der Browser eine deckende Fläche hinter den Rahmen. Der [Embed-Code](./setup#iframe-script) setzt `light dark` und passt damit zu einem Rätsel, das dem Gerät folgt. Legen Sie den Modus über den [Parameter](#parameter-in-der-adresse) oder die [Laufzeitnachricht](#laufzeitnachricht) fest, setzen Sie denselben Wert auch am Iframe, etwa `color-scheme: dark`.
 
-> [!WARNING]
-> Bauen Sie den Iframe selbst, gehört `color-scheme` an das Element:
->
-> ```html
-> <iframe src="https://sudoku.example.com" style="color-scheme: light dark; border: none;"></iframe>
-> ```
->
-> `light dark` gehört zu einem Rätsel, das dem Gerät folgt. Legen Sie den Modus über den Parameter fest, tragen Sie denselben Wert hier ein: `color-scheme: dark` zu `color-scheme=dark`.
->
-> Setzt Ihre Seite den Modus über die [Laufzeitnachricht](#laufzeitnachricht), zieht der Wert am Element mit jeder Nachricht nach:
->
-> ```javascript
-> frame.style.colorScheme = 'dark';
-> ```
-
-Einen eigenen Hintergrund setzen Sie über [Individuelles CSS](#individuelles-css). Es wird nach allem anderen geladen und überschreibt es.
+Einen eigenen Hintergrund setzen Sie über [Individuelles CSS](#individuelles-css).
 
 ---
 
