@@ -169,6 +169,10 @@ Ihre Seite kann so auf jede Interaktion im Rätsel reagieren, etwa Werbung nachl
 Das Attribut `referrerpolicy` im Embed-Code gibt der Publikation die **Adresse der Seite** weiter, in die sie eingebettet ist.
 Daraus entsteht die Adresse, zu der Nutzer:innen nach [Anmeldung](./sso#umfang-der-rückkehradresse) oder [Paywall](./paywall#interner-editor) zurückkehren.
 
+Das Attribut `allow="web-share; clipboard-write"` erlaubt der Publikation, ein Ergebnis über das **Teilen-Menü des Geräts** zu teilen und es **in die Zwischenablage zu kopieren**.
+Ohne diese Erlaubnis verweigert der Browser einem eingebetteten Rätsel das Teilen-Menü. Die Publikation kopiert das Ergebnis dann nur, und je nach Browser gelingt auch das nicht.
+Setzen Sie das Attribut deshalb auch an einem selbst geschriebenen Iframe.
+
 Ein Klick, der aus der Publikation herausführt, übernimmt das **gesamte Browserfenster**.
 Das gilt für die [Anmeldung](./sso), für den Handlungsaufruf einer [Paywall](./paywall) und für gewöhnliche Links wie Impressum oder Datenschutz.
 Die Anmeldung kann die einbettende Seite auch selbst übernehmen, beschrieben unter [Anmeldung übernehmen](#anmeldung-übernehmen).
@@ -201,6 +205,7 @@ const puzzle = (node) => {
     const iframe = document.createElement('iframe');
 
     iframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
+    iframe.setAttribute('allow', 'web-share; clipboard-write');
     iframe.setAttribute('width', '450');
     iframe.setAttribute('src', 'https://sudoku.example.com');
     iframe.setAttribute('title', 'Sudoku');
@@ -332,6 +337,7 @@ const puzzle = (node) => {
     }
 
     iframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
+    iframe.setAttribute('allow', 'web-share; clipboard-write');
     iframe.setAttribute('width', '450');
     iframe.setAttribute('src', src.href);
     iframe.setAttribute('title', 'Sudoku');
@@ -379,7 +385,7 @@ Beim **Iframe-Code** entfällt das `src` im Markup, und das Skript setzt die Adr
 Stünde die Startseite im Markup, würde sie bereits geladen, bevor das Skript die Adresse umstellt.
 
 ```html
-<iframe id="sudoku" width="100%" height="720" referrerpolicy="no-referrer-when-downgrade" title="Sudoku"></iframe>
+<iframe id="sudoku" width="100%" height="720" referrerpolicy="no-referrer-when-downgrade" allow="web-share; clipboard-write" title="Sudoku"></iframe>
 <script>
 (function () {
     const origin = 'https://sudoku.example.com';
@@ -438,7 +444,7 @@ Läuft die Publikation in einer App, etwa in einem WebView mit Iframe, soll die 
 Dafür trägt die Adresse des Iframes den Parameter `login=event`:
 
 ```html
-<iframe src="https://sudoku.example.com/?login=event" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<iframe src="https://sudoku.example.com/?login=event" referrerpolicy="no-referrer-when-downgrade" allow="web-share; clipboard-write"></iframe>
 ```
 
 Mit diesem Parameter öffnet die Publikation keine Anmeldung mehr. Sie sendet nur das Custom-Event [`LoginTriggered`](./tracking#login-kontakte) an die umgebende Seite, mit dem Auslöser in `trigger` und dem Pfad für die Rückkehr in `path`.
@@ -476,6 +482,7 @@ const src = new URL(origin);
 src.searchParams.set('login', 'event');
 
 iframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
+iframe.setAttribute('allow', 'web-share; clipboard-write');
 iframe.src = src.href;
 document.getElementById('sudoku-wrapper').after(iframe);
 ```
