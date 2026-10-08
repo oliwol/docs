@@ -103,6 +103,16 @@ Er enthält die Dateien der App sowie bereits geladene Seiten, Bilder und Antwor
 | `[product identifier]-pages` | Aufgerufene Seiten |
 | `[product identifier]-images` | Geladene Bilder |
 | `[product identifier]-api` | Antworten der Schnittstelle, darunter Rätseldaten |
+| `[product identifier]-mirror` | Kopie der notwendigen Einträge und der Präferenzen aus dem HTML Local Storage, nur bei eingebetteten Rätseln |
 
 Der Bestandteil `[revision]` wechselt mit jeder Version der App.
 Nicht mehr benötigte Zwischenspeicher werden beim Einspielen einer neuen Version automatisch entfernt.
+
+### Kopie des Local Storage
+
+Ist ein Rätsel in eine Seite einer anderen Domain eingebettet (z. B. `raetsel.zeitung.de` in `www.zeitung.de`), hält Safari den HTML Local Storage nur bis zum Beenden des Browsers, solange „Cross-Site-Tracking verhindern“ aktiv ist. Das ist die Voreinstellung in Safari unter macOS und in allen Browsern unter iOS.
+Damit Spielstände, Statistiken und Einstellungen trotzdem erhalten bleiben, legen eingebettete Rätsel alle Einträge mit dem Präfix `[product identifier]-` zusätzlich im Zwischenspeicher `[product identifier]-mirror` ab.
+Ist der HTML Local Storage beim nächsten Aufruf leer, wird er daraus wiederhergestellt.
+
+Die Kopie enthält dieselben Daten wie die notwendigen Einträge und die Präferenzen oben, sie wird nicht an einen Server übertragen.
+Außerhalb eines Iframes entsteht sie nicht. Wird sie gelöscht, gehen die Daten nur dann verloren, wenn auch der HTML Local Storage bereits leer ist.
