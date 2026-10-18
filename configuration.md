@@ -13,10 +13,6 @@ Bei Anbindung an eine [SSO](./sso) kann der [Zugriff eingeschränkt](#zugangsbes
 > [!INFO]
 > Einige Funktionen sind nur in **höheren Paketen** verfügbar. Ist eine Funktion für Ihr Paket nicht freigeschaltet, wird sie in der Konfiguration nicht angezeigt.
 
-### Community Stats
-
-Für *Worteck* können **Community Stats** aktiviert werden. Diese zeigen Nutzer:innen aggregierte Statistiken der Spielergemeinschaft an. Community Stats sind ab dem Paket **Publisher** verfügbar.
-
 ### Dunkles Layout
 
 Die Einstellung **Dunkles Layout** erlaubt das dunkle Erscheinungsbild und ist in der Standardkonfiguration aktiviert. Ist sie aus, erscheint die Publikation immer hell.

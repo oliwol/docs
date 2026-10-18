@@ -118,7 +118,7 @@ Nach der Meldung wechselt die Publikation auf die erste der folgenden Seiten, di
 3. die Startseite.
 
 Steht jede dieser Seiten hinter einer Paywall, bleibt die aktuelle Seite stehen.
-Abschnitte innerhalb einer sonst sichtbaren Seite, etwa die Community-Statistik, sowie Funktionen wie das Ausdrucken ändern sich durch `PaywallClosed` nicht.
+Funktionen innerhalb einer sonst sichtbaren Seite, etwa das Ausdrucken, ändern sich durch `PaywallClosed` nicht.
 
 > [!WARNING]
 > Ein Aufruf von `history.back()` auf der umgebenden Seite führt nicht verlässlich zurück.
@@ -149,7 +149,7 @@ Nachdem Sie Zustände und Paywalls eingerichtet haben, können Sie den **Zugriff
 
 ### Funktionen
 
-In der Konfiguration Ihrer Publikation lässt sich für jede Funktion (z. B. Archiv, Community Stats, Drucken) eine **Zugangsstufe** festlegen:
+In der Konfiguration Ihrer Publikation lässt sich für jede Funktion (z. B. Archiv, Drucken) eine **Zugangsstufe** festlegen:
 
 | Zugangsstufe | Beschreibung |
 |---|---|
