@@ -493,6 +493,42 @@ document.getElementById('sudoku-wrapper').after(iframe);
 > Ruft der Iframe direkt eine Seite auf, die eine Anmeldung voraussetzt, sendet die Publikation `LoginTriggered` gleich beim Laden.
 > Ein Listener, der erst danach registriert wird, erhält dieses Event nicht. Im Beispiel steht er deshalb vor dem Einfügen des Iframes.
 
+#### Teilen übernehmen
+
+In einer App erreicht ein Iframe das Teilen-Menü des Geräts oft nicht. Die Publikation kopiert ihr Ergebnis dann in die Zwischenablage.
+Soll stattdessen das Teilen-Menü der App aufgehen, trägt die Adresse des Iframes den Parameter `share=event`. Er lässt sich mit `login=event` kombinieren:
+
+```html
+<iframe src="https://sudoku.example.com/?login=event&share=event" referrerpolicy="no-referrer-when-downgrade" allow="web-share; clipboard-write"></iframe>
+```
+
+Mit diesem Parameter teilt die Publikation nicht mehr selbst. Ein Klick auf „Teilen“ sendet das Custom-Event [`ShareTriggered`](./tracking#allgemeine-events) an die umgebende Seite, mit Titel, Text und Adresse der Publikation:
+
+```json
+{ "source": "oliwol", "event": "ShareTriggered", "detail": { "title": "Sudoku", "text": "Sudoku #1 gelöst …", "url": "https://sudoku.example.com" } }
+```
+
+- Wie `login=event` gilt der Parameter für die **gesamte Sitzung** und wirkt **nur in einer Einbettung**.
+- Kann die umgebende Seite nicht teilen, antwortet sie mit `{ source: "oliwol", event: "ShareFailed" }`. Die Publikation kopiert das Ergebnis dann in die Zwischenablage und zeigt den Hinweis „Ergebnis kopiert!“.
+
+```javascript
+window.addEventListener('message', (event) => {
+    if (event.origin !== origin || event.data?.source !== 'oliwol') {
+        return;
+    }
+
+    if (event.data.event === 'ShareTriggered') {
+        const { title, text, url } = event.data.detail;
+
+        openAppShare({ title, text, url }).catch(() => {
+            iframe.contentWindow.postMessage({ source: 'oliwol', event: 'ShareFailed' }, origin);
+        });
+    }
+}, false);
+```
+
+`openAppShare` steht hier für das Teilen-Menü der App, das scheitert, wenn die App das Teilen nicht unterstützt.
+
 ---
 
 ## Domains

@@ -28,7 +28,7 @@ Die Product Identifier lauten wie folgt:
 | Kinonym | `knnym` |
 
 Als Bereich kommen `user`, `pref` und `storage` vor.
-Einige Einträge weichen vom Muster ab: `[product identifier]-token`, `[product identifier]-rank-shown`, `[product identifier]-record-shown` und `[product identifier]-streak-shown` tragen keinen Bereich.
+Einige Einträge weichen vom Muster ab: `[product identifier]-token`, `[product identifier]-rank-shown`, `[product identifier]-record-shown` und `[product identifier]-streak-shown` tragen keinen Bereich, `login-handover` und `share-handover` auch keinen Product Identifier.
 
 ---
 
@@ -50,6 +50,8 @@ Die Spalte *Gilt für* nennt die Rätsel, in denen ein Eintrag vorkommt, und die
 | `[product identifier]-token` | Speichert die Anmeldung beim integrierten Anmelde-Interface | HTTP Cookie | Alle, mit Anmeldung | 7 Tage, wird beim Abmelden entfernt | Nutzer:innen werden abgemeldet |
 | Name aus der SSO-Konfiguration | Speichert das Token einer externen Anmeldung. Der Eintrag wird gelesen und beim Abmelden entfernt, jedoch nicht von den Rätseln gesetzt | HTTP Cookie | Alle, mit externer Anmeldung | Wird extern bestimmt | Nutzer:innen werden abgemeldet |
 | `[product identifier]-token` | Sichert den Rahmen der externen Anmeldung ab. Der Eintrag trägt denselben Namen wie das Cookie, erfüllt aber eine andere Aufgabe | HTML Session Storage | Alle, mit externer Anmeldung | Bis zum Schließen des Tabs | Die Anmeldung beginnt von vorn |
+| `login-handover` | Vermerkt die Adresse der einbettenden Seite, die mit `login=event` die Anmeldung übernimmt, damit das auch nach einem Seitenwechsel gilt | HTML Session Storage | Alle, eingebettet mit `login=event` | Bis zum Schließen des Tabs | Nach einem Seitenwechsel öffnet die Publikation wieder ihre eigene Anmeldung |
+| `share-handover` | Vermerkt die Adresse der einbettenden Seite, die mit `share=event` das Teilen übernimmt, damit das auch nach einem Seitenwechsel gilt | HTML Session Storage | Alle, eingebettet mit `share=event` | Bis zum Schließen des Tabs | Nach einem Seitenwechsel teilt oder kopiert die Publikation wieder selbst |
 
 ---
 
