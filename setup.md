@@ -509,6 +509,7 @@ Mit diesem Parameter teilt die Publikation nicht mehr selbst. Ein Klick auf „T
 ```
 
 - Wie `login=event` gilt der Parameter für die **gesamte Sitzung** und wirkt **nur in einer Einbettung**.
+- `text` ist die vollständige Nachricht, mit dem Namen der Publikation am Anfang und ihrer Adresse am Ende. `title` und `url` sind Zusatzangaben, etwa für einen Betreff oder eine Vorschau. Werden sie dem Text vorangestellt oder angehängt, stehen Name und Adresse doppelt da.
 - Kann die umgebende Seite nicht teilen, antwortet sie mit `{ source: "oliwol", event: "ShareFailed" }`. Die Publikation kopiert das Ergebnis dann in die Zwischenablage und zeigt den Hinweis „Ergebnis kopiert!“.
 
 ```javascript
