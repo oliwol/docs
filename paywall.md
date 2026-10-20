@@ -44,6 +44,8 @@ Folgende Felder stehen Ihnen zur Verfügung:
 
 ![Interner Paywall-Editor mit Feldern für Überschrift, Text, CTA-Button und Icon](/images/paywall-internal-editor-light.png "dark:/images/paywall-internal-editor-dark.png")
 
+Teilen sich mehrere Publikationen eine Paywall, setzen Sie mit dem Platzhalter `{spiel}` den Namen der Publikation ein, in der die Paywall gerade erscheint. Er gilt in Überschrift, Unterüberschrift, Text, Button und dem Text unter dem Button. Aus „Mach {spiel} möglich“ wird so in jeder Publikation die passende Überschrift.
+
 Unterhalb des Editors hinterlegen Sie die **Landingpage-URL**, auf die der CTA-Button verweist, etwa ein Abo-Angebot oder eine Registrierungsseite.
 Zusätzlich definieren Sie einen **Weiterleitungs-Parameter**, über den Sie Nutzer:innen nach Abschluss **zurück zur Publikation** leiten können.
 
