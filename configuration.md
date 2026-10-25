@@ -15,7 +15,7 @@ Bei Anbindung an eine [SSO](./sso) kann der [Zugriff eingeschränkt](#zugangsbes
 
 ### Community Stats
 
-Für *Worteck* können **Community Stats** aktiviert werden. Diese zeigen Nutzer:innen aggregierte Statistiken der Spielergemeinschaft an. Community Stats sind ab dem Paket **Publisher** verfügbar.
+Für *Worteck* und *Wortwabe* können **Community Stats** aktiviert werden. Diese zeigen Nutzer:innen aggregierte Statistiken der Spielergemeinschaft an. Community Stats sind ab dem Paket **Publisher** verfügbar.
 
 ### Dunkles Layout
 
