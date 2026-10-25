@@ -17,7 +17,7 @@ Bei Anbindung an eine [SSO](./sso) kann der [Zugriff eingeschränkt](#zugangsbes
 
 Für *Worteck* und *Wortwabe* können **Community Stats** aktiviert werden. Diese zeigen Nutzer:innen aggregierte Statistiken der Spielergemeinschaft an. Community Stats sind ab dem Paket **Publisher** verfügbar.
 
-Bei *Wortwabe* zählt nur das Rätsel des Tages, und nur, wenn das Tagesziel erreicht wurde. Übermittelt werden dann ohne Kennung die gefundenen Wörter; Archiv-Spiele fließen nicht ein. Daraus entstehen die Isogramm-Quote, die Verteilung über dem Top-Score, die am seltensten gefundenen Wörter und die Hall of Fame. Prozentangaben erscheinen erst ab 20 Spielenden, die das Ziel erreicht haben. Die einzelnen Spielergebnisse werden spätestens nach zwei Tagen gelöscht, es bleibt nur die Zusammenfassung.
+Bei *Wortwabe* zählt nur das Rätsel des Tages, und nur, wenn das Tagesziel erreicht wurde. Übermittelt werden dann ohne Kennung die gefundenen Wörter; Archiv-Spiele fließen nicht ein, zeigen nach dem Ende aber die Statistik ihres Tages. Daraus entstehen die Isogramm-Quote, die Verteilung über dem Top-Score, die am seltensten gefundenen Wörter und die Hall of Fame. Prozentangaben erscheinen erst ab 20 Spielenden, die das Ziel erreicht haben. Die einzelnen Spielergebnisse werden spätestens nach zwei Tagen gelöscht, es bleibt nur die Zusammenfassung.
 
 ### Dunkles Layout
 
