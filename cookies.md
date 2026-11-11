@@ -28,7 +28,7 @@ Die Product Identifier lauten wie folgt:
 | Kinonym | `knnym` |
 
 Als Bereich kommen `user`, `pref` und `storage` vor.
-Einige Einträge weichen vom Muster ab: `[product identifier]-token`, `[product identifier]-rank-shown`, `[product identifier]-record-shown` und `[product identifier]-streak-shown` tragen keinen Bereich, `login-handover` und `share-handover` auch keinen Product Identifier.
+Einige Einträge weichen vom Muster ab: `[product identifier]-token`, `[product identifier]-rank-shown`, `[product identifier]-record-shown` und `[product identifier]-visits-shown` tragen keinen Bereich, `login-handover` und `share-handover` auch keinen Product Identifier.
 
 ---
 
@@ -72,8 +72,8 @@ Ebenfalls unter Präferenzen fallen Einträge, die den zuletzt angezeigten Stand
 | `[product identifier]-pref-streak-decay-info` | Vermerkt, dass der Hinweis zum Verfall der Serie gesehen wurde | HTML Local Storage | Worteck, mit Verfall der Serie | Persistent | Der Hinweis erscheint erneut |
 | `[product identifier]-rank-shown` | Speichert den zuletzt angezeigten Stand der Serie | HTML Local Storage | Worteck | Persistent | Die Animation läuft einmalig falsch |
 | `[product identifier]-record-shown` | Speichert die zuletzt angezeigte längste Serie, um einen neuen Rekord zu erkennen | HTML Local Storage | Worteck | Persistent | Ein neuer Rekord wird einmalig nicht hervorgehoben |
-| `[product identifier]-streak-shown` | Speichert den zuletzt angezeigten Stand der Serie | HTML Local Storage | Kinonym | Persistent | Die Animation läuft einmalig falsch |
 | `[product identifier]-stats-shown-local`, `[product identifier]-stats-shown-cloud` | Speichert die zuletzt angezeigten Werte der Statistik, getrennt nach lokalem Spielstand und Spielstand im Konto | HTML Local Storage | Alle | Persistent | Die Animation läuft einmalig falsch |
+| `[product identifier]-visits-shown` | Speichert die zuletzt angezeigte Zahl der Kinobesuche | HTML Local Storage | Kinonym | Persistent | Die Animation läuft einmalig falsch |
 
 ---
 
