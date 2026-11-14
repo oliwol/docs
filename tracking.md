@@ -278,7 +278,7 @@ Zusätzlich zu den [Allgemeinen Events](#allgemeine-events):
 | `GameResumed` | Ein pausiertes Sudoku läuft weiter. | <pre lang="json">{&#10;  "game_nr": "Integer",&#10;  "timer": "Integer"&#10;}</pre> `timer` = Zeitpunkt der Fortsetzung in Sekunden. |
 | `RestartGame` | Ein Sudoku wurde zurückgesetzt und erneut begonnen. | <pre lang="json">{&#10;  "game_nr": "Integer",&#10;  "timer": "Integer"&#10;}</pre> `timer` = Zeitpunkt der Zurücksetzung in Sekunden. |
 | `PrintGame` | Ein Sudoku wurde gedruckt. | <pre lang="json">{&#10;  "game_nr": "Integer"&#10;}</pre> |
-| `ShareResult` | Payload für das [Allgemeine Event](#allgemeine-events). | <pre lang="json">{&#10;  "game_nr": "Integer",&#10;  "timer": "Integer"&#10;}</pre> |
+| `ShareResult` | Payload für das [Allgemeine Event](#allgemeine-events). | <pre lang="json">{&#10;  "game_nr": "Integer",&#10;  "errors": "Integer",&#10;  "timer": "Integer"&#10;}</pre> `errors` = Anzahl der Fehler, `timer` in Sekunden. |
 
 ### Wortwabe
 
