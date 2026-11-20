@@ -185,6 +185,28 @@ Der extrahierte Wert wird verwendet, um Nutzer:innen einem unter *Authentifizier
 
 Weitere Informationen finden Sie unter [Paywall](./paywall#zustände).
 
+#### Benutzername
+
+Optional können Sie einen **Key für den Benutzernamen** angeben. Er erscheint im **Profil** der Spieler:innen.
+Der Wert muss als **String** übergeben werden und wird **bei jeder Anmeldung übernommen**: Ändern Nutzer:innen ihren Namen in Ihrem System, ändert er sich auch im Spiel.
+
+```json
+// JWT Payload
+{
+  "sub": "1234567890",
+  "username": "Muster_77",
+  "iat": 1516239022
+}
+```
+
+Geben Sie **keinen Key** an, legen Nutzer:innen ihren Benutzernamen **selbst im Profil** des Spiels fest – bei allen Methoden, auch bei JWT. Dabei gelten die Regeln der Plattform:
+
+- 3 bis 20 Zeichen: Buchstaben, Ziffern und Unterstrich
+- eindeutig innerhalb Ihrer Organisation, unabhängig von Groß- und Kleinschreibung
+- änderbar alle 30 Tage
+
+Mit Key ist der Name im Profil nicht änderbar, denn er gehört Ihrem System.
+
 ---
 
 ## Login
