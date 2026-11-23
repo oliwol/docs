@@ -87,15 +87,51 @@ FAQs werden auf der **Hilfe-Seite** Ihrer Publikation angezeigt. Sie können bel
 
 Jede FAQ besteht aus einer **Frage** und einer **Antwort**. Die Antwort wird über einen **Rich-Text-Editor** verfasst und kann Formatierungen, Links und Bilder enthalten.
 
+### Entwurf und Veröffentlichen
+
+Eine neue FAQ ist zunächst ein **Entwurf**. Entwürfe erscheinen nicht in Ihrer Publikation, Sie können sie in Ruhe ausarbeiten. Erst wenn Sie eine FAQ **veröffentlichen**, steht sie auf der Hilfe-Seite. Sie können eine veröffentlichte FAQ jederzeit wieder zum Entwurf machen, dann verschwindet sie aus der Publikation.
+
+> [!NOTE]
+> Wie jede Änderung erscheint eine veröffentlichte FAQ zuerst mit der nächsten Version im [Testmodus](./setup#test). Ist Ihre Publikation live, gelangt sie mit der nächsten [Synchronisation](./setup#nicht-synchronisiert) dorthin.
+
+### Kategorien
+
+Mit **Kategorien** gliedern Sie die Hilfe-Seite in Abschnitte, etwa „Spielregeln“ oder „Konto“. Die Kategorien legen Sie für jede Publikation selbst an und bringen sie in die gewünschte Reihenfolge.
+
+Auf der Hilfe-Seite erscheint jede Kategorie als **Zwischenüberschrift** mit ihren FAQs darunter. FAQs ohne Kategorie stehen ganz oben, ohne eigene Überschrift. Solange Sie keine Kategorien verwenden, bleibt die Hilfe-Seite eine einfache Liste.
+
+Eine Kategorie lässt sich direkt verlinken: `/hilfe#konto` führt zur Kategorie „Konto“. Wird eine Kategorie gelöscht, bleiben ihre FAQs erhalten und stehen danach ohne Kategorie oben.
+
+### Adresse einer FAQ
+
+Jede FAQ hat einen **Slug**, der aus der Frage entsteht und den Sie anpassen können. Über ihn ist die FAQ direkt erreichbar:
+
+- `/hilfe#q-{slug}` öffnet die Hilfe-Seite und klappt die Frage auf, zum Beispiel `/hilfe#q-abo-kuendigen`
+- `/hilfe/{slug}` führt zur eigenen Seite der FAQ, wenn sie [als eigene Seite](#faq-als-eigene-seite) veröffentlicht ist
+
+Ältere Links mit einer Nummer, etwa `/hilfe#q-3`, öffnen weiterhin die FAQ an dieser Position.
+
+> [!WARNING]
+> Ändern Sie den Slug einer FAQ, funktionieren Links **von außen** auf die bisherige Adresse nicht mehr, etwa aus einem Newsletter oder von Ihrer Website. Interne Links innerhalb Ihrer Publikation passen sich dagegen von selbst an.
+
+### Interne Links
+
+In der Antwort einer FAQ und im Inhalt Ihrer [Seiten](#seiten) können Sie auf **andere FAQs und Seiten Ihrer Publikation** verlinken, ohne deren Adresse zu kennen. Sie wählen das Ziel einfach aus einer Liste aus.
+
+- Zur Auswahl stehen veröffentlichte FAQs und aktive Seiten. Bei Seiten, die nur Angemeldete oder bestimmte Nutzer:innen sehen, ist das in der Auswahl vermerkt.
+- Ein Link auf eine FAQ führt zu ihrer eigenen Seite oder, ohne eigene Seite, zur Hilfe-Seite mit aufgeklappter Frage.
+- Interne Links öffnen sich ohne Neuladen innerhalb der Publikation, auch wenn sie [eingebettet](./setup#iframe-script) ist.
+- Ändert sich die Adresse des Ziels, stimmt der Link automatisch wieder.
+- Wird das Ziel gelöscht, deaktiviert oder wieder zum Entwurf, bleibt an der Stelle der Text stehen, ohne Link.
+
 ### FAQ als eigene Seite
 
-Eine FAQ kann optional als **eigene Seite** veröffentlicht werden. Aktivieren Sie dazu die Option _Als Seite anzeigen_.
+Eine FAQ kann optional als **eigene Seite** veröffentlicht werden. In der Hilfe-Seite erscheint dann nur der Anfang der Antwort mit einem Link auf die vollständige Seite.
 
 Dabei werden folgende Felder verfügbar:
 
-- **Slug** — die URL, unter der die FAQ-Seite erreichbar ist (wird automatisch aus der Frage generiert)
-- **Button-Label** — der Text des Links, über den Nutzer:innen von der Hilfe-Seite zur FAQ-Seite gelangen
-- **SEO-Einstellungen** — Titel und Beschreibung für Suchmaschinen
+- **Button-Label**: der Text des Links, über den Nutzer:innen von der Hilfe-Seite zur FAQ-Seite gelangen
+- **SEO-Einstellungen**: Titel und Beschreibung für Suchmaschinen
 
 > [!INFO]
 > FAQ-Seiten eignen sich besonders für ausführliche Antworten, die den Rahmen der Hilfe-Seite sprengen würden, und können gezielt für Suchmaschinen optimiert werden.
