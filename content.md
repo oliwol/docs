@@ -87,6 +87,32 @@ FAQs werden auf der **Hilfe-Seite** Ihrer Publikation angezeigt. Sie können bel
 
 Jede FAQ besteht aus einer **Frage** und einer **Antwort**. Die Antwort wird über einen **Rich-Text-Editor** verfasst und kann Formatierungen, Links und Bilder enthalten.
 
+### Gestaltung der Antwort
+
+Neben Überschriften, Listen und Links bietet der Editor einige Mittel, die eine längere Antwort gliedern:
+
+- **Hervorheben** tönt einen Satz in der Farbe Ihrer Publikation, etwa den Kernsatz eines Beispiels.
+- **Zitat** erscheint als getönter Hinweiskasten. Beginnt er fett, etwa mit „Kurz gesagt“, steht dieser Anfang auf einer eigenen Zeile.
+- **Aufklapper** verbergen eine Vertiefung hinter einer Frage, die Nutzer:innen bei Bedarf aufklappen, etwa „Warum ist das sicher?“.
+- **Raster** stellt Inhalte nebeneinander, zum Beispiel zwei Varianten zum Vergleich. Auf dem Handy stehen die Spalten untereinander.
+- **Nummerierte Listen** erscheinen als Schritte mit Ziffern in Kreisen und eignen sich für Anleitungen.
+
+### Abbildung mit Legende
+
+Für Diagramme gibt es unter den Blöcken die **Abbildung mit Legende**. Sie besteht aus:
+
+- dem **Bild**, im Format WebP, PNG oder JPEG
+- einem **Alternativtext**, der beschreibt, was das Bild zeigt
+- einer **Legende** mit bis zu sechs Einträgen
+- einer **Bildunterschrift**
+
+Jeder Eintrag der Legende hat ein **Symbol**, eine **Farbe** und einen Text. Zur Wahl stehen Rahmen (gestrichelt oder durchgezogen), Kreis, Streichung, Balken, Linie (durchgezogen oder gestrichelt) und Fläche. Kreis und Streichung zeigen zusätzlich ein Zeichen, etwa eine Ziffer. Als Farbe wählen Sie **Akzent**, die Farbe Ihrer Publikation, oder **Signal** (Rot), etwa für Gestrichenes.
+
+In der Publikation steht die Legende neben dem Bild, wenn genug Platz ist, auf dem Handy darunter. Die Bildunterschrift folgt darunter.
+
+> [!INFO]
+> Legende und Bildunterschrift gehören nicht ins Bild, sondern in die Abbildung. Als Text bleiben sie in jeder Größe lesbar, auch im Dunkelmodus, für Screenreader und für Suchmaschinen. Verwenden Sie im Bild dieselbe Akzentfarbe wie in Ihrer Publikation, damit Bild und Legende zusammenpassen.
+
 ### Entwurf und Veröffentlichen
 
 Eine neue FAQ ist zunächst ein **Entwurf**. Entwürfe erscheinen nicht in Ihrer Publikation, Sie können sie in Ruhe ausarbeiten. Erst wenn Sie eine FAQ **veröffentlichen**, steht sie auf der Hilfe-Seite. Sie können eine veröffentlichte FAQ jederzeit wieder zum Entwurf machen, dann verschwindet sie aus der Publikation.
@@ -135,3 +161,10 @@ Dabei werden folgende Felder verfügbar:
 
 > [!INFO]
 > FAQ-Seiten eignen sich besonders für ausführliche Antworten, die den Rahmen der Hilfe-Seite sprengen würden, und können gezielt für Suchmaschinen optimiert werden.
+
+Eine FAQ-Seite ist auf ruhiges Lesen ausgelegt: linksbündiger Text in einer gut lesbaren Zeilenlänge. Einiges ergänzt die Publikation dabei von selbst:
+
+- **Kategorie und Lesezeit** stehen unter der Frage. Die Kategorie führt zu ihrem Abschnitt auf der Hilfe-Seite.
+- **Vorspann:** Der erste Absatz der Antwort erscheint größer, wenn danach noch ein Absatz folgt. Es ist derselbe Text, der auf der Hilfe-Seite vor dem Link zur FAQ-Seite steht.
+- **Inhaltsverzeichnis:** Ab drei Zwischenüberschriften erscheint ein Verzeichnis „Auf dieser Seite“. Auf breiten Bildschirmen steht es neben dem Text und zeigt, welcher Abschnitt gerade gelesen wird, sonst lässt es sich unter dem Vorspann aufklappen. Jede Zwischenüberschrift ist direkt verlinkbar, zum Beispiel `/hilfe/{slug}#beispiel`.
+- **Mehr zu {Kategorie}:** Am Ende stehen bis zu drei weitere FAQs derselben Kategorie und ein Link zu allen Fragen.
