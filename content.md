@@ -106,7 +106,7 @@ Für Diagramme gibt es unter den Blöcken die **Abbildung mit Legende**. Sie bes
 - einer **Legende** mit bis zu sechs Einträgen
 - einer **Bildunterschrift**
 
-Jeder Eintrag der Legende hat ein **Symbol**, eine **Farbe** und einen Text. Zur Wahl stehen Rahmen (gestrichelt oder durchgezogen), Kreis, Streichung, Balken, Linie (durchgezogen oder gestrichelt) und Fläche. Kreis und Streichung zeigen zusätzlich ein Zeichen, etwa eine Ziffer. Als Farbe wählen Sie **Akzent**, die Farbe Ihrer Publikation, oder **Signal** (Rot), etwa für Gestrichenes.
+Jeder Eintrag der Legende hat ein **Symbol**, eine **Farbe** und einen Text. Zur Wahl stehen Rahmen (gestrichelt oder durchgezogen), Kreis, Streichung, Balken, Linie (durchgezogen oder gestrichelt) und Fläche. Kreis und Streichung zeigen zusätzlich ein Zeichen, etwa eine Ziffer. Als Farbe wählen Sie die **Akzentfarbe** Ihrer Publikation, die rote **Signalfarbe**, etwa für Gestrichenes, oder eine **eigene Farbe**, wenn das Bild eine weitere Farbe verwendet. Ein Quadrat neben jeder Farbe zeigt, wie sie im Spiel erscheint. Eine eigene Farbe bleibt auch im Dunkelmodus dieselbe; wählen Sie eine, die auf hellem und dunklem Grund gut zu sehen ist.
 
 In der Publikation steht die Legende neben dem Bild, wenn genug Platz ist, auf dem Handy darunter. Die Bildunterschrift folgt darunter.
 
